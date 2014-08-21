@@ -25,10 +25,8 @@ RSYNC_INCLUDES_GENERIC="
 source $WORKDIR/scripts/archlinux-rsync.pkg
 
 RSYNC_INCLUDES_ISO="
---include=archlinux-2014.06.01-dual.iso \
---include=archlinux-2014.06.01-dual.iso.sig \
---include=archlinux-bootstrap-2014.07.03-x86_64.tar.gz \
---include=archlinux-bootstrap-2014.07.03-x86_64.tar.gz.sig \
+--include=archlinux-2014.08.01-dual.iso \
+--include=archlinux-2014.08.01-dual.iso.sig \
 "
 
 RSYNC_EXCLUDES="
@@ -37,7 +35,7 @@ RSYNC_EXCLUDES="
 --exclude=**testing** \
 --exclude=**unstable** \
 --exclude=iso/ \
---exclude=~tmp~ \
+--exclude=.~tmp~ \
 --exclude=.* \
 --exclude=kactivities-*.[8-9][0-9]-** \
 --exclude=kactivities-*.[8-9][0-9]-** \
