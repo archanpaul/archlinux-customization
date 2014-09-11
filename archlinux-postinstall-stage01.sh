@@ -16,14 +16,15 @@ awk '{gsub(/#en_US ISO-8859-1/, "en_US ISO-8859-1"); gsub(/#en_US.UTF-8 UTF-8/, 
 locale-gen 
 
 cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt filesystems keyboard fsck\""); print}' mkinitcpio.conf.orig > mkinitcpio.conf
+awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\""); print}' mkinitcpio.conf.orig > mkinitcpio.conf
 mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
 vim /etc/hostname
 vim /etc/hosts 
 
-grub-mkconfig > /boot/grub/grub.cfg
+echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg
+grub-mkconfig >> /boot/grub/grub.cfg
 vim /boot/grub/grub.cfg
 grub-install $INSTALL_TARGET_DISK
 
