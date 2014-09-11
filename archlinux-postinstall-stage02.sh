@@ -83,9 +83,9 @@ function dart_dev_tools() {
 
 ## Java dev-tools
 function java_dev_tools() {
-	pacman -S --noconfirm jre7-openjdk icedtea-web-java7
-	pacman -S --noconfirm jdk7-openjdk 
-	#pacman -S --noconfirm openjdk7-doc
+	pacman -S --noconfirm jre8-openjdk
+	pacman -S --noconfirm jdk8-openjdk
+	pacman -S --noconfirm icedtea-web
 }
 
 ## Python dev-tools
@@ -128,7 +128,8 @@ function ebook_tools() {
 
 ## Office suite
 function office_suite() {
-	pacman -S --noconfirm libreoffice-en-US libreoffice-writer libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-math libreoffice-base
+	pacman -S --noconfirm libreoffice-fresh
+	#pacman -S --noconfirm libreoffice-en-US libreoffice-writer libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-math libreoffice-base
 	pacman -S --noconfirm hunspell hunspell-en 
 	pacman -S --noconfirm simple-scan
 }
