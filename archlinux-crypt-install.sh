@@ -10,8 +10,8 @@ TIMEZONE="/usr/share/zoneinfo/Asia/Kolkata"
 
 # HDD configuration
 HDD="/dev/sda"
-BOOT_PART=$HDD"1"
-CRYPT_PART=$HDD"2"
+BOOT_PART=$HDD"2"
+CRYPT_PART=$HDD"3"
 LVM_VG="vg"
 LVM_SWAP="swap"
 LVM_SWAP_SIZE="2G"
@@ -40,7 +40,7 @@ hwclock --adjust
 echo "Server=file://$INSTALL_SRC/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 cat > /etc/pacman.conf << "EOF"
 [options]
-Architecture = $TARGET_ARCH
+Architecture = x86_64
 CheckSpace
 SigLevel    = Required DatabaseOptional
 [core]
