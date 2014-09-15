@@ -55,6 +55,8 @@ EOF
 pacman -Sy
 
 ## disk partitioning, formatting, mounting
+
+# derived veriables
 SWAP_PART=/dev/mapper/$LVM_VG-$LVM_SWAP
 ROOT_PART=/dev/mapper/$LVM_VG-$LVM_ROOT
 HOME_PART=/dev/mapper/$LVM_VG-$LVM_HOME
@@ -74,7 +76,7 @@ pvcreate /dev/mapper/lvm
 vgcreate $LVM_VG /dev/mapper/lvm
 lvcreate -L $LVM_SWAP_SIZE $LVM_VG -n $LVM_SWAP
 lvcreate -L $LVM_ROOT_SIZE $LVM_VG -n $LVM_ROOT
-lvcreate -l $LVM_HOME_SIZE $LVM_VG -n LVM_HOME
+lvcreate -l $LVM_HOME_SIZE $LVM_VG -n $LVM_HOME
 
 # preparing boot partition
 mkfs.ext4 -m 1 -L root $BOOT_PART
@@ -100,13 +102,19 @@ fsck.ext4 -a $HOME_PART
 mount $HOME_PART $INSTALL_TARGET/home/
 
 # install base
-pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux-lts cryptsetup lvm2
+pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools cryptsetup lvm2
 
-genfstab -p -U $INSTALL_TARGET >> /mnt/etc/fstab 
+# fstab is hard-coded
+#genfstab -p -U $INSTALL_TARGET >> /mnt/etc/fstab 
 cat >> /etc/fstab << "EOF"
-/dev/mapper/tmp         /tmp    tmpfs           defaults        0       0
+/dev/sda1		/boot	ext4	defaults	0	2
+/dev/mapper/root	/	ext4	defaults	0	1
+/dev/mapper/home	/	ext4	defaults	0	2
+/dev/mapper/swap	none	swap	sw		0	0
+/dev/mapper/tmp		/tmp	tmpfs	defaults	0	0
 EOF
 
+# crypttab is hard-coded
 cat > /etc/crypttab << "EOF"
 swap	/dev/lvm/swap	/dev/urandom	swap,cipher=aes-xts-plain64,size=256
 tmp	/dev/lvm/tmp	/dev/urandom	tmp,cipher=aes-xts-plain64,size=256
