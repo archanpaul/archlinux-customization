@@ -27,8 +27,10 @@ function archlinux_aur_install() {
 	pacman -S --noconfirm libpng12
 	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot google-talkplugin
 
-	## Android
-	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-sdk android-sdk-platform-tools android-ndk repo
+        ## Android
+        aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot repo
+        aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-sdk
+        aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-ndk64
 
 	## Printing
 	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot hplip-plugin
