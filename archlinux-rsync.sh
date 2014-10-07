@@ -24,10 +24,8 @@ RSYNC_INCLUDES_GENERIC="
 source $WORKDIR/scripts/archlinux-rsync.pkg
 
 RSYNC_INCLUDES_ISO="
---include=archlinux-bootstrap-2014.09.03-x86_64.tar.gz \
---include=archlinux-bootstrap-2014.09.03-x86_64.tar.gz.sig \
---include=archlinux-2014.09.03-dual.iso \
---include=archlinux-2014.09.03-dual.iso.sig \
+--include=archlinux-2014.10.01-dual.iso \
+--include=archlinux-2014.10.01-dual.iso.sig \
 "
 
 RSYNC_EXCLUDES="
