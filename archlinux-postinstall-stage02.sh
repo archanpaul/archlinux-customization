@@ -5,8 +5,8 @@ function base() {
 	pacman -S --noconfirm base grub lsb-release
 	pacman -S --noconfirm dbus systemd systemd-sysvcompat syslog-ng cronie
 	pacman -S --noconfirm linux linux-headers linux-api-headers linux-firmware
-	#pacman -S --noconfirm linux-lts linux-lts-headers
-	pacman -S --noconfirm acpi_call
+	pacman -S --noconfirm linux-lts linux-lts-headers
+	#pacman -S --noconfirm acpi_call
 }
 
 ## Console tools
