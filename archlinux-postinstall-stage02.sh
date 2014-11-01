@@ -75,6 +75,10 @@ function dev_tools() {
 function android_dev_tools() {
 	pacman -S --noconfirm android-udev
 	pacman -S --noconfirm android-tools
+	#For compiling Android build
+	#pacman -S --noconfirm gcc-multilib
+	pacman -S --noconfirm lib32-zlib lib32-ncurses lib32-readline
+	pacman -S --noconfirm uboot-tools
 }
 
 ## Dart dev-tools

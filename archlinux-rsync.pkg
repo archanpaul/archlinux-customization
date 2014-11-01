@@ -1,4 +1,5 @@
 RSYNC_INCLUDES_PKG="
+--include=uboot-tools-[0-9]* \
 --include=lib32-readline-[0-9]* \
 --include=lib32-attr-[0-9]* \
 --include=lib32-flac-[0-9]* \
