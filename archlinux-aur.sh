@@ -11,9 +11,9 @@ function archlinux_aur_install() {
 	cd $CDIR
 
 	## Bitbake, OE
-	pacman -S --noconfirm python2-progressbar
-	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot bitbake
-	pacman -S --noconfirm diffstat texi2html chrpath cpio
+	#pacman -S --noconfirm python2-progressbar
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot bitbake
+	#pacman -S --noconfirm diffstat texi2html chrpath cpio
 
 	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot systemd-vgaswitcheroo-units
 	systemctl enable vgaswitcheroo
@@ -27,16 +27,16 @@ function archlinux_aur_install() {
 	pacman -S --noconfirm libpng12
 	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot google-talkplugin
 
-        ## Android
-        aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot repo
-        aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-sdk
-        aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-ndk64
+	## Android
+	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot repo
+	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-sdk
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot android-ndk
 
 	## Printing
 	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot hplip-plugin
 
 	## CAD
-	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot sweethome3d
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot sweethome3d
 
 	## Emacs Python IDE
 	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot python-epc
@@ -48,7 +48,7 @@ function archlinux_aur_install() {
 	## Install dart-mode in Emacs
 
 	## KDE 
-	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot akonadi-googledata
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot akonadi-googledata
 
 	## Teamviewer
 	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot teamviewer
@@ -64,12 +64,12 @@ function archlinux_aur_install() {
 	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot google-chrome
 
 	## nodejs utils
-	aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot nodejs-npm2arch
-	mkdir $CDIR/cordova
-	cd $CDIR/cordova/ && npm2PKGBUILD cordova > PKGBUILD
-	cd $CDIR/cordova/ && makepkg --asroot
-	cd $CDIR/cordova/ && pacman --noconfirm -U nodejs-cordova-*.pkg.tar.xz
-	cd $CDIR
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot nodejs-npm2arch
+	#mkdir $CDIR/cordova
+	#cd $CDIR/cordova/ && npm2PKGBUILD cordova > PKGBUILD
+	#cd $CDIR/cordova/ && makepkg --asroot
+	#cd $CDIR/cordova/ && pacman --noconfirm -U nodejs-cordova-*.pkg.tar.xz
+	#cd $CDIR
 }
 
 archlinux_aur_install 2>&1 | tee archlinux-aur.log
