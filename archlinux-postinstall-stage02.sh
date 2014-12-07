@@ -11,6 +11,7 @@ function base() {
 ## Console tools
 function console_tools() {
 	pacman -S --noconfirm e2fsprogs extundelete ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
+	pacman -S --noconfirm dosfstools
 	pacman -S --noconfirm acpi acpid pm-utils powertop
 	pacman -S --noconfirm hdparm smartmontools
 	pacman -S --noconfirm bc sudo mc links
