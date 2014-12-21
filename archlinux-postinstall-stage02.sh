@@ -258,7 +258,7 @@ function systemd_services() {
 	#systemctl enable ufw
 	#systemctl enable sshd
 	#systemctl enable httpd
-	#systemctl enable cupsd
+	#systemctl enable org.cups.cupsd
 }
 
 function install_all_modules() {

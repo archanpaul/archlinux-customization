@@ -50,12 +50,13 @@ fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
 pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux-lts
-genfstab -p -U $INSTALL_TARGET >> /mnt/etc/fstab
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART
 fsck.ext4 -a $HOME_PART
 mount $HOME_PART $INSTALL_TARGET/home/
+
+genfstab -p -U $INSTALL_TARGET >> /mnt/etc/fstab
 
 cp $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh $INSTALL_TARGET/root/
 echo "Run : bash /root/archlinux-postinstall-stage01.sh inside chroot"

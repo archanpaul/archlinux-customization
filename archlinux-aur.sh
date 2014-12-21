@@ -63,6 +63,9 @@ function archlinux_aur_install() {
 	## Browser
 	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot google-chrome
 
+	## Oracle JDK 
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot jdk
+
 	## nodejs utils
 	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot nodejs-npm2arch
 	#mkdir $CDIR/cordova
@@ -70,6 +73,12 @@ function archlinux_aur_install() {
 	#cd $CDIR/cordova/ && makepkg --asroot
 	#cd $CDIR/cordova/ && pacman --noconfirm -U nodejs-cordova-*.pkg.tar.xz
 	#cd $CDIR
+
+	## debootstrap
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot debootstrap
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot debian-archive-keyring
+	#aurget --deps -Sy --nodiscard --noedit --noconfirm --asroot gnupg1
+	
 }
 
 archlinux_aur_install 2>&1 | tee archlinux-aur.log
