@@ -119,6 +119,7 @@ function multimedia() {
 	pacman -S --noconfirm gst-plugins-base gst-plugins-good gst-plugins-bad	gst-plugins-ugly
 	pacman -S --noconfirm gstreamer0.10 gstreamer0.10-base-plugins gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins
 	pacman -S --noconfirm pulseaudio pulseaudio-alsa 
+	pacman -S --noconfirm alsa-utils
 	pacman -S --noconfirm webrtc-audio-processing
 	pacman -S --noconfirm flac faad2 xvidcore speex x264 opencore-amr ffmpeg
 	pacman -S --noconfirm lame id3
@@ -225,6 +226,7 @@ function kde_desktop() {
 	pacman -S --noconfirm k3b amarok 
 	#pacman -S --noconfirm digikam
 	pacman -S --noconfirm libreoffice-kde4
+	pacman -S --noconfirm baloo4
 	#pacman -S --noconfirm calligra-meta
 	pacman -S --noconfirm qtcurve-qt4 qtcurve-qt5 qtcurve-kde4 qtcurve-utils
 	pacman -S --noconfirm kde-gtk-config
