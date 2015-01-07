@@ -246,9 +246,9 @@ function qt_dev() {
 }
 
 ## Lib32 apps
-#function lib32_apps() {
-#	pacman -S --noconfirm skype
-#}
+function lib32_apps() {
+	pacman -S --noconfirm skype
+}
 
 ## systemd services
 function systemd_services() {
@@ -292,7 +292,7 @@ function install_all_modules() {
 	kde_desktop
 	qt_dev
 	kde_dev
-	#lib32_apps
+	lib32_apps
 	systemd_services
 }
 
