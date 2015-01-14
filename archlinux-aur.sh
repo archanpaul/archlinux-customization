@@ -40,6 +40,7 @@ function archlinux_aur_install() {
 
 	## DART lang
 	$aurcmd libgcrypt15
+	$aurcmd libudev.so.0
 	$aurcmd dart-editor
 	## Install dart-mode in Emacs
 
