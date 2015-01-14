@@ -21,8 +21,12 @@ function archlinux_aur_install() {
 	#pacman -S --noconfirm libpng12
 	#$aurcmd google-talkplugin
 
+	## Pencil pencil.evolus.vn
+	#$aurcmd pencil
+
 	## Android
 	#$aurcmd repo
+	#$aurcmd gradle
 	#$aurcmd android-studio
 	#$aurcmd android-sdk
 	#$aurcmd android-ndk
