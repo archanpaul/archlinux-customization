@@ -214,7 +214,7 @@ function kde_desktop() {
 	pacman -S --noconfirm kdeplasma-applets-plasma-nm
 	pacman -S --noconfirm kdeplasma-addons-applets-kimpanel
 	pacman -S --noconfirm kwebkitpart
-	pacman -S --noconfirm kdesdk-kate
+	pacman -S --noconfirm kate kio-extras
 	pacman -S --noconfirm bluedevil
 	pacman -S --noconfirm kcm-touchpad
 	pacman -S --noconfirm kcm-fcitx
@@ -226,11 +226,11 @@ function kde_desktop() {
 	pacman -S --noconfirm k3b amarok 
 	#pacman -S --noconfirm digikam
 	pacman -S --noconfirm libreoffice-kde4
-	pacman -S --noconfirm baloo4
+	pacman -S --noconfirm baloo-frameworks
 	#pacman -S --noconfirm calligra-meta
 	pacman -S --noconfirm qtcurve-qt4 qtcurve-qt5 qtcurve-kde4 qtcurve-utils
 	pacman -S --noconfirm kde-gtk-config
-	pacman -S --noconfirm kdeedu-kmplot kdeedu-kalgebra
+	pacman -S --noconfirm kdeedu-kmplot kdeedu-analitza
 }
 
 ## KDE dev
