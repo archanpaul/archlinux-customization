@@ -232,7 +232,7 @@ function kde_desktop() {
 	pacman -S --noconfirm qtcurve-qt4 qtcurve-qt5 qtcurve-kde4 qtcurve-utils
 	pacman -S --noconfirm kde-gtk-config
 	pacman -S --noconfirm kdeedu-kmplot 
-	#pacman -S --noconfirm kdeedu-analitza
+	#pacman -S --noconfirm analitza
 }
 
 ## KDE dev
