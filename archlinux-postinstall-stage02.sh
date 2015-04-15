@@ -206,7 +206,7 @@ function virtualization() {
 ## Generic gtk Themes
 function generic_gtk_themes() {
 	pacman -S --noconfirm qtcurve-gtk2
-	pacman -S --noconfirm oxygen-gtk2 oxygen-gtk3 
+	pacman -S --noconfirm oxygen-gtk2 
 }
 
 ## KDE desktop
@@ -216,7 +216,7 @@ function kde_desktop() {
 	pacman -S --noconfirm kdeplasma-addons-applets-kimpanel
 	pacman -S --noconfirm kwebkitpart
 	pacman -S --noconfirm kate kio-extras
-	pacman -S --noconfirm bluedevil
+	#pacman -S --noconfirm bluedevil-frameworks
 	pacman -S --noconfirm kcm-touchpad
 	pacman -S --noconfirm kcm-fcitx
 	pacman -S --noconfirm phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
@@ -226,18 +226,18 @@ function kde_desktop() {
 	pacman -S --noconfirm avidemux-qt
 	pacman -S --noconfirm k3b amarok 
 	#pacman -S --noconfirm digikam
-	pacman -S --noconfirm libreoffice-kde4
+	#pacman -S --noconfirm libreoffice-kde4
 	pacman -S --noconfirm baloo-frameworks
 	#pacman -S --noconfirm calligra-meta
 	pacman -S --noconfirm qtcurve-qt4 qtcurve-qt5 qtcurve-kde4 qtcurve-utils
 	pacman -S --noconfirm kde-gtk-config
-	pacman -S --noconfirm kdeedu-kmplot kdeedu-analitza
+	pacman -S --noconfirm kdeedu-kmplot 
+	#pacman -S --noconfirm kdeedu-analitza
 }
 
 ## KDE dev
 function kde_dev() {
 	pacman -S --noconfirm kdevelop kdevelop-python
-	pacman -S --noconfirm eric
 }
 
 ## QT dev
