@@ -151,14 +151,15 @@ function editors() {
 function graphic_utils() {
 	pacman -S --noconfirm gimp
 	pacman -S --noconfirm inkscape
+	pacman -S --noconfirm graphviz
 }
 
 ## Databases
 function databases() {
 	pacman -S --noconfirm sqlite
 	pacman -S --noconfirm mariadb libmariadbclient mariadb-clients
-	pacman -S --noconfirm postgresql postgresql-docs postgresql-libs
 	pacman -S --noconfirm mongodb
+	pacman -S --noconfirm postgresql postgresql-docs postgresql-libs
 }
 
 ## Servers
@@ -236,6 +237,7 @@ function kde_desktop() {
 ## KDE dev
 function kde_dev() {
 	pacman -S --noconfirm kdevelop kdevelop-python
+	pacman -S --noconfirm eric
 }
 
 ## QT dev
