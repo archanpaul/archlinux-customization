@@ -36,12 +36,7 @@ RSYNC_EXCLUDES="
 --exclude=iso/ \
 --exclude=.~tmp~ \
 --exclude=.* \
---exclude=kactivities-*.[8-9][0-9]-** \
---exclude=kactivities-*.[8-9][0-9]-** \
---exclude=kde*.[8-9][0-9]-** \
---exclude=libk*-*.[8-9][0-9]-** \
---exclude=nepomuk*-*.[8-9][0-9]-** \
---exclude=oxygen-*-*.[8-9][0-9]-** \
+--exclude=*5.[2-9].95-** \
 "
 
 RSYNC_RULES="--include=*/ $RSYNC_EXCLUDES $RSYNC_INCLUDES_GENERIC $RSYNC_INCLUDES_PKG $RSYNC_INCLUDES_ISO --exclude=*"

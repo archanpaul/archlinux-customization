@@ -41,6 +41,7 @@ function xorg() {
 	pacman -S --noconfirm xf86-video-ati ati-dri
 	pacman -S --noconfirm xterm xorg-xkill xorg-xhost
 	pacman -S --noconfirm xorg-xdm
+	pacman -S --noconfirm xorg-xinit
 	pacman -S --noconfirm xcursor-simpleandsoft
 }
 
@@ -97,7 +98,6 @@ function java_dev_tools() {
 function python_dev_tools() {
 	pacman -S --noconfirm python python-docs
 	pacman -S --noconfirm python-django
-	pacman -S --noconfirm python-south
 	pacman -S --noconfirm python-pillow
 	pacman -S --noconfirm python-psycopg2 python-pymongo
 	pacman -S --noconfirm python-pip python-virtualenv python-setuptools 
@@ -169,6 +169,7 @@ function servers() {
 	pacman -S --noconfirm apache 
 	pacman -S --noconfirm mod_wsgi
 	pacman -S --noconfirm nodejs
+	pacman -S --noconfirm docker
 }
 
 ## Documentations 
@@ -205,15 +206,17 @@ function virtualization() {
 
 ## Generic gtk Themes
 function generic_gtk_themes() {
-	pacman -S --noconfirm qtcurve-gtk2
+	pacman -S --noconfirm gtk-engine-murrine gtk-theme-orion
 	pacman -S --noconfirm oxygen-gtk2 
 }
 
 ## KDE desktop
 function kde_desktop() {
-	pacman -S --noconfirm kde-meta-kdeadmin kde-meta-kdebase kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
-	pacman -S --noconfirm kdeplasma-applets-plasma-nm
-	pacman -S --noconfirm kdeplasma-addons-applets-kimpanel
+	pacman -S --noconfirm kde-meta-kdebase
+	#pacman -Rc kdebase-workspace
+	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	#pacman -S --noconfirm plasma-meta
+	pacman -S --noconfirm kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
 	pacman -S --noconfirm kwebkitpart
 	pacman -S --noconfirm kate kio-extras
 	#pacman -S --noconfirm bluedevil-frameworks
@@ -226,13 +229,11 @@ function kde_desktop() {
 	pacman -S --noconfirm avidemux-qt
 	pacman -S --noconfirm k3b amarok 
 	#pacman -S --noconfirm digikam
-	#pacman -S --noconfirm libreoffice-kde4
 	pacman -S --noconfirm baloo-frameworks
 	#pacman -S --noconfirm calligra-meta
-	pacman -S --noconfirm qtcurve-qt4 qtcurve-qt5 qtcurve-kde4 qtcurve-utils
 	pacman -S --noconfirm kde-gtk-config
-	pacman -S --noconfirm kdeedu-kmplot 
-	#pacman -S --noconfirm analitza
+	pacman -S --noconfirm kmplot analitza
+	#pacman -S --noconfirm libreoffice-kde4
 }
 
 ## KDE dev
