@@ -1,5 +1,5 @@
 ## AUR packages
-aurcmd="bash aur.sh -si "
+aurcmd="bash aur.sh -si --noconfirm"
 
 function archlinux_aur_install() {
 	CDIR=`pwd`
@@ -35,6 +35,7 @@ function archlinux_aur_install() {
 	#$aurcmd hplip-plugin
 
 	## Emacs Python IDE
+	#$aurcmd python-sexpdata
 	#$aurcmd python-epc
 	## Install jedi jedi-direx in Emacs
 

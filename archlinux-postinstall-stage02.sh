@@ -213,6 +213,7 @@ function generic_gtk_themes() {
 ## KDE desktop
 function kde_desktop() {
 	pacman -S --noconfirm kde-meta-kdebase
+	pacman -S --noconfirm kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
 	#pacman -Rc kdebase-workspace
 	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
 	#pacman -S --noconfirm plasma-meta
