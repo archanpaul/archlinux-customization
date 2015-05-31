@@ -24,8 +24,9 @@ RSYNC_INCLUDES_GENERIC="
 source $WORKDIR/scripts/archlinux-rsync.pkg
 
 RSYNC_INCLUDES_ISO="
---include=archlinux-2015.04.01-dual.iso \
---include=archlinux-2015.04.01-dual.iso.sig \
+--include=archlinux-2015.05.01-dual.iso \
+--include=archlinux-2015.05.01-dual.iso.sig \
+--include=archlinux-2015.05-2-archboot-network.iso \
 "
 
 RSYNC_EXCLUDES="

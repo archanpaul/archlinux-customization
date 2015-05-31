@@ -4,15 +4,6 @@ aurcmd="bash aur.sh -si --noconfirm"
 function archlinux_aur_install() {
 	CDIR=`pwd`
 
-	## Bitbake, OE
-	#pacman -S --noconfirm python2-progressbar
-	#$aurcmd bitbake
-	#pacman -S --noconfirm diffstat texi2html chrpath cpio
-
-	#$aurcmd systemd-vgaswitcheroo-units
-	#systemctl enable vgaswitcheroo
-	#systemctl restart vgaswitcheroo
-
 	#$aurcmd laptop-mode-tools
 	#sudo systemctl enable laptop-mode
 	#sudo systemctl restart laptop-mode
@@ -20,9 +11,6 @@ function archlinux_aur_install() {
 	## Google hangout
 	#pacman -S --noconfirm libpng12
 	#$aurcmd google-talkplugin
-
-	## Pencil pencil.evolus.vn
-	#$aurcmd pencil
 
 	## Android
 	#$aurcmd repo
@@ -39,21 +27,8 @@ function archlinux_aur_install() {
 	#$aurcmd python-epc
 	## Install jedi jedi-direx in Emacs
 
-	## DART lang
-	$aurcmd libgcrypt15
-	$aurcmd libudev.so.0
-	$aurcmd dart-editor
-	## Install dart-mode in Emacs
-
-	## KDE 
-	#$aurcmd akonadi-googledata
-
 	## Teamviewer
 	#$aurcmd teamviewer
-
-	## ARM cross toolchain
-	#$aurcmd arm-linux-gnueabi-linux-api-headers
-	#$aurcmd arm-linux-gnueabi-gcc
 
 	## Google fonts
 	#$aurcmd  ttf-google-fonts-git
@@ -76,7 +51,6 @@ function archlinux_aur_install() {
 	#$aurcmd debootstrap
 	#$aurcmd debian-archive-keyring
 	#$aurcmd gnupg1
-	
 }
 
 archlinux_aur_install 2>&1 | tee archlinux-aur.log

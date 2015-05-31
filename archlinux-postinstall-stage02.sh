@@ -216,7 +216,7 @@ function kde_desktop() {
 	pacman -S --noconfirm kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
 	#pacman -Rc kdebase-workspace
 	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	#pacman -S --noconfirm plasma-meta
+	#pacman -S --noconfirm plasma-meta sddm sddm-kcm
 	pacman -S --noconfirm kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
 	pacman -S --noconfirm kwebkitpart
 	pacman -S --noconfirm kate kio-extras
