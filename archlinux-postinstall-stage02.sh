@@ -212,16 +212,21 @@ function generic_gtk_themes() {
 
 ## KDE desktop
 function kde_desktop() {
+	## KDE4
 	pacman -S --noconfirm kde-meta-kdebase
-	pacman -S --noconfirm kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	pacman -S --noconfirm kdebase-plasma
+	pacman -S --noconfirm kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	pacman -S --noconfirm kcm-touchpad
+	## KDE5
 	#pacman -Rc kdebase-workspace
 	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	#pacman -S --noconfirm plasma-meta sddm sddm-kcm
+	#pacman -S --noconfirm plasma-meta plasma-workspace plasma-desktop plasma-mediacenter plasma-nm
+	#pacman -S --noconfirm sddm sddm-kcm
+
+	## KDE common
 	pacman -S --noconfirm kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
 	pacman -S --noconfirm kwebkitpart
 	pacman -S --noconfirm kate kio-extras
-	#pacman -S --noconfirm bluedevil-frameworks
-	pacman -S --noconfirm kcm-touchpad
 	pacman -S --noconfirm kcm-fcitx
 	pacman -S --noconfirm phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
 	pacman -S --noconfirm ktorrent 
