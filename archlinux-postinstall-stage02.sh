@@ -61,8 +61,10 @@ function printing() {
 function dev_tools() {
 	pacman -S --noconfirm base-devel 
 	pacman -S --noconfirm binutils gcc gcc-libs libtool
+	pacman -S --noconfirm gcc-go
 	#pacman -S --noconfirm multilib-devel 
 	#pacman -S --noconfirm binutils-multilib gcc-multilib gcc-libs-multilib libtool-multilib
+	#pacman -S --noconfirm gcc-go-multilib
 	pacman -S --noconfirm make cmake scons automake autoconf libtool m4 patch pkg-config
 	pacman -S --noconfirm flex bison gperf 
 	pacman -S --noconfirm gdb valgrind
