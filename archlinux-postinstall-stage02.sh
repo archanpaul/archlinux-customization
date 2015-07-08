@@ -1,264 +1,268 @@
 #!/bin/bash
 
+PACMAN="pacman -S --noconfirm --needed "
+
 ## Base
 function base() {
-	pacman -S --noconfirm base grub lsb-release
-	pacman -S --noconfirm dbus systemd systemd-sysvcompat syslog-ng cronie
-	pacman -S --noconfirm linux linux-headers linux-api-headers linux-firmware acpi_call
-	pacman -S --noconfirm linux-lts linux-lts-headers acpi_call-lts
+	$PACMAN base grub lsb-release
+	$PACMAN dbus systemd systemd-sysvcompat syslog-ng cronie
+	$PACMAN linux linux-headers linux-api-headers linux-firmware acpi_call
+	$PACMAN linux-lts linux-lts-headers acpi_call-lts
 }
 
 ## Console tools
 function console_tools() {
-	pacman -S --noconfirm e2fsprogs extundelete ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
-	pacman -S --noconfirm dosfstools
-	pacman -S --noconfirm acpi acpid pm-utils powertop
-	pacman -S --noconfirm hdparm smartmontools
-	pacman -S --noconfirm bc sudo mc links
-	pacman -S --noconfirm ntp 
-	pacman -S --noconfirm minicom
-	pacman -S --noconfirm dvd+rw-tools 
-	pacman -S --noconfirm zip unzip p7zip bzip2 unrar lxsplit
+	$PACMAN e2fsprogs extundelete ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
+	$PACMAN dosfstools
+	$PACMAN acpi acpid pm-utils powertop
+	$PACMAN hdparm smartmontools
+	$PACMAN bc sudo mc links
+	$PACMAN ntp 
+	$PACMAN minicom
+	$PACMAN dvd+rw-tools 
+	$PACMAN zip unzip p7zip bzip2 unrar lxsplit
 }
 
 ## Network tools
 function network_tools() {
-	pacman -S --noconfirm nmap ufw whois dnsutils
-	pacman -S --noconfirm lftp rsync wget 
-	pacman -S --noconfirm usb_modeswitch wvdial
-	pacman -S --noconfirm ethtool bridge-utils
-	pacman -S --noconfirm net-tools netctl
-	pacman -S --noconfirm rfkill wireless_tools wpa_supplicant wpa_actiond
-	pacman -S --noconfirm bluez bluez-firmware bluez-utils
-	pacman -S --noconfirm networkmanager 
+	$PACMAN nmap ufw whois dnsutils
+	$PACMAN lftp rsync wget 
+	$PACMAN usb_modeswitch wvdial
+	$PACMAN ethtool bridge-utils
+	$PACMAN net-tools netctl
+	$PACMAN rfkill wireless_tools wpa_supplicant wpa_actiond
+	$PACMAN bluez bluez-firmware bluez-utils
+	$PACMAN networkmanager 
 }
 
 ## Xorg
 function xorg() {
-	pacman -S --noconfirm xorg-server 
-	pacman -S --noconfirm xf86-video-intel intel-dri libva-intel-driver 
-	pacman -S --noconfirm xf86-input-evdev xf86-input-synaptics 
-	pacman -S --noconfirm xf86-video-ati ati-dri
-	pacman -S --noconfirm xterm xorg-xkill xorg-xhost
-	pacman -S --noconfirm xorg-xdm
-	pacman -S --noconfirm xorg-xinit
-	pacman -S --noconfirm xcursor-simpleandsoft
+	$PACMAN xorg-server 
+	$PACMAN mesa-libgl
+	$PACMAN xf86-video-intel intel-dri libva-intel-driver 
+	$PACMAN xf86-input-evdev xf86-input-synaptics 
+	$PACMAN xf86-video-ati ati-dri
+	$PACMAN xterm xorg-xkill xorg-xhost
+	$PACMAN xorg-xdm
+	$PACMAN xorg-xinit
+	$PACMAN xcursor-simpleandsoft
 }
 
 ## SCM
 function scm() {
-	pacman -S --noconfirm git cgit
-	pacman -S --noconfirm subversion bzr mercurial
+	$PACMAN git cgit
+	$PACMAN subversion bzr mercurial
 }
 
 ## Printing
 function printing() {
-	pacman -S --noconfirm cups ghostscript gsfonts gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree foomatic-filters cups-pdf hplip splix
-	pacman -S --noconfirm sane 
+	$PACMAN cups ghostscript gsfonts gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree foomatic-filters cups-pdf hplip splix
+	$PACMAN sane 
 }
 
 ## Dev tools
 function dev_tools() {
-	pacman -S --noconfirm base-devel 
-	pacman -S --noconfirm binutils gcc gcc-libs libtool
-	pacman -S --noconfirm gcc-go
-	#pacman -S --noconfirm multilib-devel 
-	#pacman -S --noconfirm binutils-multilib gcc-multilib gcc-libs-multilib libtool-multilib
-	#pacman -S --noconfirm gcc-go-multilib
-	pacman -S --noconfirm make cmake scons automake autoconf libtool m4 patch pkg-config
-	pacman -S --noconfirm flex bison gperf 
-	pacman -S --noconfirm gdb valgrind
-	pacman -S --noconfirm cppunit gtest
-	pacman -S --noconfirm doxygen
-	pacman -S --noconfirm zlib boost 
-	pacman -S --noconfirm openmpi opencv
+	$PACMAN base-devel 
+	$PACMAN binutils gcc gcc-libs libtool
+	$PACMAN gcc-go
+	#$PACMAN multilib-devel 
+	#$PACMAN binutils-multilib gcc-multilib gcc-libs-multilib libtool-multilib
+	#$PACMAN gcc-go-multilib
+	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
+	$PACMAN flex bison gperf 
+	$PACMAN gdb valgrind
+	$PACMAN cppunit gtest
+	$PACMAN doxygen
+	$PACMAN zlib boost 
+	$PACMAN openmpi opencv
 }
 
 ## Android dev-tools
 function android_dev_tools() {
-	pacman -S --noconfirm android-udev
-	pacman -S --noconfirm android-tools
+	$PACMAN android-udev
+	$PACMAN android-tools
 	#For compiling Android build
-	#pacman -S --noconfirm gcc-multilib
-	pacman -S --noconfirm lib32-zlib lib32-ncurses lib32-readline
-	pacman -S --noconfirm uboot-tools
+	#$PACMAN gcc-multilib
+	$PACMAN lib32-zlib lib32-ncurses lib32-readline
+	$PACMAN uboot-tools
 }
 
 ## Dart dev-tools
 function dart_dev_tools() {
-	pacman -S --noconfirm dart
+	$PACMAN dart
 }
 
 ## Java dev-tools
 function java_dev_tools() {
-	pacman -S --noconfirm jre8-openjdk
-	pacman -S --noconfirm jdk8-openjdk
-	pacman -S --noconfirm icedtea-web
+	$PACMAN jre8-openjdk
+	$PACMAN jdk8-openjdk
+	$PACMAN icedtea-web
 }
 
 ## Python dev-tools
 function python_dev_tools() {
-	pacman -S --noconfirm python python-docs
-	pacman -S --noconfirm python-django
-	pacman -S --noconfirm python-pillow
-	pacman -S --noconfirm python-psycopg2 python-pymongo
-	pacman -S --noconfirm python-pip python-virtualenv python-setuptools 
-	pacman -S --noconfirm python-six
-	pacman -S --noconfirm python-docutils
-	pacman -S --noconfirm pep8-python3
-	pacman -S --noconfirm python-mccabe python-pyflakes flake8
-	pacman -S --noconfirm python-jedi
+	$PACMAN python python-docs
+	$PACMAN python-django
+	$PACMAN python-pillow
+	$PACMAN python-psycopg2 python-pymongo
+	$PACMAN python-pip python-virtualenv python-setuptools 
+	$PACMAN python-six
+	$PACMAN python-docutils
+	$PACMAN pep8-python3
+	$PACMAN python-mccabe python-pyflakes flake8
+	$PACMAN python-jedi
 }
 
 ## Archlinux dev-tools
 function archlinux_dev_tools() {
-	pacman -S --noconfirm devtools
-	pacman -S --noconfirm abs
+	$PACMAN devtools
+	$PACMAN abs
 }
 
 ## Multimedia
 function multimedia() {
-	pacman -S --noconfirm gst-plugins-base gst-plugins-good gst-plugins-bad	gst-plugins-ugly
-	pacman -S --noconfirm gstreamer0.10 gstreamer0.10-base-plugins gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins
-	pacman -S --noconfirm pulseaudio pulseaudio-alsa 
-	pacman -S --noconfirm alsa-utils
-	pacman -S --noconfirm webrtc-audio-processing
-	pacman -S --noconfirm flac faad2 xvidcore speex x264 opencore-amr ffmpeg
-	pacman -S --noconfirm lame id3
-	pacman -S --noconfirm vlc
-	pacman -S --noconfirm cdrkit
+	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad	gst-plugins-ugly
+	$PACMAN gstreamer0.10 gstreamer0.10-base-plugins gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins
+	$PACMAN pulseaudio pulseaudio-alsa 
+	$PACMAN alsa-utils
+	$PACMAN webrtc-audio-processing
+	$PACMAN flac faad2 xvidcore speex x264 opencore-amr ffmpeg
+	$PACMAN lame id3
+	$PACMAN vlc
+	$PACMAN cdrkit
 }
 
 ## Ebooks tools
 function ebook_tools() {
-	pacman -S --noconfirm calibre 
+	$PACMAN calibre 
 }
 
 ## Office suite
 function office_suite() {
-	pacman -S --noconfirm libreoffice-fresh
-	#pacman -S --noconfirm libreoffice-en-US libreoffice-writer libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-math libreoffice-base
-	pacman -S --noconfirm hunspell hunspell-en 
-	pacman -S --noconfirm simple-scan
+	$PACMAN libreoffice-fresh
+	#$PACMAN libreoffice-en-US libreoffice-writer libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-math libreoffice-base
+	$PACMAN hunspell hunspell-en 
+	$PACMAN simple-scan
 }
 
 ## Editors
 function editors() {
-	pacman -S --noconfirm aspell aspell-en
-	pacman -S --noconfirm vim
-	pacman -S --noconfirm emacs emacs-python-mode
+	$PACMAN aspell aspell-en
+	$PACMAN vim
+	$PACMAN emacs emacs-python-mode
 }
 
 ## Graphic utils
 function graphic_utils() {
-	pacman -S --noconfirm gimp
-	pacman -S --noconfirm inkscape
-	pacman -S --noconfirm graphviz
+	$PACMAN gimp
+	$PACMAN inkscape
+	$PACMAN graphviz
 }
 
 ## Databases
 function databases() {
-	pacman -S --noconfirm sqlite
-	pacman -S --noconfirm mariadb libmariadbclient mariadb-clients
-	pacman -S --noconfirm mongodb
-	pacman -S --noconfirm postgresql postgresql-docs postgresql-libs
+	$PACMAN sqlite
+	$PACMAN mariadb libmariadbclient mariadb-clients
+	$PACMAN mongodb
+	$PACMAN postgresql postgresql-docs postgresql-libs
 }
 
 ## Servers
 function servers() {
-	pacman -S --noconfirm openssh sshpass openssl openvpn 
-	pacman -S --noconfirm openvpn 
-	pacman -S --noconfirm apache 
-	pacman -S --noconfirm mod_wsgi
-	pacman -S --noconfirm nodejs
-	pacman -S --noconfirm docker
+	$PACMAN openssh sshpass openssl openvpn 
+	$PACMAN openvpn 
+	$PACMAN apache 
+	$PACMAN mod_wsgi
+	$PACMAN nodejs
+	$PACMAN docker
 }
 
 ## Documentations 
 function documentations() {
-	pacman -S --noconfirm linux-manpages
+	$PACMAN linux-manpages
 }
 
 ## Browsers
 function browsers() {
-	pacman -S --noconfirm chromium
-	pacman -S --noconfirm firefox
-	pacman -S --noconfirm thunderbird
-	pacman -S --noconfirm flashplugin 
+	$PACMAN chromium
+	$PACMAN firefox
+	$PACMAN thunderbird
+	$PACMAN flashplugin 
 }
 
 ## Fonts
 function fonts() {
-	pacman -S --noconfirm ttf-liberation 
-	pacman -S --noconfirm ttf-indic-otf 
-	pacman -S --noconfirm ttf-hanazono
-	pacman -S --noconfirm ttf-droid
+	$PACMAN ttf-liberation 
+	$PACMAN ttf-indic-otf 
+	$PACMAN ttf-hanazono
+	$PACMAN ttf-droid
 }
 
 ## Localized input-systems
 function localized_input_systems() {
-	pacman -S --noconfirm fcitx fcitx-m17n fcitx-mozc
-	pacman -S --noconfirm fcitx-gtk2 fcitx-gtk3
+	$PACMAN fcitx fcitx-m17n fcitx-mozc
+	$PACMAN fcitx-gtk2 fcitx-gtk3
 }
 
 ## Virtualization
 function virtualization() {
-	pacman -S --noconfirm qemu libvirt 
+	$PACMAN qemu libvirt 
 }
 
 ## Generic gtk Themes
 function generic_gtk_themes() {
-	pacman -S --noconfirm gtk-engine-murrine gtk-theme-orion
-	pacman -S --noconfirm oxygen-gtk2 
+	$PACMAN gtk-engine-murrine gtk-theme-orion
+	$PACMAN oxygen-gtk2 
 }
 
 ## KDE desktop
 function kde_desktop() {
+	$PACMAN phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
+
 	## KDE4
-	pacman -S --noconfirm kde-meta-kdebase
-	pacman -S --noconfirm kdebase-plasma
-	pacman -S --noconfirm kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	pacman -S --noconfirm kcm-touchpad
+	$PACMAN kde-meta-kdebase
+	$PACMAN kdebase-plasma
+	$PACMAN kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	$PACMAN kcm-touchpad
 	## KDE5
 	#pacman -Rc kdebase-workspace
 	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	#pacman -S --noconfirm plasma-meta plasma-workspace plasma-desktop plasma-mediacenter plasma-nm
-	#pacman -S --noconfirm sddm sddm-kcm
+	#$PACMAN plasma-meta plasma-workspace plasma-desktop plasma-mediacenter plasma-nm
+	#$PACMAN sddm sddm-kcm
 
 	## KDE common
-	pacman -S --noconfirm kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
-	pacman -S --noconfirm kwebkitpart
-	pacman -S --noconfirm kate kio-extras
-	pacman -S --noconfirm kcm-fcitx
-	pacman -S --noconfirm phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
-	pacman -S --noconfirm ktorrent 
-	pacman -S --noconfirm recorditnow
-	pacman -S --noconfirm skanlite
-	pacman -S --noconfirm avidemux-qt
-	pacman -S --noconfirm k3b amarok 
-	#pacman -S --noconfirm digikam
-	pacman -S --noconfirm baloo-frameworks
-	#pacman -S --noconfirm calligra-meta
-	pacman -S --noconfirm kde-gtk-config
-	pacman -S --noconfirm kmplot analitza
-	#pacman -S --noconfirm libreoffice-kde4
+	$PACMAN kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
+	$PACMAN kwebkitpart
+	$PACMAN kate kio-extras
+	$PACMAN kcm-fcitx
+	$PACMAN ktorrent 
+	$PACMAN recorditnow
+	$PACMAN skanlite
+	$PACMAN avidemux-qt
+	$PACMAN k3b amarok 
+	#$PACMAN digikam
+	$PACMAN baloo-frameworks
+	#$PACMAN calligra-meta
+	$PACMAN kde-gtk-config
+	$PACMAN kmplot analitza
+	#$PACMAN libreoffice-kde4
 }
 
 ## KDE dev
 function kde_dev() {
-	pacman -S --noconfirm kdevelop kdevelop-python
+	$PACMAN kdevelop kdevelop-python
 }
 
 ## QT dev
 function qt_dev() {
-	pacman -S --noconfirm qt5 qtcreator
-	pacman -S --noconfirm qgit
-	pacman -S --noconfirm sqlitebrowser
+	$PACMAN qt5 qtcreator
+	$PACMAN qgit
+	$PACMAN sqlitebrowser
 }
 
 ## Lib32 apps
 function lib32_apps() {
-	pacman -S --noconfirm skype
+	$PACMAN skype
 }
 
 ## systemd services
