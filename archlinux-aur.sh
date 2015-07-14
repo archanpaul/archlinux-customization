@@ -41,6 +41,9 @@ function archlinux_aur_install() {
 
 	## nodejs utils
 	#$aurcmd nodejs-npm2arch
+	#$aurcmd nodejs-bower
+
+	## Cordova
 	#mkdir $CDIR/cordova
 	#cd $CDIR/cordova/ && npm2PKGBUILD cordova > PKGBUILD
 	#cd $CDIR/cordova/ && makepkg
