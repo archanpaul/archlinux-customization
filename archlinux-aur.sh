@@ -17,7 +17,7 @@ function archlinux_aur_install() {
 	#$aurcmd gradle
 	#$aurcmd android-studio
 	#$aurcmd android-sdk
-	#$aurcmd android-ndk
+	$aurcmd android-ndk
 
 	## Printing
 	#$aurcmd hplip-plugin

@@ -278,6 +278,11 @@ function systemd_services() {
 	#systemctl enable org.cups.cupsd
 }
 
+## NodeJS
+function nodejs_installs() {
+	$PACMAN npm	
+}
+
 function install_all_modules() {
 	base
 	console_tools
