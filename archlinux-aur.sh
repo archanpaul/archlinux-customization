@@ -17,7 +17,7 @@ function archlinux_aur_install() {
 	#$aurcmd gradle
 	#$aurcmd android-studio
 	#$aurcmd android-sdk
-	$aurcmd android-ndk
+	#aurcmd android-ndk
 
 	## Printing
 	#$aurcmd hplip-plugin
@@ -31,6 +31,7 @@ function archlinux_aur_install() {
 	#$aurcmd teamviewer
 
 	## Google fonts
+	#pacman -Rn ttf-droid
 	#$aurcmd  ttf-google-fonts-git
 
 	## Browser

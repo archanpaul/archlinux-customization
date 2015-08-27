@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#PACMAN="pacman -S --noconfirm --needed -w "
 PACMAN="pacman -S --noconfirm --needed "
 
 ## Base
@@ -43,7 +44,7 @@ function xorg() {
 	$PACMAN xf86-input-evdev xf86-input-synaptics 
 	$PACMAN xf86-video-ati ati-dri
 	$PACMAN xterm xorg-xkill xorg-xhost
-	$PACMAN xorg-xdm
+	$PACMAN xorg-xdm xdm-archlinux
 	$PACMAN xorg-xinit
 	$PACMAN xcursor-simpleandsoft
 }
@@ -217,24 +218,28 @@ function generic_gtk_themes() {
 
 ## KDE desktop
 function kde_desktop() {
+	## Dependency packages for auto selection
 	$PACMAN phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
+	$PACMAN mesa-libgl libx264
 
 	## KDE4
-	$PACMAN kde-meta-kdebase
-	$PACMAN kdebase-plasma
-	$PACMAN kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	$PACMAN kcm-touchpad
+	#$PACMAN kde-meta-kdebase
+	#$PACMAN kactivities-frameworks kdebase-plasma
+	#$PACMAN kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	#$PACMAN kcm-touchpad
 	## KDE5
-	#pacman -Rc kdebase-workspace
-	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	#$PACMAN plasma-meta plasma-workspace plasma-desktop plasma-mediacenter plasma-nm
-	#$PACMAN sddm sddm-kcm
+	pacman -Rc kdebase-workspace
+	pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	$PACMAN plasma-meta plasma-workspace plasma-desktop plasma-mediacenter plasma-nm
+	$PACMAN sddm sddm-kcm
+	### temporary 
+	$PACMAN kde-meta-kdebase
 
 	## KDE common
 	$PACMAN kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
 	$PACMAN kwebkitpart
 	$PACMAN kate kio-extras
-	$PACMAN kcm-fcitx
+	#$PACMAN kcm-fcitx
 	$PACMAN ktorrent 
 	$PACMAN recorditnow
 	$PACMAN skanlite
@@ -270,7 +275,7 @@ function systemd_services() {
 	systemctl enable syslog-ng
 	systemctl enable acpid
 	systemctl enable cronie
-	systemctl enable kdm
+	systemctl enable sddm
 	systemctl enable NetworkManager
 	#systemctl enable ufw
 	#systemctl enable sshd
@@ -306,7 +311,7 @@ function install_all_modules() {
 	documentations
 	browsers
 	fonts
-	localized_input_systems
+	#localized_input_systems
 	virtualization
 	generic_gtk_themes
 	kde_desktop
