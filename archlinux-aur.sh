@@ -59,3 +59,5 @@ function archlinux_aur_install() {
 
 archlinux_aur_install 2>&1 | tee archlinux-aur.log
 
+# Update existing aur packages
+pacman -Qqm | xargs bash < bash aur.sh -si --noconfirm -si --needed
