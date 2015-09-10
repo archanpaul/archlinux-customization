@@ -1,4 +1,4 @@
-"
+RSYNC_INCLUDES_PKG="
 --include=a52dec-[0-9]* \
 --include=aalib-[0-9]* \
 --include=abs-[0-9]* \
@@ -250,6 +250,7 @@
 --include=gts-[0-9]* \
 --include=guile-[0-9]* \
 --include=gutenprint-[0-9]* \
+--include=gvfs-[0-9]* \
 --include=gwenview-[0-9]* \
 --include=gzip-[0-9]* \
 --include=harfbuzz-[0-9]* \
@@ -714,6 +715,7 @@
 --include=libsystemd-[0-9]* \
 --include=libtar-[0-9]* \
 --include=libtasn1-[0-9]* \
+--include=libteam-[0-9]* \
 --include=libteam-[0-9]* \
 --include=libthai-[0-9]* \
 --include=libtheora-[0-9]* \
@@ -1235,4 +1237,4 @@
 --include=zita-resampler-[0-9]* \
 --include=zlib-[0-9]* \
 --include=zvbi-[0-9]* \
-RSYNC_INCLUDES_PKG="
+"
