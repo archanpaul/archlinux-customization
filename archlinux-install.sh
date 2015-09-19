@@ -49,7 +49,7 @@ tune2fs -c 20 $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
-pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux-lts
+pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART
