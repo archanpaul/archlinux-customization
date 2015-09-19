@@ -16,14 +16,13 @@ function aurget_install() {
 }
 
 function power_management_packages() {
-    $AURGET laptop-mode-tools
+    $AURGET_CMD laptop-mode-tools
     sudo systemctl enable laptop-mode
     sudo systemctl restart laptop-mode
 }
 
 function android_packages() {
     $AURGET_CMD repo
-    $AURGET_CMD gradle
     $AURGET_CMD android-sdk
     $AURGET_CMD android-studio
     $AURGET_CMD android-ndk
@@ -34,15 +33,13 @@ function printing_packages() {
 }
 
 function browser_packages() {
-    #$AURGET_CMD google-chrome
-    $AURGET_CMD pepper-flash
+    $AURGET_CMD google-chrome
 }
 
 function font_packages() {
     $PACMAN_UNINSTALL_CMD ttf-droid
-    #$PACMAN_UNINSTALL_CMD ttf-oxygen
+    $PACMAN_UNINSTALL_CMD ttf-oxygen
     $AURGET_CMD ttf-google-fonts-git
-    #PACMAN_CMD ttf-oxygen
 }
 
 function java_packages() {
@@ -72,6 +69,9 @@ function debian_packages() {
     $AURGET_CMD $aurcmd gnupg1
 }
 
+function ide_pacakges() {
+    $AURGET atom-editor-bin
+}
 
 function install_modules() {
     power_management_packages
@@ -85,7 +85,7 @@ function install_modules() {
     #debian_packages
 }
 
-aurget_install
+#aurget_install
 $AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
-install_modules 2>&1 | tee archlinux-aur.log
+#install_modules 2>&1 | tee archlinux-aur.log
 

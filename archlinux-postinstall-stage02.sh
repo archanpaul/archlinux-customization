@@ -43,7 +43,7 @@ function xorg() {
 	$PACMAN xf86-input-evdev xf86-input-synaptics 
 	$PACMAN xf86-video-ati ati-dri
 	$PACMAN xterm xorg-xkill xorg-xhost
-	$PACMAN xorg-xdm xdm-archlinux
+	$PACMAN xorg-xdm
 	$PACMAN xorg-xinit
 	$PACMAN xcursor-simpleandsoft
 }
@@ -79,6 +79,7 @@ function dev_tools() {
 
 ## Android dev-tools
 function android_dev_tools() {
+	$PACMAN gradle gradle-doc
 	$PACMAN android-udev
 	$PACMAN android-tools
 	#For compiling Android build
@@ -121,7 +122,7 @@ function archlinux_dev_tools() {
 
 ## Multimedia
 function multimedia() {
-	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad	gst-plugins-ugly
+	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
 	$PACMAN gstreamer0.10 gstreamer0.10-base-plugins gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins
 	$PACMAN pulseaudio pulseaudio-alsa 
 	$PACMAN alsa-utils
@@ -140,7 +141,6 @@ function ebook_tools() {
 ## Office suite
 function office_suite() {
 	$PACMAN libreoffice-fresh
-	#$PACMAN libreoffice-en-US libreoffice-writer libreoffice-calc libreoffice-draw libreoffice-impress libreoffice-math libreoffice-base
 	$PACMAN hunspell hunspell-en 
 	$PACMAN simple-scan
 }
@@ -231,8 +231,9 @@ function kde_desktop() {
 	#$PACMAN kde-meta-kdebase
 
 	## KDE packages
-	#$PACMAN kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
-	$PACMAN kate kio-extras
+	$PACMAN kde-meta-kdebase kde-meta-kdeadmin kde-meta-kdeutils
+	$PACMAN kde-meta-kdegraphics kde-meta-kdenetwork kde-meta-multimedia
+	$PACMAN konsole kate kio-extras
 	#$PACMAN kcm-fcitx
 	$PACMAN ktorrent 
 	$PACMAN recorditnow
