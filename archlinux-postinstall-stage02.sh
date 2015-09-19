@@ -195,13 +195,12 @@ function fonts() {
 	$PACMAN ttf-liberation 
 	$PACMAN ttf-indic-otf 
 	$PACMAN ttf-hanazono
-	$PACMAN ttf-droid
 }
 
 ## Localized input-systems
 function localized_input_systems() {
 	$PACMAN fcitx fcitx-m17n fcitx-mozc
-	$PACMAN fcitx-gtk2 fcitx-gtk3
+	$PACMAN fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
 }
 
 ## Virtualization
@@ -212,7 +211,6 @@ function virtualization() {
 ## Generic gtk Themes
 function generic_gtk_themes() {
 	$PACMAN gtk-engine-murrine gtk-theme-orion
-	$PACMAN oxygen-gtk2 
 }
 
 ## KDE desktop
@@ -221,22 +219,19 @@ function kde_desktop() {
 	$PACMAN phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
 	$PACMAN mesa-libgl libx264
 
-	## KDE4
-	#$PACMAN kde-meta-kdebase
-	#$PACMAN kactivities-frameworks kdebase-plasma
-	#$PACMAN kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	#$PACMAN kcm-touchpad
+	## If KDE4 installed
+	#pacman -Rc kdebase-workspace
+	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+
 	## KDE5
-	pacman -Rc kdebase-workspace
-	pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	$PACMAN plasma-meta plasma-workspace plasma-desktop plasma-mediacenter plasma-nm
+	$PACMAN plasma-meta plasma-desktop plasma-workspace
+	$PACMAN plasma-nm plasma-pa
 	$PACMAN sddm sddm-kcm
 	### temporary 
-	$PACMAN kde-meta-kdebase
+	#$PACMAN kde-meta-kdebase
 
-	## KDE common
-	$PACMAN kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
-	$PACMAN kwebkitpart
+	## KDE packages
+	#$PACMAN kde-meta-kdeadmin kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork kde-meta-kdeutils
 	$PACMAN kate kio-extras
 	#$PACMAN kcm-fcitx
 	$PACMAN ktorrent 
@@ -245,23 +240,20 @@ function kde_desktop() {
 	$PACMAN avidemux-qt
 	$PACMAN k3b amarok 
 	#$PACMAN digikam
-	$PACMAN baloo-frameworks
-	#$PACMAN calligra-meta
 	$PACMAN kde-gtk-config
-	$PACMAN kmplot analitza
-	#$PACMAN libreoffice-kde4
+	$PACMAN kmplot
 }
 
 ## KDE dev
 function kde_dev() {
-	$PACMAN kdevelop kdevelop-python
+	$PACMAN kde-meta-kdesdk
 }
 
 ## QT dev
 function qt_dev() {
 	$PACMAN qt5 qtcreator
-	$PACMAN qgit
-	$PACMAN sqlitebrowser
+	#$PACMAN qgit
+	#$PACMAN sqlitebrowser
 }
 
 ## Lib32 apps
@@ -314,8 +306,8 @@ function install_all_modules() {
 	virtualization
 	generic_gtk_themes
 	kde_desktop
+	#kde_dev
 	qt_dev
-	kde_dev
 	lib32_apps
 	systemd_services
 }
