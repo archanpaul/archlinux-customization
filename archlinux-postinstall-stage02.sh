@@ -206,6 +206,7 @@ function localized_input_systems() {
 ## Virtualization
 function virtualization() {
 	$PACMAN qemu libvirt 
+	$PACMAN virtualbox
 }
 
 ## Generic gtk Themes
