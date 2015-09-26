@@ -240,7 +240,8 @@ function kde_desktop() {
 	$PACMAN recorditnow
 	$PACMAN skanlite
 	$PACMAN avidemux-qt
-	$PACMAN k3b amarok 
+	$PACMAN cdrdao k3b 
+	$PACMAN amarok 
 	#$PACMAN digikam
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
