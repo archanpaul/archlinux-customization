@@ -9,6 +9,7 @@ hwclock --systohc
 hwclock --adjust
 
 echo "LANG=\"en_US.UTF8\"" > /etc/locale.conf
+echo "LC_ALL=\"en_US.UTF8\"" > /etc/locale.conf
 echo "LC_MESSAGES=\"C\"" >> /etc/locale.conf
 
 cp /etc/locale.gen /etc/locale.gen.orig

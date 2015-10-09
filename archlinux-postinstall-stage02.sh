@@ -64,10 +64,11 @@ function printing() {
 function dev_tools() {
 	$PACMAN base-devel 
 	$PACMAN binutils gcc gcc-libs libtool
-	$PACMAN gcc-go
 	#$PACMAN multilib-devel 
 	#$PACMAN binutils-multilib gcc-multilib gcc-libs-multilib libtool-multilib
+	#$PACMAN gcc-go
 	#$PACMAN gcc-go-multilib
+	$PACMAN go
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
 	$PACMAN flex bison gperf 
 	$PACMAN gdb valgrind
@@ -233,7 +234,8 @@ function kde_desktop() {
 
 	## KDE packages
 	$PACMAN kde-meta-kdebase kde-meta-kdeadmin kde-meta-kdeutils
-	$PACMAN kde-meta-kdegraphics kde-meta-kdenetwork kde-meta-multimedia
+	$PACMAN kde-meta-kdegraphics kde-meta-kdenetwork
+	#$PACMAN kde-meta-multimedia
 	$PACMAN konsole kate kio-extras
 	#$PACMAN kcm-fcitx
 	$PACMAN ktorrent 
@@ -290,9 +292,9 @@ function install_all_modules() {
 	scm
 	printing
 	dev_tools
+	java_dev_tools
 	android_dev_tools
 	dart_dev_tools
-	java_dev_tools
 	python_dev_tools
 	archlinux_dev_tools
 	multimedia
