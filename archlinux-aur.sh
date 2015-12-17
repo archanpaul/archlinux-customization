@@ -34,6 +34,7 @@ function printing_packages() {
 
 function browser_packages() {
     $AURGET_CMD google-chrome
+    $AURGET_CMD google-talkplugin
 }
 
 function font_packages() {
@@ -51,6 +52,10 @@ function java_packages() {
 function javascript_packages() {
     $AURGET_CMD nodejs-npm2arch
     $AURGET_CMD nodejs-bower
+}
+
+function go_packages() {
+    $AURGET_CMD gocode-git
 }
 
 function cordova_packages() {
@@ -78,9 +83,11 @@ function install_modules() {
     android_packages
     printing_packages
     font_packages
-    java_packages
+    #java_packages
     javascript_packages
-    browser_packages
+    go_packages
+    ide_packages
+    #browser_packages
     #coredova_packages
     #debian_packages
 }
