@@ -422,6 +422,7 @@ RSYNC_INCLUDES_PKG="
 --include=ktextwidgets-[0-9]* \
 --include=ktimer-[0-9]* \
 --include=ktorrent-[0-9]* \
+--include=kuiserver-[0-9]* \
 --include=kunitconversion-[0-9]* \
 --include=kwallet-[0-9]* \
 --include=kwallet-pam-[0-9]* \
