@@ -212,7 +212,7 @@ function virtualization() {
 
 ## Generic gtk Themes
 function generic_gtk_themes() {
-	$PACMAN gtk-engine-murrine gtk-theme-orion
+	$PACMAN gtk-engine-murrine 
 }
 
 ## KDE desktop
