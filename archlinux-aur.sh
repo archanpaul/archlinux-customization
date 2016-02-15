@@ -41,6 +41,7 @@ function browser_packages() {
 function font_packages() {
     $PACMAN_UNINSTALL_CMD ttf-droid
     $PACMAN_UNINSTALL_CMD ttf-oxygen
+    $PACMAN_UNINSTALL_CMD noto-fonts
     $AURGET_CMD ttf-google-fonts-git
 }
 
@@ -52,7 +53,6 @@ function java_packages() {
 
 function javascript_packages() {
     $AURGET_CMD nodejs-npm2arch
-    $AURGET_CMD nodejs-bower
 }
 
 function go_packages() {
@@ -76,7 +76,11 @@ function debian_packages() {
 }
 
 function ide_pacakges() {
-    $AURGET atom-editor-bin
+    $AURGET_CMD atom-editor-bin
+}
+
+function network_pacakges() {
+    $AURGET_CMD tcptrack
 }
 
 function install_modules() {
@@ -91,6 +95,7 @@ function install_modules() {
     browser_packages
     coredova_packages
     debian_packages
+    network_pacakges
 }
 
 aurget_install

@@ -33,6 +33,7 @@ function network_tools() {
 	$PACMAN rfkill wireless_tools wpa_supplicant wpa_actiond
 	$PACMAN bluez bluez-firmware bluez-utils
 	$PACMAN networkmanager 
+	$PACMAN wireshark-cli
 }
 
 ## Xorg
@@ -249,6 +250,7 @@ function kde_desktop() {
 	#$PACMAN digikam
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
+	$PACMAN wireshark-qt
 }
 
 ## KDE dev
