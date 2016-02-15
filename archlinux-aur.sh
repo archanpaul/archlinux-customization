@@ -35,6 +35,7 @@ function printing_packages() {
 function browser_packages() {
     $AURGET_CMD google-chrome
     $AURGET_CMD google-talkplugin
+    $AURGET_CMD google-earth
 }
 
 function font_packages() {
@@ -83,16 +84,16 @@ function install_modules() {
     android_packages
     printing_packages
     font_packages
-    #java_packages
+    java_packages
     javascript_packages
     go_packages
-    ide_packages
-    #browser_packages
-    #coredova_packages
-    #debian_packages
+    ide_pacakges
+    browser_packages
+    coredova_packages
+    debian_packages
 }
 
-#aurget_install
-$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
-#install_modules 2>&1 | tee archlinux-aur.log
+aurget_install
+#$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
+install_modules 2>&1 | tee archlinux-aur.log
 

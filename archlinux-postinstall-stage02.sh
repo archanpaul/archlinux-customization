@@ -96,6 +96,8 @@ function dart_dev_tools() {
 
 ## Java dev-tools
 function java_dev_tools() {
+	# temporary fix
+	pacman -S java-environment
 	$PACMAN jre8-openjdk
 	$PACMAN jdk8-openjdk
 	$PACMAN icedtea-web
@@ -263,6 +265,7 @@ function qt_dev() {
 
 ## Lib32 apps
 function lib32_apps() {
+	$PACMAN lib32-harfbuzz
 	$PACMAN skype
 	#dependency to show QT4 notification in plasma5
 	$PACMAN lib32-sni-qt
