@@ -16,8 +16,9 @@ cp /etc/locale.gen /etc/locale.gen.orig
 awk '{gsub(/#en_US ISO-8859-1/, "en_US ISO-8859-1"); gsub(/#en_US.UTF-8 UTF-8/, "en_US.UTF-8 UTF-8"); gsub(/#en_IN UTF-8/, "en_IN UTF-8"); print}' /etc/locale.gen.orig > /etc/locale.gen
 locale-gen 
 
-cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\""); print}' mkinitcpio.conf.orig > mkinitcpio.conf
+## Moved to install script
+#cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
+#awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\""); print}' mkinitcpio.conf.orig > mkinitcpio.conf
 mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
