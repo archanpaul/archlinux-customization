@@ -32,8 +32,8 @@ pacman -Sy
 
 ## disk partitioning, LVM
 HDD=/dev/sda
-BOOT_PART=$HDD"1"
-LVM_PART=$HDD"2"
+BOOT_PART=$HDD"2"
+LVM_PART=$HDD"3"
 LVM_SWAP_SIZE=2G
 LVM_ROOT_SIZE=80G
 
@@ -43,10 +43,10 @@ partprobe
 
 modprobe dm_mod
 lvmdiskscan
-pvcreate LVM_PART
+pvcreate $LVM_PART
 pvdisplay
 
-vgcreate vg LVM_PART
+vgcreate vg $LVM_PART
 lvcreate -L $LVM_SWAP_SIZE vg -n lvswap
 lvcreate -L $LVM_ROOT_SIZE vg -n lvroot
 lvcreate -l +100%FREE vg -n lvhome
@@ -56,9 +56,9 @@ vgscan
 vgchange -ay
 
 ## formatting, mounting
-SWAP_PART=/dev/mapper/vg-lvswap
-ROOT_PART=/dev/mapper/vg-lvroot
-HOME=PART=/dev/mapper/vg-lvhome
+SWAP_PART=/dev/vg/lvswap
+ROOT_PART=/dev/vg/lvroot
+HOME_PART=/dev/vg/lvhome
 
 INSTALL_TARGET="/mnt"
 
@@ -69,6 +69,9 @@ mkfs.ext4 -m 1 -L root $ROOT_PART
 tune2fs -c 20 $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
+
+mkdir $INSTALL_TARGET/boot/
+mkfs.ext4 -m 0 -L boot $BOOT_PART
 mount $BOOT_PART $INSTALL_TARGET/boot/
 
 pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux lvm2
