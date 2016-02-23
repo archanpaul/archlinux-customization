@@ -77,6 +77,7 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor-bin
+    echo "apm install linter linter-flake8 atom-runner autosave atom-django python-tools dartlang"
 }
 
 function network_pacakges() {
@@ -98,7 +99,7 @@ function install_modules() {
     network_pacakges
 }
 
-aurget_install
-#$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
-install_modules 2>&1 | tee archlinux-aur.log
+#aurget_install
+#install_modules 2>&1 | tee archlinux-aur.log
+$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
 
