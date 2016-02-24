@@ -36,6 +36,7 @@ function browser_packages() {
     $AURGET_CMD google-chrome
     $AURGET_CMD google-talkplugin
     $AURGET_CMD google-earth
+    $AURGET_CMD chrome-remote-desktop 
 }
 
 function font_packages() {
@@ -77,7 +78,6 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor-bin
-    echo "apm install linter linter-flake8 atom-runner autosave atom-django python-tools dartlang"
 }
 
 function network_pacakges() {
