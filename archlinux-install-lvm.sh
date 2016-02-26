@@ -75,7 +75,7 @@ mkdir $INSTALL_TARGET/boot/
 mkfs.ext4 -m 0 -L boot $BOOT_PART
 mount $BOOT_PART $INSTALL_TARGET/boot/
 
-pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux lvm2
+pacstrap $INSTALL_TARGET/ base grub linux lvm2 vim net-tools wget rsync
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART
@@ -89,6 +89,9 @@ awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=
 chroot $INSTALL_TARGET /bin/bash -c "mkinitcpio -p linux"
 
 cp $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh $INSTALL_TARGET/root/
+wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
+wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
+
 echo "Run : bash /root/archlinux-postinstall-stage01.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
 

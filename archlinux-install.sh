@@ -13,7 +13,6 @@ hwclock --hctosys
 hwclock --adjust
 
 ## setup package repository
-#echo "Server=http://ftp.iitm.ac.in/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 cat > /etc/pacman.conf << "EOF"
 [options]
@@ -50,7 +49,7 @@ tune2fs -c 20 $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
-pacstrap $INSTALL_TARGET/ base grub rsync vim net-tools linux
+pacstrap $INSTALL_TARGET/ base grub linux vim net-tools wget rsync
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART
@@ -59,8 +58,10 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> /mnt/etc/fstab
 
-wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh $INSTALL_TARGET/root/
-wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh $INSTALL_TARGET/root/
+cp $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh $INSTALL_TARGET/root/
+wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
+wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
+
 echo "Run : bash /root/archlinux-postinstall-stage01.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
 

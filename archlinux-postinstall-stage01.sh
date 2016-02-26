@@ -2,6 +2,8 @@
 
 MY_HOSTNAME=apt
 INSTALL_TARGET_DISK=/dev/sda
+INSTALL_SRC="http://192.168.168.101"
+#INSTALL_SRC="file://run/archiso/img_dev/"
 
 hwclock --localtime -w
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
@@ -31,7 +33,7 @@ vim /boot/grub/grub.cfg
 grub-install $INSTALL_TARGET_DISK
 
 ## setup package repository
-echo "Server=file:///home/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
+echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 mv /etc/pacman.conf /etc/pacman.conf.orig
 awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist"); print}' /etc/pacman.conf.orig > /etc/pacman.conf
 
