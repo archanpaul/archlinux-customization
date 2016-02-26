@@ -1,7 +1,8 @@
 #!/bin/bash
 
 
-INSTALL_SRC="/run/archiso/img_dev/"
+INSTALL_SRC="http://192.168.168.101"
+#INSTALL_SRC="file:///run/archiso/img_dev/"
 
 # In bootup console
 
@@ -13,7 +14,7 @@ hwclock --adjust
 
 ## setup package repository
 #echo "Server=http://ftp.iitm.ac.in/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
-echo "Server=file://$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
+echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 cat > /etc/pacman.conf << "EOF"
 [options]
 Architecture = x86_64

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-MY_HOSTNAME=arpc
+MY_HOSTNAME=apt
 INSTALL_TARGET_DISK=/dev/sda
 
 hwclock --localtime -w
