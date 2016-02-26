@@ -13,7 +13,6 @@ hwclock --hctosys
 hwclock --adjust
 
 ## setup package repository
-#echo "Server=http://ftp.iitm.ac.in/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 cat > /etc/pacman.conf << "EOF"
 [options]
