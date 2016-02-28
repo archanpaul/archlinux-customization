@@ -139,6 +139,7 @@ RSYNC_INCLUDES_PKG="
 --include=farstream-[0-9]* \
 --include=fcgi-[0-9]* \
 --include=ffmpeg-[0-9]* \
+--include=ffmpeg2.8-[0-9]* \
 --include=fftw-[0-9]* \
 --include=file-[0-9]* \
 --include=filelight-[0-9]* \
