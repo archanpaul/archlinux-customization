@@ -16,4 +16,5 @@ gpasswd -a $USER_NAME power
 gpasswd -a $USER_NAME users
 gpasswd -a $USER_NAME kvm
 gpasswd -a $USER_NAME adbusers
+gpasswd -a $USER_NAME docker
 
