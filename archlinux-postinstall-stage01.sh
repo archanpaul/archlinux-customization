@@ -1,9 +1,9 @@
 #!/bin/bash
 
 MY_HOSTNAME=apt
-INSTALL_TARGET_DISK=/dev/sda
 INSTALL_SRC="http://192.168.168.101"
-#INSTALL_SRC="file://run/archiso/img_dev/"
+#INSTALL_SRC="file:///home"
+INSTALL_TARGET_DISK=/dev/sda
 
 hwclock --localtime -w
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime

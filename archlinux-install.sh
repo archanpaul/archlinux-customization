@@ -2,7 +2,7 @@
 
 
 INSTALL_SRC="http://192.168.168.101"
-#INSTALL_SRC="file://run/archiso/img_dev/"
+#INSTALL_SRC="file:///run/archiso/img_dev"
 
 # In bootup console
 
@@ -49,7 +49,7 @@ tune2fs -c 20 $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
-pacstrap $INSTALL_TARGET/ base grub linux vim net-tools wget rsync
+pacstrap $INSTALL_TARGET/ base grub linux vim net-tools curl rsync
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART
@@ -58,9 +58,8 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> /mnt/etc/fstab
 
-cp $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh $INSTALL_TARGET/root/
-wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
-wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
 
 echo "Run : bash /root/archlinux-postinstall-stage01.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
