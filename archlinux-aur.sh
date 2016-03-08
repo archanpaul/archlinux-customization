@@ -35,7 +35,7 @@ function printing_packages() {
 function browser_packages() {
     $AURGET_CMD google-chrome
     $AURGET_CMD google-talkplugin
-    $AURGET_CMD google-earth
+    #$AURGET_CMD google-earth
     $AURGET_CMD chrome-remote-desktop 
 }
 
@@ -85,7 +85,7 @@ function network_pacakges() {
 }
 
 function install_modules() {
-    power_management_packages
+    #power_management_packages
     android_packages
     printing_packages
     font_packages
@@ -95,11 +95,11 @@ function install_modules() {
     ide_pacakges
     browser_packages
     coredova_packages
-    debian_packages
+    #debian_packages
     network_pacakges
 }
 
-#aurget_install
-#install_modules 2>&1 | tee archlinux-aur.log
+aurget_install
+install_modules 2>&1 | tee archlinux-aur.log
 $AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
 
