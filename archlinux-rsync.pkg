@@ -59,6 +59,7 @@ RSYNC_INCLUDES_PKG="
 --include=bridge-utils-[0-9]* \
 --include=bzip2-[0-9]* \
 --include=bzr-[0-9]* \
+--include=c-ares-[0-9]* \
 --include=ca-certificates-[0-9]* \
 --include=ca-certificates-cacert-[0-9]* \
 --include=ca-certificates-mozilla-[0-9]* \
