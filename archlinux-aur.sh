@@ -84,6 +84,10 @@ function network_pacakges() {
     $AURGET_CMD tcptrack
 }
 
+function utils_pacakges() {
+    $AURGET_CMD ms-sys
+}
+
 function install_modules() {
     #power_management_packages
     android_packages
@@ -97,9 +101,10 @@ function install_modules() {
     coredova_packages
     #debian_packages
     network_pacakges
+    #utils_pacakges
 }
 
-aurget_install
-install_modules 2>&1 | tee archlinux-aur.log
+#aurget_install
+#install_modules 2>&1 | tee archlinux-aur.log
 $AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
 
