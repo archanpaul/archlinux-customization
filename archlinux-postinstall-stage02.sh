@@ -251,6 +251,7 @@ function kde_desktop() {
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
 	$PACMAN wireshark-qt
+	$PACMAN kdenetwork-krdc freerdp
 }
 
 ## KDE dev
