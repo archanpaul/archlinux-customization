@@ -160,6 +160,7 @@ RSYNC_INCLUDES_PKG="
 --include=foomatic-db-engine-[0-9]* \
 --include=foomatic-db-nonfree-[0-9]* \
 --include=frameworkintegration-[0-9]* \
+--include=freerdp-[0-9]* \
 --include=freetype2-[0-9]* \
 --include=fribidi-[0-9]* \
 --include=fuse-[0-9]* \
