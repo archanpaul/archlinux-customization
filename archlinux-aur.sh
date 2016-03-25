@@ -25,6 +25,10 @@ function android_packages() {
     $AURGET_CMD repo
     $AURGET_CMD android-sdk
     $AURGET_CMD android-studio
+
+    $AURGET_CMD libtinfo
+    gpg --recv-keys 702353E0F7E48EDB
+    $AURGET_CMD ncurses5-compat-libs
     $AURGET_CMD android-ndk
 }
 
@@ -84,12 +88,15 @@ function network_pacakges() {
     $AURGET_CMD tcptrack
 }
 
-function utils_pacakges() {
+function util_pacakges() {
     $AURGET_CMD ms-sys
+    
+    $AURGET_CMD libpng12 lib32-libpng12
+    $AURGET_CMD teamviewer
 }
 
 function install_modules() {
-    #power_management_packages
+    power_management_packages
     android_packages
     printing_packages
     font_packages
@@ -101,7 +108,7 @@ function install_modules() {
     coredova_packages
     #debian_packages
     network_pacakges
-    #utils_pacakges
+    util_pacakges
 }
 
 #aurget_install
