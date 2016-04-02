@@ -262,8 +262,8 @@ function kde_dev() {
 ## QT dev
 function qt_dev() {
 	$PACMAN qt5 qtcreator
-	#$PACMAN qgit
-	#$PACMAN sqlitebrowser
+	$PACMAN qgit
+	$PACMAN sqlitebrowser
 }
 
 ## Lib32 apps
