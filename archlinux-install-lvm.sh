@@ -83,13 +83,8 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> $INSTALL_TARGET/etc/fstab
 
-cp $INSTALL_TARGET/etc/mkinitcpio.conf $INSTALL_TARGET/etc/mkinitcpio.conf.orig
-awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\""); print}' $INSTALL_TARGET/etc/mkinitcpio.conf.orig > $INSTALL_TARGET/etc/mkinitcpio.conf
-chroot $INSTALL_TARGET /bin/bash -c "mkinitcpio -p linux"
-
-cp $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh $INSTALL_TARGET/root/
-wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
-wget $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh -O $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
 
 echo "Run : bash /root/archlinux-postinstall-stage01.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
