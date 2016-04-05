@@ -29,7 +29,7 @@ function android_packages() {
     $AURGET_CMD libtinfo
     gpg --recv-keys 702353E0F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
-    $AURGET_CMD android-ndk
+    #$AURGET_CMD android-ndk
 }
 
 function printing_packages() {
@@ -90,7 +90,8 @@ function network_pacakges() {
 
 function util_pacakges() {
     $AURGET_CMD ms-sys
-    
+ 
+    sudo pacman -S multilib-devel   
     $AURGET_CMD libpng12 lib32-libpng12
     $AURGET_CMD teamviewer
 }
@@ -111,7 +112,7 @@ function install_modules() {
     util_pacakges
 }
 
-#aurget_install
-#install_modules 2>&1 | tee archlinux-aur.log
+aurget_install
+install_modules 2>&1 | tee archlinux-aur.log
 $AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
 
