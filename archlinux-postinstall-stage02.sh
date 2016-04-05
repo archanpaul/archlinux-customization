@@ -252,6 +252,7 @@ function kde_desktop() {
 	$PACMAN kmplot
 	$PACMAN wireshark-qt
 	$PACMAN kdenetwork-krdc freerdp
+	$PACMAN kompare umbrello
 }
 
 ## KDE dev
