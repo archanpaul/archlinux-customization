@@ -73,6 +73,7 @@ RSYNC_INCLUDES_PKG="
 --include=cairo-[0-9]* \
 --include=cairomm-[0-9]* \
 --include=calibre-[0-9]* \
+--include=cantarell-fonts-[0-9]* \
 --include=c-ares-[0-9]* \
 --include=cdparanoia-[0-9]* \
 --include=cdrdao-[0-9]* \
