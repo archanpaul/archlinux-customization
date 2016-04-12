@@ -14,6 +14,7 @@ hwclock --adjust
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
+echo "#Server=http://mirror.de.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist 
 cat > /etc/pacman.conf << "EOF"
 [options]
 Architecture = x86_64

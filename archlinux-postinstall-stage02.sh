@@ -39,6 +39,7 @@ function network_tools() {
 ## Xorg
 function xorg() {
 	$PACMAN xorg-server 
+	$PACMAN xorg-server-xwayland
 	$PACMAN mesa-libgl
 	$PACMAN xf86-video-intel intel-dri libva-intel-driver 
 	$PACMAN xf86-input-evdev xf86-input-synaptics 
@@ -66,9 +67,6 @@ function dev_tools() {
 	$PACMAN base-devel 
 	$PACMAN binutils gcc gcc-libs libtool
 	#$PACMAN multilib-devel 
-	#$PACMAN binutils-multilib gcc-multilib gcc-libs-multilib libtool-multilib
-	#$PACMAN gcc-go
-	#$PACMAN gcc-go-multilib
 	$PACMAN go
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
 	$PACMAN flex bison gperf 
@@ -98,10 +96,15 @@ function dart_dev_tools() {
 ## Java dev-tools
 function java_dev_tools() {
 	# temporary fix
-	pacman -S java-environment
-	$PACMAN jre8-openjdk
+	#pacman -S java-environment
+	#$PACMAN jre8-openjdk
 	$PACMAN jdk8-openjdk
 	$PACMAN icedtea-web
+}
+
+## PHP dev-tools
+function php_dev_tools() {
+	$PACMAN php php-apache
 }
 
 ## Python dev-tools
@@ -218,11 +221,20 @@ function generic_gtk_themes() {
 	$PACMAN gtk-engine-murrine 
 }
 
+## GNOME desktop
+function gnome_desktop() {
+	$PACMAN gnome
+	$PACMAN gnome-extra
+	$PACMAN transmission-gtk
+	$PACMAN giggle
+	$PACMAN wireshark-gtk
+}
+
 ## KDE desktop
 function kde_desktop() {
 	## Dependency packages for auto selection
 	$PACMAN phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
-	$PACMAN mesa-libgl libx264
+	#$PACMAN mesa-libgl libx264
 
 	## If KDE4 installed
 	#pacman -Rc kdebase-workspace
@@ -231,33 +243,27 @@ function kde_desktop() {
 	## KDE5
 	$PACMAN plasma-meta plasma-desktop plasma-workspace
 	$PACMAN plasma-nm plasma-pa
-	$PACMAN sddm sddm-kcm
-	### temporary 
-	#$PACMAN kde-meta-kdebase
+	$PACMAN kde-meta-kdebase kde-meta-kdeadmin
+	$PACMAN kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork
+	$PACMAN kde-meta-kdepim kde-meta-kdeutils
 
-	## KDE packages
-	$PACMAN kde-meta-kdebase kde-meta-kdeadmin kde-meta-kdeutils
-	$PACMAN kde-meta-kdegraphics kde-meta-kdenetwork
-	#$PACMAN kde-meta-multimedia
-	$PACMAN konsole kate kio-extras
-	#$PACMAN kcm-fcitx
+	## KDE extra apps
 	$PACMAN ktorrent 
-	$PACMAN recorditnow
 	$PACMAN skanlite
-	$PACMAN avidemux-qt
 	$PACMAN cdrdao k3b 
 	$PACMAN amarok 
-	#$PACMAN digikam
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
 	$PACMAN wireshark-qt
 	$PACMAN kdenetwork-krdc freerdp
-	$PACMAN kompare umbrello
+
+	$PACMAN sddm sddm-kcm
 }
 
 ## KDE dev
 function kde_dev() {
-	$PACMAN kde-meta-kdesdk
+	#$PACMAN kde-meta-kdesdk
+	$PACMAN kompare umbrello
 }
 
 ## QT dev
@@ -282,8 +288,8 @@ function systemd_services() {
 	systemctl enable cronie
 	systemctl enable sddm
 	systemctl enable NetworkManager
-	#systemctl enable ufw
-	#systemctl enable sshd
+	systemctl enable ufw
+	systemctl enable sshd
 	#systemctl enable httpd
 	#systemctl enable org.cups.cupsd
 }
@@ -319,8 +325,9 @@ function install_all_modules() {
 	#localized_input_systems
 	virtualization
 	generic_gtk_themes
+	#gnome_desktop
 	kde_desktop
-	#kde_dev
+	kde_dev
 	qt_dev
 	lib32_apps
 	systemd_services
