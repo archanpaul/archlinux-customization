@@ -518,6 +518,7 @@ RSYNC_INCLUDES_PKG="
 --include=lib32-libxext-[0-9]* \
 --include=lib32-libxfixes-[0-9]* \
 --include=lib32-libxi-[0-9]* \
+--include=lib32-libxinerama-[0-9]* \
 --include=lib32-libxml2-[0-9]* \
 --include=lib32-libxrandr-[0-9]* \
 --include=lib32-libxrender-[0-9]* \
