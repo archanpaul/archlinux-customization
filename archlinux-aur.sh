@@ -23,7 +23,11 @@ function power_management_packages() {
 
 function android_packages() {
     $AURGET_CMD repo
+
+    gpg --keyserver pgp.mit.edu --recv-keys F7E48EDB
+    $AURGET_CMD ncurses5-compat-libs
     $AURGET_CMD android-sdk
+
     $AURGET_CMD android-studio
 
     $AURGET_CMD libtinfo
@@ -104,15 +108,15 @@ function install_modules() {
     java_packages
     javascript_packages
     go_packages
-    ide_pacakges
     browser_packages
     coredova_packages
     #debian_packages
     network_pacakges
     util_pacakges
+    #ide_pacakges
 }
 
-aurget_install
+#aurget_install
 install_modules 2>&1 | tee archlinux-aur.log
-$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
+#$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
 
