@@ -19,6 +19,9 @@ function power_management_packages() {
     $AURGET_CMD laptop-mode-tools
     sudo systemctl enable laptop-mode
     sudo systemctl restart laptop-mode
+    #$AURGET_CMD systemd-vgaswitcheroo-units
+    #sudo systemctl enable vgaswitcheroo
+    #sudo systemctl restart vgaswitcheroo
 }
 
 function android_packages() {
