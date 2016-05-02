@@ -1,4 +1,4 @@
-"
+RSYNC_INCLUDES_PKG="
 --include=a52dec-[0-9]* \
 --include=aalib-[0-9]* \
 --include=abs-[0-9]* \
@@ -1278,4 +1278,4 @@
 --include=zita-resampler-[0-9]* \
 --include=zlib-[0-9]* \
 --include=zvbi-[0-9]* \
-RSYNC_INCLUDES_PKG="
+"
