@@ -17,6 +17,7 @@ function console_tools() {
 	$PACMAN acpi acpid pm-utils powertop
 	$PACMAN hdparm smartmontools
 	$PACMAN lshw
+	$PACMAN schroot
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
 	$PACMAN minicom
