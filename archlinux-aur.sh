@@ -19,9 +19,6 @@ function power_management_packages() {
     $AURGET_CMD laptop-mode-tools
     sudo systemctl enable laptop-mode
     sudo systemctl restart laptop-mode
-    #$AURGET_CMD systemd-vgaswitcheroo-units
-    #sudo systemctl enable vgaswitcheroo
-    #sudo systemctl restart vgaswitcheroo
 }
 
 function android_packages() {
@@ -81,7 +78,7 @@ function cordova_packages() {
 
 function debian_packages() {
     # debootstrap
-    $AURGET_CMD debootstrap
+    $AURGET_CMD cdebootstrap-static 
     $AURGET_CMD debian-archive-keyring
     $AURGET_CMD ubuntu-keyring
     $AURGET_CMD $aurcmd gnupg1
@@ -103,6 +100,26 @@ function util_pacakges() {
     $AURGET_CMD teamviewer
 }
 
+function arm_toolchain() {
+    gpg --keyserver pgp.mit.edu --recv-keys 79BE3E4300411886
+    gpg --keyserver pgp.mit.edu --recv-keys 38DBBDC86092693E
+    $AURGET_CMD arm-linux-gnueabihf-linux-api-headers
+    $AURGET_CMD arm-linux-gnueabihf-binutils
+
+    gpg --keyserver pgp.mit.edu --recv-keys 25EF0A436C2A4AFF
+    $AURGET_CMD arm-linux-gnueabihf-gcc-stage1 arm-linux-gnueabihf-glibc-headers
+    $PACMAN_UNINSTALL_CMD arm-linux-gnueabihf-gcc-stage1
+    $AURGET_CMD arm-linux-gnueabihf-gcc-stage2
+
+    # compile step
+    $AURGET_CMD arm-linux-gnueabihf-glibc
+    $PACMAN_UNINSTALL_CMD arm-linux-gnueabihf-gcc-stage2 arm-linux-gnueabihf-glibc-headers
+    #install step
+    $AURGET_CMD arm-linux-gnueabihf-glibc
+    
+    $AURGET_CMD arm-linux-gnueabihf-gcc 
+}
+
 function install_modules() {
     power_management_packages
     android_packages
@@ -117,9 +134,10 @@ function install_modules() {
     network_pacakges
     util_pacakges
     #ide_pacakges
+    arm_toolchain
 }
 
-#aurget_install
+aurget_install
 install_modules 2>&1 | tee archlinux-aur.log
-#$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
+$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
 
