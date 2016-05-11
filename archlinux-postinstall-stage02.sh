@@ -130,7 +130,7 @@ function archlinux_dev_tools() {
 
 ## Multimedia
 function multimedia() {
-	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly
+	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
 	$PACMAN gstreamer0.10 gstreamer0.10-base-plugins gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins
 	$PACMAN pulseaudio pulseaudio-alsa 
 	$PACMAN alsa-utils

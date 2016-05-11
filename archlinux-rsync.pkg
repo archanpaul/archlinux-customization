@@ -224,6 +224,7 @@ RSYNC_INCLUDES_PKG="
 --include=gsfonts-[0-9]* \
 --include=gsl-[0-9]* \
 --include=gsm-[0-9]* \
+--include=gst-libav-[0-9]* \
 --include=gst-plugins-bad-[0-9]* \
 --include=gst-plugins-base-[0-9]* \
 --include=gst-plugins-base-libs-[0-9]* \
