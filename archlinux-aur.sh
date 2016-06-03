@@ -78,10 +78,11 @@ function cordova_packages() {
 
 function debian_packages() {
     # debootstrap
-    $AURGET_CMD cdebootstrap-static 
+    ##$PACMAN_CMD debootstrap 
     $AURGET_CMD debian-archive-keyring
     $AURGET_CMD ubuntu-keyring
-    $AURGET_CMD $aurcmd gnupg1
+    gpg --keyserver pgp.mit.edu --recv-keys 2071B08A33BD3F06
+    $AURGET_CMD gnupg1
 }
 
 function ide_pacakges() {

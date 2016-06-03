@@ -109,6 +109,7 @@ RSYNC_INCLUDES_PKG="
 --include=dbus-glib-[0-9]* \
 --include=dcadec-[0-9]* \
 --include=dconf-[0-9]* \
+--include=debootstrap-[0-9]* \
 --include=desktop-file-utils-[0-9]* \
 --include=device-mapper-[0-9]* \
 --include=devtools-[0-9]* \
