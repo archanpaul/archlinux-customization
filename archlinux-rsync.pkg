@@ -1,4 +1,8 @@
 RSYNC_INCLUDES_PKG="
+--include=vte3-[0-9]* \
+--include=virglrenderer-[0-9]* \
+--include=vte-common-[0-9]* \
+--include=sdl2-[0-9]* \
 --include=a52dec-[0-9]* \
 --include=aalib-[0-9]* \
 --include=abs-[0-9]* \
