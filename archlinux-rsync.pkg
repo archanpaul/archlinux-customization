@@ -1070,6 +1070,7 @@ RSYNC_INCLUDES_PKG="
 --include=qtcreator-[0-9]* \
 --include=qtscriptgenerator-[0-9]* \
 --include=qtwebkit-[0-9]* \
+--include=pwgen-[0-9]* \
 --include=randrproto-[0-9]* \
 --include=raptor-[0-9]* \
 --include=rasqal-[0-9]* \

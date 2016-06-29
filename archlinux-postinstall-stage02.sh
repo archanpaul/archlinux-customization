@@ -23,6 +23,7 @@ function console_tools() {
 	$PACMAN dvd+rw-tools 
 	$PACMAN zip unzip p7zip bzip2 unrar lxsplit
 	$PACMAN schroot debootstrap
+	$PACMAN pwgen
 }
 
 ## Network tools
