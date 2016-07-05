@@ -119,7 +119,7 @@ function python_dev_tools() {
 	$PACMAN python-pip python-virtualenv python-setuptools 
 	$PACMAN python-six
 	$PACMAN python-docutils
-	$PACMAN pep8-python3
+	$PACMAN python-pycodestyle
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
 }
