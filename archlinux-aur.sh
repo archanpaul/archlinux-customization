@@ -22,8 +22,6 @@ function power_management_packages() {
 }
 
 function android_packages() {
-    $AURGET_CMD repo
-
     gpg --keyserver pgp.mit.edu --recv-keys F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
     $AURGET_CMD android-sdk
@@ -136,11 +134,11 @@ function install_modules() {
     #debian_packages
     network_pacakges
     util_pacakges
-    #ide_pacakges
-    arm_toolchain
+    ide_pacakges
+    #arm_toolchain
 }
 
 #aurget_install
 #install_modules 2>&1 | tee archlinux-aur.log
-$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur.log
+$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
 

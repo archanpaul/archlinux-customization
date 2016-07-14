@@ -1090,6 +1090,7 @@ RSYNC_INCLUDES_PKG="
 --include=redland-[0-9]* \
 --include=reiserfsprogs-[0-9]* \
 --include=renderproto-[0-9]* \
+--include=repo-[0-9]* \
 --include=rest-[0-9]* \
 --include=rfkill-[0-9]* \
 --include=rsync-[0-9]* \

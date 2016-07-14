@@ -55,7 +55,7 @@ function xorg() {
 
 ## SCM
 function scm() {
-	$PACMAN git cgit
+	$PACMAN git cgit repo
 	$PACMAN subversion bzr mercurial
 }
 
