@@ -87,7 +87,7 @@ function debian_packages() {
 }
 
 function ide_pacakges() {
-    $AURGET_CMD atom-editor-bin
+    $AURGET_CMD atom-editor
 }
 
 function network_pacakges() {
