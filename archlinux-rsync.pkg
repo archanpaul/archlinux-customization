@@ -901,6 +901,7 @@ RSYNC_INCLUDES_PKG="
 --include=opencv-[0-9]* \
 --include=openexr-[0-9]* \
 --include=openjpeg-[0-9]* \
+--include=openjpeg2-[0-9]* \
 --include=openmpi-[0-9]* \
 --include=openresolv-[0-9]* \
 --include=openslp-[0-9]* \
