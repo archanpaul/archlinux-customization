@@ -88,7 +88,7 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor
-    echo "apm install go-plus terminal-plus linter-flake8 atom-django"
+    echo "apm install terminal-plus linter linter-flake8 atom-django go-plus go-config, go-get, gometalinter-linter, autocomplete-go, navigator-godef, gofmt, tester-go, gorename, builder-go gl-light-syntax material-ui material-syntax"
 }
 
 function network_pacakges() {
