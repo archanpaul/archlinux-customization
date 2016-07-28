@@ -22,8 +22,6 @@ function power_management_packages() {
 }
 
 function android_packages() {
-    $AURGET_CMD repo
-
     gpg --keyserver pgp.mit.edu --recv-keys F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
     $AURGET_CMD android-sdk
@@ -49,9 +47,9 @@ function browser_packages() {
 }
 
 function font_packages() {
-    $PACMAN_UNINSTALL_CMD ttf-droid
-    $PACMAN_UNINSTALL_CMD ttf-oxygen
-    $PACMAN_UNINSTALL_CMD noto-fonts
+    #$PACMAN_UNINSTALL_CMD ttf-droid
+    #$PACMAN_UNINSTALL_CMD ttf-oxygen
+    #$PACMAN_UNINSTALL_CMD noto-fonts
     $AURGET_CMD ttf-google-fonts-git
 }
 
