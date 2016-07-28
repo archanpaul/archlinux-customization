@@ -329,9 +329,9 @@ function install_all_modules() {
 	virtualization
 	generic_gtk_themes
 	#gnome_desktop
-	#kde_desktop
-	#kde_dev
-	#qt_dev
+	kde_desktop
+	kde_dev
+	qt_dev
 	lib32_apps
 	systemd_services
 }

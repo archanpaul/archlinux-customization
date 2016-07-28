@@ -21,8 +21,8 @@ RSYNC_INCLUDES_GENERIC="
 "
 #pacman -Qnq | awk '{ printf "--include="; print $0"-[0-9]* \\" }' | sort
 #RSYNC_INCLUDES_PKG=""
-#source $WORKDIR/scripts/archlinux-rsync-kde.pkg
-source $WORKDIR/scripts/archlinux-rsync-gnome.pkg
+#source $WORKDIR/scripts/archlinux-rsync-gnome.pkg
+source $WORKDIR/scripts/archlinux-rsync-kde.pkg
 
 RSYNC_INCLUDES_ISO="
 --include=archlinux-2016.07.01-dual.iso \

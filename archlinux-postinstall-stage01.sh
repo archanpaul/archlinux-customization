@@ -1,8 +1,8 @@
 #!/bin/bash
 
-MY_HOSTNAME=apt
-INSTALL_SRC="http://192.168.168.101"
-#INSTALL_SRC="file:///home"
+MY_HOSTNAME=arp
+#INSTALL_SRC="http://192.168.168.101"
+INSTALL_SRC="file:///home"
 INSTALL_TARGET_DISK=/dev/sda
 
 hwclock --localtime -w
