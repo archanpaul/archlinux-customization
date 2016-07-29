@@ -42,7 +42,6 @@ function printing_packages() {
 function browser_packages() {
     $AURGET_CMD google-chrome
     $AURGET_CMD google-talkplugin
-    #$AURGET_CMD google-earth
     $AURGET_CMD chrome-remote-desktop 
 }
 
@@ -95,31 +94,13 @@ function network_pacakges() {
 
 function util_pacakges() {
     $AURGET_CMD ms-sys
- 
+}
+
+function remote_desktop_pacakges() {
     sudo pacman -S multilib-devel   
     $AURGET_CMD libpng12 lib32-libpng12
     $AURGET_CMD lib32-libjpeg6-turbo
     $AURGET_CMD teamviewer
-}
-
-function arm_toolchain() {
-    gpg --keyserver pgp.mit.edu --recv-keys 79BE3E4300411886
-    gpg --keyserver pgp.mit.edu --recv-keys 38DBBDC86092693E
-    $AURGET_CMD arm-linux-gnueabihf-linux-api-headers
-    $AURGET_CMD arm-linux-gnueabihf-binutils
-
-    gpg --keyserver pgp.mit.edu --recv-keys 25EF0A436C2A4AFF
-    $AURGET_CMD arm-linux-gnueabihf-gcc-stage1 arm-linux-gnueabihf-glibc-headers
-    $PACMAN_UNINSTALL_CMD arm-linux-gnueabihf-gcc-stage1
-    $AURGET_CMD arm-linux-gnueabihf-gcc-stage2
-
-    # compile step
-    $AURGET_CMD arm-linux-gnueabihf-glibc
-    $PACMAN_UNINSTALL_CMD arm-linux-gnueabihf-gcc-stage2 arm-linux-gnueabihf-glibc-headers
-    #install step
-    $AURGET_CMD arm-linux-gnueabihf-glibc
-    
-    $AURGET_CMD arm-linux-gnueabihf-gcc 
 }
 
 function install_modules() {
@@ -135,8 +116,8 @@ function install_modules() {
     #debian_packages
     network_pacakges
     util_pacakges
-    ide_pacakges
-    #arm_toolchain
+    #ide_pacakges
+    #remote_desktop_pacakges
 }
 
 aurget_install

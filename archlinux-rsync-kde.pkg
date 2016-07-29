@@ -276,6 +276,7 @@ RSYNC_INCLUDES_PKG="
 --include=icu-[0-9]* \
 --include=id3-[0-9]* \
 --include=idnkit-[0-9]* \
+--include=ijs-[0-9]* \
 --include=ilmbase-[0-9]* \
 --include=imagemagick-[0-9]* \
 --include=imlib2-[0-9]* \
