@@ -25,8 +25,9 @@ RSYNC_INCLUDES_GENERIC="
 source $WORKDIR/scripts/archlinux-rsync-kde.pkg
 
 RSYNC_INCLUDES_ISO="
---include=archlinux-2016.07.01-dual.iso \
---include=archlinux-2016.07.01-dual.iso.sig \
+--include=archlinux-2016.08.01-dual.iso \
+--include=archlinux-2016.08.01-dual.iso.sig \
+--include=archlinux-bootstrap-2016.08.01-x86_64.tar.gz \
 "
 
 RSYNC_EXCLUDES="
