@@ -45,8 +45,7 @@ vim /etc/hosts
 cp /etc/default/grub /etc/default/grub.orig
 echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
 awk '{gsub(/GRUB_CMDLINE_LINUX=\"\"/, "GRUB_CMDLINE_LINUX=\"cryptdevice='$CRYPT_PART':lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
-grub-mkconfig >> /boot/grub/grub.cfg
-vim /boot/grub/grub.cfg
+grub-mkconfig > /boot/grub/grub.cfg
 grub-install $INSTALL_TARGET_DISK
 
 ## setup package repository
