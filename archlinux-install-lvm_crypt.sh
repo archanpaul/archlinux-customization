@@ -88,13 +88,13 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> $INSTALL_TARGET/etc/fstab
 
-curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01-lvm_crypt.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm_crypt.sh
 curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
 
-echo "Run : bash /root/archlinux-postinstall-stage01.sh inside chroot"
+echo "Run : bash /root/archlinux-postinstall-stage01-lvm_crypt.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
 
-rm $INSTALL_TARGET/root/archlinux-postinstall-stage01.sh
+rm $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm_crypt.sh
 umount $INSTALL_TARGET/home
 #umount $INSTALL_TARGET/boot
 umount $INSTALL_TARGET
