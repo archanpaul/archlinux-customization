@@ -21,8 +21,7 @@ RSYNC_INCLUDES_GENERIC="
 "
 #pacman -Qnq | awk '{ printf "--include="; print $0"-[0-9]* \\" }' | sort
 #RSYNC_INCLUDES_PKG=""
-#source $WORKDIR/scripts/archlinux-rsync-gnome.pkg
-source $WORKDIR/scripts/archlinux-rsync-kde.pkg
+source $WORKDIR/scripts/archlinux-rsync.pkg
 
 RSYNC_INCLUDES_ISO="
 --include=archlinux-bootstrap-2016.08.01-x86_64.tar.gz \
