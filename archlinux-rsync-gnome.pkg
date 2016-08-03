@@ -166,6 +166,7 @@ RSYNC_INCLUDES_PKG="
 --include=flashplugin-[0-9]* \
 --include=flex-[0-9]* \
 --include=fluidsynth-[0-9]* \
+--include=fluxbox-[0-9]* \
 --include=folks-[0-9]* \
 --include=fontconfig-[0-9]* \
 --include=fontsproto-[0-9]* \
