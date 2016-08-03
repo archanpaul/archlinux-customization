@@ -11,8 +11,8 @@ ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc 
 hwclock --adjust
 
-echo "LANG=\"en_US\"" > /etc/locale.conf
-echo "LC_ALL=\"en_US\"" >> /etc/locale.conf
+echo "LANG=\"en_US.UTF-8\"" > /etc/locale.conf
+echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/locale.conf
 echo "LC_MESSAGES=\"C\"" >> /etc/locale.conf
 
 cp /etc/locale.gen /etc/locale.gen.orig
@@ -42,10 +42,9 @@ echo $MY_HOSTNAME > /etc/hostname
 vim /etc/hostname
 vim /etc/hosts 
 
-echo "cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg
 cp /etc/default/grub /etc/default/grub.orig
 echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
-awk '{gsub(/GRUB_CMDLINE_LINUX=\"\"/, "GRUB_CMDLINE_LINUX=\"cryptdevice=$CRYPT_PART:lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
+awk '{gsub(/GRUB_CMDLINE_LINUX=\"\"/, "GRUB_CMDLINE_LINUX=\"cryptdevice='$CRYPT_PART':lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
 grub-mkconfig >> /boot/grub/grub.cfg
 vim /boot/grub/grub.cfg
 grub-install $INSTALL_TARGET_DISK
