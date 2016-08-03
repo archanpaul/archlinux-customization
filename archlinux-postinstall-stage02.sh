@@ -51,6 +51,7 @@ function xorg() {
 	$PACMAN xorg-xdm
 	$PACMAN xorg-xinit
 	$PACMAN xcursor-simpleandsoft
+	$PACMAN fluxbox
 }
 
 ## SCM
