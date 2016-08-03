@@ -36,7 +36,7 @@ CRYPT_PART=$HDD"2"
 ####BOOT_PART=$HDD"2"
 LVM_PART=/dev/mapper/lvm
 LVM_SWAP_SIZE=2G
-LVM_ROOT_SIZE=80G
+LVM_ROOT_SIZE=100G
 
 partprobe
 cgdisk $HDD
