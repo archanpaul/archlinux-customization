@@ -1,8 +1,8 @@
 #!/bin/bash
 
 
-INSTALL_SRC="http://192.168.168.101"
-#INSTALL_SRC="file:///run/archiso/img_dev/"
+#INSTALL_SRC="http://192.168.168.101"
+INSTALL_SRC="file:///home/"
 
 # In bootup console
 
@@ -32,7 +32,7 @@ pacman -Sy
 
 ## disk partitioning, LVM
 HDD=/dev/sda
-CRYPT_PART=$HDD"1"
+CRYPT_PART=$HDD"2"
 ####BOOT_PART=$HDD"2"
 LVM_PART=/dev/mapper/lvm
 LVM_SWAP_SIZE=2G
@@ -43,8 +43,8 @@ cgdisk $HDD
 partprobe 
 
 modprobe dm_crypt
-cryptsetup luksFormat CRYPT_PART
-cryptsetup luksOpen CRYPT_PART lvm
+cryptsetup luksFormat $CRYPT_PART
+cryptsetup luksOpen $CRYPT_PART lvm
 
 modprobe dm_mod
 lvmdiskscan
