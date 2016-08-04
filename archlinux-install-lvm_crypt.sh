@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+HOSTNAME=arp
 #INSTALL_SRC="http://192.168.168.101"
 INSTALL_SRC="file:///home/"
 
@@ -34,7 +34,7 @@ pacman -Sy
 HDD=/dev/sda
 CRYPT_PART=$HDD"2"
 ####BOOT_PART=$HDD"2"
-LVM_PART=/dev/mapper/lvm
+LVM_PART=/dev/mapper/$HOSTNAME-lvm
 LVM_SWAP_SIZE=2G
 LVM_ROOT_SIZE=100G
 
@@ -44,26 +44,26 @@ partprobe
 
 modprobe dm_crypt
 cryptsetup luksFormat $CRYPT_PART
-cryptsetup luksOpen $CRYPT_PART lvm
+cryptsetup luksOpen $CRYPT_PART $HOSTNAME-lvm
 
 modprobe dm_mod
 lvmdiskscan
 pvcreate $LVM_PART
 pvdisplay
 
-vgcreate vg $LVM_PART
-lvcreate -L $LVM_SWAP_SIZE vg -n swap
-lvcreate -L $LVM_ROOT_SIZE vg -n root
-lvcreate -l +100%FREE vg -n home
+vgcreate $HOSTNAME-vg $LVM_PART
+lvcreate -L $LVM_SWAP_SIZE $HOSTNAME-vg -n swap
+lvcreate -L $LVM_ROOT_SIZE $HOSTNAME-vg -n root
+lvcreate -l +100%FREE $HOSTNAME-vg -n home
 lvdisplay
 
 vgscan
 vgchange -ay
 
 ## formatting, mounting
-SWAP_PART=/dev/mapper/vg-swap
-ROOT_PART=/dev/mapper/vg-root
-HOME_PART=/dev/mapper/vg-home
+SWAP_PART=/dev/$HOSTNAME-vg/swap
+ROOT_PART=/dev/$HOSTNAME-vg/root
+HOME_PART=/dev/$HOSTNAME-vg/home
 
 INSTALL_TARGET="/mnt"
 

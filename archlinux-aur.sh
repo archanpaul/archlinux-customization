@@ -66,6 +66,10 @@ function go_packages() {
     $AURGET_CMD gocode-git
 }
 
+function gtk_themes() {
+    $AURGET_CMD gtk-theme-arc
+}
+
 function cordova_packages() {
     mkdir $CDIR/cordova
     cd $CDIR/cordova/ && npm2PKGBUILD cordova > PKGBUILD
