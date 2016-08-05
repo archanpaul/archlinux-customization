@@ -53,12 +53,12 @@ function xorg() {
 	$PACMAN xcursor-simpleandsoft
 	$PACMAN fluxbox
 
-echo "Section "Device"
-   Identifier  "Intel Graphics"
-   Driver      "intel"
-   Option      "AccelMethod"  "sna"
-   Option      "TearFree"    "true"
-EndSection" > /etc/X11/xorg.conf.d/20-intel.conf
+#echo "Section "Device"
+#   Identifier  "Intel Graphics"
+#   Driver      "intel"
+#   Option      "AccelMethod"  "sna"
+#   Option      "TearFree"    "true"
+#EndSection" > /etc/X11/xorg.conf.d/20-intel.conf
 
 }
 
@@ -343,6 +343,14 @@ function install_all_modules() {
 	qt_dev
 	lib32_apps
 	systemd_services
+}
+
+function install_modules_usb_install_media() {
+	base
+	console_tools
+	network_tools
+	xorg
+	archlinux_dev_tools
 }
 
 pacman -Syu

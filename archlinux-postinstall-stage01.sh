@@ -37,4 +37,7 @@ echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /
 mv /etc/pacman.conf /etc/pacman.conf.orig
 awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist"); print}' /etc/pacman.conf.orig > /etc/pacman.conf
 
+# Edit fstab for additional swap partition
+vim /etc/fstab
+
 echo "Exit and reboot. On rebooted system run : bash archlinux-postinstall-stage02.sh"

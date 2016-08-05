@@ -21,7 +21,6 @@ locale-gen
 
 ## Create crypto_keyfile for disk decrypt
 # dd bs=512 count=4 if=/dev/urandom of=/etc/crypto_keyfile.bin
-# cryptsetup luksAddKey $CRYPT_PART /etc/crypto_keyfile.bin
 echo -n $(
     (
         cat /sys/class/net/*/address
@@ -55,4 +54,7 @@ awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist");
 
 # Securing boot
 # chmod -R g-rwx,o-rwx /boot
+
+vim /etc/fstab
+
 echo "Exit and reboot. On rebooted system run : bash archlinux-postinstall-stage02.sh"
