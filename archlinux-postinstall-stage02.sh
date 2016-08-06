@@ -79,7 +79,7 @@ function dev_tools() {
 	$PACMAN base-devel 
 	$PACMAN binutils gcc gcc-libs libtool
 	#$PACMAN multilib-devel 
-	$PACMAN go
+	$PACMAN go go-tools
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
 	$PACMAN flex bison gperf 
 	$PACMAN gdb valgrind
