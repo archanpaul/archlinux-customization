@@ -169,6 +169,7 @@ function editors() {
 	$PACMAN aspell aspell-en
 	$PACMAN vim
 	$PACMAN emacs emacs-python-mode
+	$PACMAN markdown
 }
 
 ## Graphic utils
@@ -266,6 +267,7 @@ function kde_desktop() {
 	$PACMAN amarok 
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
+	$PACMAN konversation
 	$PACMAN wireshark-qt
 	$PACMAN krdc freerdp
 
