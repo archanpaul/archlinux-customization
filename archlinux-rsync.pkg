@@ -185,6 +185,7 @@ RSYNC_INCLUDES_PKG="
 --include=gconf-[0-9]* \
 --include=gd-[0-9]* \
 --include=gdb-[0-9]* \
+--include=gdb-common-[0-9]* \
 --include=gdbm-[0-9]* \
 --include=gdk-pixbuf2-[0-9]* \
 --include=gegl02-[0-9]* \
