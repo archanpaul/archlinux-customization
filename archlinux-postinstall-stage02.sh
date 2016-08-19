@@ -252,6 +252,7 @@ function kde_desktop() {
 	## If KDE4 installed
 	#pacman -Rc kdebase-workspace
 	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
+	$PACMAN breeze-kde4
 
 	## KDE5
 	$PACMAN plasma-meta plasma-desktop plasma-workspace

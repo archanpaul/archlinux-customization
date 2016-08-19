@@ -64,6 +64,7 @@ RSYNC_INCLUDES_PKG="
 --include=breeze-[0-9]* \
 --include=breeze-gtk-[0-9]* \
 --include=breeze-icons-[0-9]* \
+--include=breeze-kde4-[0-9]* \
 --include=bridge-utils-[0-9]* \
 --include=bzip2-[0-9]* \
 --include=bzr-[0-9]* \
