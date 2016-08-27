@@ -64,6 +64,11 @@ function javascript_packages() {
 
 function go_packages() {
     $AURGET_CMD gocode-git
+    $AURGET_CMD go-gpm
+}
+
+function server_packages() {
+    $AURGET_CMD nsq
 }
 
 function gtk_themes() {
@@ -115,13 +120,14 @@ function install_modules() {
     java_packages
     javascript_packages
     go_packages
+    server_packages
     browser_packages
     cordova_packages
-    #debian_packages
+    debian_packages
     network_pacakges
     util_pacakges
-    #ide_pacakges
-    #remote_desktop_pacakges
+    ide_pacakges
+    remote_desktop_pacakges
 }
 
 aurget_install
