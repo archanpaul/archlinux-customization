@@ -20,7 +20,7 @@ locale-gen
 
 ## Moved to install script
 cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\""); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
+awk '{gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 resume filesystems keyboard fsck\""); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
