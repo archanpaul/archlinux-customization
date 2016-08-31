@@ -110,6 +110,7 @@ RSYNC_INCLUDES_PKG="
 --include=damageproto-[0-9]* \
 --include=dart-[0-9]* \
 --include=db-[0-9]* \
+--include=dbus-[0-9]* \
 --include=dbus-glib-[0-9]* \
 --include=dcadec-[0-9]* \
 --include=dconf-[0-9]* \
