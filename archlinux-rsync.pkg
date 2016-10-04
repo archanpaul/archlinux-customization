@@ -297,6 +297,7 @@ RSYNC_INCLUDES_PKG="
 --include=jasper-[0-9]* \
 --include=java-environment-common-[0-9]* \
 --include=java-runtime-common-[0-9]* \
+--include=jbig2dec-[0-9]* \
 --include=jdk8-openjdk-[0-9]* \
 --include=jemalloc-[0-9]* \
 --include=jfsutils-[0-9]* \
