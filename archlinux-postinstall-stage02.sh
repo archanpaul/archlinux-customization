@@ -137,6 +137,7 @@ function python_dev_tools() {
 function archlinux_dev_tools() {
 	$PACMAN devtools
 	$PACMAN abs
+	$PACMAN arch-install-scripts
 }
 
 ## Multimedia
