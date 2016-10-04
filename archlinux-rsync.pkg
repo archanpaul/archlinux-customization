@@ -1065,7 +1065,6 @@ RSYNC_INCLUDES_PKG="
 --include=qt5-webview-[0-9]* \
 --include=qt5-x11extras-[0-9]* \
 --include=qt5-xmlpatterns-[0-9]* \
---include=qtchooser-[0-9]* \
 --include=qtcreator-[0-9]* \
 --include=qt-gstreamer-[0-9]* \
 --include=qtscriptgenerator-[0-9]* \
