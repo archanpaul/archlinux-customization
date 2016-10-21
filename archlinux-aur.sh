@@ -65,7 +65,6 @@ function javascript_packages() {
 function go_packages() {
     $AURGET_CMD gocode-git
     $AURGET_CMD go-gpm
-    $AURGET_CMD godef-git
 }
 
 function server_packages() {
