@@ -66,6 +66,7 @@ function go_packages() {
     $AURGET_CMD gocode-git
     $AURGET_CMD go-gpm
     # go get github.com/derekparker/delve
+    # go get github.com/derekparker/delve/cmd/dlv
     # go get github.com/cespare/reflex
     # go get github.com/codegangsta/negroni
     # go get github.com/gorilla/mux
