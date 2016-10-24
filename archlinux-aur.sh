@@ -65,7 +65,13 @@ function javascript_packages() {
 function go_packages() {
     $AURGET_CMD gocode-git
     $AURGET_CMD go-gpm
-    $AURGET_CMD godef-git
+    # go get github.com/derekparker/delve
+    # go get github.com/derekparker/delve/cmd/dlv
+    # go get github.com/cespare/reflex
+    # go get github.com/codegangsta/negroni
+    # go get github.com/gorilla/mux
+    # go get github.com/gorilla/context
+    # go get github.com/dgrijalva/jwt-go
 }
 
 function server_packages() {
@@ -95,7 +101,7 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor
-    echo "apm install terminal-plus linter linter-flake8 atom-django go-plus go-config, go-get, gometalinter-linter, autocomplete-go, navigator-godef, gofmt, tester-go, gorename, builder-go gl-light-syntax material-ui material-syntax"
+    echo "apm install terminal-plus linter linter-flake8 atom-django go-plus go-config go-get gometalinter-linter autocomplete-go navigator-godef gofmt tester-go gorename go-debug godoc builder-go gl-light-syntax material-ui material-syntax github-atom-light-syntax"
 }
 
 function network_pacakges() {
