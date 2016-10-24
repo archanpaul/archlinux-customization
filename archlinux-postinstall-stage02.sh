@@ -195,7 +195,7 @@ function servers() {
 	$PACMAN apache 
 	$PACMAN mod_wsgi
 	$PACMAN nodejs
-	$PACMAN docker
+	$PACMAN docker docker-compose
 }
 
 ## Documentations 
