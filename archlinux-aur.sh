@@ -65,6 +65,7 @@ function javascript_packages() {
 function go_packages() {
     $AURGET_CMD gocode-git
     $AURGET_CMD go-gpm
+    # go get github.com/rogpeppe/godef
     # go get github.com/derekparker/delve
     # go get github.com/derekparker/delve/cmd/dlv
     # go get github.com/cespare/reflex
@@ -72,6 +73,7 @@ function go_packages() {
     # go get github.com/gorilla/mux
     # go get github.com/gorilla/context
     # go get github.com/dgrijalva/jwt-go
+    # go get github.com/boltdb/bolt
 }
 
 function server_packages() {
