@@ -118,7 +118,7 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor
-    echo "apm install autocomplete-go go-config go-get go-imports go-plus go-rename gofmt gometalinter-linter platformio-ide-terminal atom-beautify atom-bootstrap3 auto-detect-indentation autoclose-html color-picker file-type-icons highlight-line highlight-selected linter linter-csslint linter-htmlhint pigments godoc tester-go, gorename, builder-go, go-debug pristine-ui file-icons"
+    echo "apm install autocomplete-go go-config go-get go-imports go-plus go-rename gofmt gometalinter-linter platformio-ide-terminal atom-beautify atom-bootstrap3 auto-detect-indentation autoclose-html color-picker file-type-icons highlight-line highlight-selected linter linter-csslint linter-htmlhint pigments godoc navigator-go tester-go gorename builder-go go-debug pristine-ui file-icons"
 }
 
 function network_pacakges() {
