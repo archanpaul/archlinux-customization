@@ -65,6 +65,7 @@ function javascript_packages() {
 function go_packages() {
     $AURGET_CMD gocode-git
     $AURGET_CMD go-gpm
+<<<<<<< HEAD
 
     # go get -u golang.org/x/tools/cmd/...
     # go get -u github.com/golang/lint
@@ -77,6 +78,17 @@ function go_packages() {
     # go get -u github.com/gorilla/mux
     # go get -u github.com/gorilla/context
     # go get -u github.com/dgrijalva/jwt-go
+=======
+    # go get github.com/rogpeppe/godef
+    # go get github.com/derekparker/delve
+    # go get github.com/derekparker/delve/cmd/dlv
+    # go get github.com/cespare/reflex
+    # go get github.com/codegangsta/negroni
+    # go get github.com/gorilla/mux
+    # go get github.com/gorilla/context
+    # go get github.com/dgrijalva/jwt-go
+    # go get github.com/boltdb/bolt
+>>>>>>> 0f42ecd5d1603da303a7caa84b0c227ca74a15fd
 }
 
 function server_packages() {
@@ -106,7 +118,7 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor
-    echo "apm install autocomplete-go go-config go-get go-imports go-plus go-rename gofmt gometalinter-linter platformio-ide-terminal atom-beautify atom-bootstrap3 auto-detect-indentation autoclose-html color-picker file-type-icons highlight-line highlight-selected linter monokai-slate linter-csslint linter-htmlhint pigments rainbow-tabs seti-ui godoc navigator-go, tester-go, gorename, builder-go, go-debug"
+    echo "apm install autocomplete-go go-config go-get go-imports go-plus go-rename gofmt gometalinter-linter platformio-ide-terminal atom-beautify atom-bootstrap3 auto-detect-indentation autoclose-html color-picker file-type-icons highlight-line highlight-selected linter linter-csslint linter-htmlhint pigments godoc tester-go, gorename, builder-go, go-debug pristine-ui file-icons"
 }
 
 function network_pacakges() {
