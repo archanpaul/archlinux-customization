@@ -90,6 +90,7 @@ RSYNC_INCLUDES_PKG="
 --include=chromaprint-[0-9]* \
 --include=chromium-[0-9]* \
 --include=cifs-utils-[0-9]* \
+--include=clang-[0-9]* \
 --include=cln-[0-9]* \
 --include=clucene-[0-9]* \
 --include=cmake-[0-9]* \
