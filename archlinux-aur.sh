@@ -65,20 +65,14 @@ function javascript_packages() {
 function go_packages() {
     $AURGET_CMD gocode-git
     $AURGET_CMD go-gpm
-
-    # go get -u golang.org/x/tools/cmd/...
-    # go get -u github.com/golang/lint
-    # go get -u github.com/nsf/gocode
-    # go get -u github.com/derekparker/delve/cmd/dlv
-    # go get -u github.com/cespare/reflex
-    # go get -u github.com/zmb3/gogetdoc
+    # go get github.com/derekparker/delve
+    # go get github.com/derekparker/delve/cmd/dlv
+    # go get github.com/cespare/reflex
+    # go get github.com/codegangsta/negroni
+    # go get github.com/gorilla/mux
+    # go get github.com/gorilla/context
+    # go get github.com/dgrijalva/jwt-go
     # go get -u github.com/alecthomas/gometalinter
-
-    # go get -u github.com/codegangsta/negroni
-    # go get -u github.com/gorilla/mux
-    # go get -u github.com/gorilla/context
-    # go get -u github.com/dgrijalva/jwt-go
-    # go get github.com/boltdb/bolt
 }
 
 function server_packages() {
@@ -108,7 +102,8 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor
-    echo "apm install autocomplete-go go-config go-get go-imports go-plus go-rename gofmt gometalinter-linter platformio-ide-terminal atom-beautify atom-bootstrap3 auto-detect-indentation autoclose-html color-picker file-type-icons highlight-line highlight-selected linter linter-csslint linter-htmlhint pigments godoc navigator-go tester-go gorename builder-go go-debug file-icons spacegray-dark-ui electron-syntax dartlang atom-toolbar synced-sidebar"
+    echo "apm install terminal-plus linter linter-flake8 atom-django go-plus go-config go-get gometalinter-linter autocomplete-go navigator-godef gofmt tester-go gorename go-debug godoc builder-go gl-light-syntax material-ui material-syntax github-atom-light-syntax"
+    echo "apm install linter git-plus rest-client atom-beautify monokai-seti seti-ui terminal-plus go-plus go-config, go-get, gometalinter-linter, autocomplete-go, navigator-go, gofmt, tester-go, gorename, builder-go, go-debug, godoc"
 }
 
 function network_pacakges() {
@@ -132,7 +127,7 @@ function install_modules() {
     printing_packages
     #font_packages
     #java_packages
-    #javascript_packages
+    javascript_packages
     go_packages
     server_packages
     #browser_packages
@@ -140,7 +135,7 @@ function install_modules() {
     #debian_packages
     network_pacakges
     util_pacakges
-    #ide_pacakges
+    ide_pacakges
     #remote_desktop_pacakges
 }
 
