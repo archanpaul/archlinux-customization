@@ -1,4 +1,7 @@
 RSYNC_INCLUDES_PKG="
+--include=lshw-B.02.18-[0-9]* \
+--include=python-texttable-[0-9]* \
+--include=python-docker-pycreds-[0-9]* \
 --include=a52dec-[0-9]* \
 --include=aalib-[0-9]* \
 --include=abs-[0-9]* \
