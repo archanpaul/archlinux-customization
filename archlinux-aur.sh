@@ -100,9 +100,8 @@ function debian_packages() {
 }
 
 function ide_pacakges() {
-    $AURGET_CMD atom-editor
-    echo "apm install terminal-plus linter linter-flake8 atom-django go-plus go-config go-get gometalinter-linter autocomplete-go navigator-godef gofmt tester-go gorename go-debug godoc builder-go gl-light-syntax material-ui material-syntax github-atom-light-syntax"
-    echo "apm install linter git-plus rest-client atom-beautify monokai-seti seti-ui terminal-plus go-plus go-config, go-get, gometalinter-linter, autocomplete-go, navigator-go, gofmt, tester-go, gorename, builder-go, go-debug, godoc"
+    $AURGET_CMD atom-editor-bin
+    echo "apm install linter git-plus rest-client atom-beautify go-plus go-config go-get gometalinter-linter autocomplete-go navigator-go gofmt tester-go gorename builder-go go-debug godoc"
 }
 
 function network_pacakges() {
@@ -124,17 +123,17 @@ function install_modules() {
     power_management_packages
     #android_packages
     printing_packages
-    #font_packages
+    font_packages
     #java_packages
     javascript_packages
     go_packages
-    server_packages
+    #server_packages
     #browser_packages
     #cordova_packages
     #debian_packages
     network_pacakges
-    util_pacakges
-    ide_pacakges
+    #util_pacakges
+    #ide_pacakges
     #remote_desktop_pacakges
 }
 

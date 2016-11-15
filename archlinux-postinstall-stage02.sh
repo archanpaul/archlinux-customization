@@ -16,7 +16,6 @@ function console_tools() {
 	$PACMAN dosfstools
 	$PACMAN acpi acpid pm-utils powertop
 	$PACMAN hdparm smartmontools
-	$PACMAN lshw
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
 	$PACMAN minicom
@@ -79,7 +78,6 @@ function dev_tools() {
 	$PACMAN base-devel 
 	$PACMAN binutils gcc gcc-libs libtool
 	#$PACMAN multilib-devel 
-	$PACMAN go go-tools
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
 	$PACMAN flex bison gperf 
 	$PACMAN gdb valgrind
@@ -87,6 +85,18 @@ function dev_tools() {
 	$PACMAN doxygen
 	$PACMAN zlib boost 
 	$PACMAN openmpi opencv
+
+	$PACMAN go go-tools
+	# go get golang.org/x/tools/cmd/...
+	# go get github.com/pote/gpm
+	# go get github.com/nsf/gocode
+	# go get github.com/rogpeppe/godef
+	# go get github.com/derekparker/delve/cmd/dlv
+	# go get github.com/cespare/reflex
+	# go get github.com/codegangsta/negroni
+	# go get github.com/gorilla/mux
+	# go get github.com/gorilla/context
+	# go get github.com/dgrijalva/jwt-go
 }
 
 ## Android dev-tools
@@ -117,6 +127,11 @@ function java_dev_tools() {
 ## PHP dev-tools
 function php_dev_tools() {
 	$PACMAN php php-apache
+}
+
+## JS/NPM dev-tools
+function js_dev_tools() {
+	$PACMAN npm
 }
 
 ## Python dev-tools
@@ -326,6 +341,8 @@ function install_all_modules() {
 	java_dev_tools
 	android_dev_tools
 	dart_dev_tools
+	#php_dev_tools
+	js_dev_tools
 	python_dev_tools
 	archlinux_dev_tools
 	multimedia
@@ -345,7 +362,7 @@ function install_all_modules() {
 	kde_desktop
 	kde_dev
 	qt_dev
-	lib32_apps
+	#lib32_apps
 	systemd_services
 }
 
