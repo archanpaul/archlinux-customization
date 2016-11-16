@@ -95,6 +95,7 @@ function dev_tools() {
 	# go get github.com/codegangsta/negroni
 	# go get github.com/gorilla/mux
 	# go get github.com/dgrijalva/jwt-go
+	# go get github.com/boltdb/bolt
 }
 
 ## Android dev-tools
