@@ -306,11 +306,7 @@ function qt_dev() {
 
 ## Lib32 apps
 function lib32_apps() {
-	$PACMAN lib32-harfbuzz
-	#$PACMAN skype
-	#dependency to show QT4 notification in plasma5
-	$PACMAN lib32-sni-qt
-	$PACMAN wine
+	#$PACMAN wine
 }
 
 ## systemd services
