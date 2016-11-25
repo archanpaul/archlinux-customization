@@ -310,6 +310,7 @@ function lib32_apps() {
 	#$PACMAN skype
 	#dependency to show QT4 notification in plasma5
 	$PACMAN lib32-sni-qt
+	$PACMAN wine
 }
 
 ## systemd services
