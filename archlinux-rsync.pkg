@@ -773,6 +773,7 @@ RSYNC_INCLUDES_PKG="
 --include=milou-[0-9]* \
 --include=mime-types-[0-9]* \
 --include=minicom-[0-9]* \
+--include=minizip-[0-9]* \
 --include=mjpegtools-[0-9]* \
 --include=mkinitcpio-[0-9]* \
 --include=mkinitcpio-busybox-[0-9]* \
