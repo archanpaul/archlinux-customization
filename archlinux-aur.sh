@@ -60,6 +60,7 @@ function java_packages() {
 
 function javascript_packages() {
     $AURGET_CMD nodejs-npm2arch
+    $AURGET_CMD nodejs-tern
 }
 
 function go_packages() {
