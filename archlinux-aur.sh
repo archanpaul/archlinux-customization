@@ -95,7 +95,7 @@ function debian_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD atom-editor-bin
-    echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus go-get gometalinter-linter autocomplete-go navigator-go gofmt tester-go gorename builder-go go-debug godoc hyperclick go-debug go-signature-statusbar oceanic-next"
+    echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next"
     echo "go get golang.org/x/tools/cmd/cover"
 }
 
