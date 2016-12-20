@@ -90,6 +90,7 @@ function dev_tools() {
 	# go get golang.org/x/tools/cmd/...
 	# go get github.com/nsf/gocode
 	# go get github.com/rogpeppe/godef
+	# go get github.com/rogpeppe/godef
 	# go get github.com/derekparker/delve/cmd/dlv
 	# go get github.com/cespare/reflex
 	# go get github.com/alecthomas/gometalinter
