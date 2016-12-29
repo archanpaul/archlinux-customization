@@ -94,7 +94,8 @@ function dev_tools() {
 	# go get github.com/derekparker/delve/cmd/dlv
 	# go get github.com/cespare/reflex
 	# go get github.com/alecthomas/gometalinter
-	# go get github.com/codegangsta/negroni
+	# go get github.com/gorilla/context
+	# go get github.com/urfave/negroni
 	# go get github.com/gorilla/mux
 	# go get github.com/dgrijalva/jwt-go
 	# go get github.com/boltdb/bolt
