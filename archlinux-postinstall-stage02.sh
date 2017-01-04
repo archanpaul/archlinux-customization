@@ -100,6 +100,11 @@ function dev_tools() {
 	# go get github.com/boltdb/bolt
 }
 
+## ARM Dev tools
+function arm_dev_tools() {
+	$PACMAN arm-none-eabi-binutils arm-none-eabi-gcc arm-none-eabi-gdb
+}
+
 ## Android dev-tools
 function android_dev_tools() {
 	$PACMAN gradle gradle-doc
@@ -338,6 +343,7 @@ function install_all_modules() {
 	dev_tools
 	java_dev_tools
 	android_dev_tools
+	arm_dev_tools
 	dart_dev_tools
 	#php_dev_tools
 	js_dev_tools
