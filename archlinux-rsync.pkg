@@ -903,6 +903,7 @@ RSYNC_INCLUDES_PKG="
 --include=postgresql-[0-9]* \
 --include=postgresql-docs-[0-9]* \
 --include=postgresql-libs-[0-9]* \
+--include=potrace-[0-9]* \
 --include=powerdevil-[0-9]* \
 --include=powertop-[0-9]* \
 --include=ppp-[0-9]* \
