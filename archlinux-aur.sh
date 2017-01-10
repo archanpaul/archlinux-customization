@@ -22,17 +22,12 @@ function power_management_packages() {
 }
 
 function android_packages() {
-    gpg --keyserver pgp.mit.edu --recv-keys F7E48EDB
-    $AURGET_CMD ncurses5-compat-libs
     $AURGET_CMD android-sdk
-
     $AURGET_CMD android-studio
 
-    $AURGET_CMD libtinfo
-    gpg --recv-keys 702353E0F7E48EDB
+    gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
-    $AURGET_CMD libtinfo5
-    #$AURGET_CMD android-ndk
+    $AURGET_CMD android-ndk
 }
 
 function printing_packages() {
