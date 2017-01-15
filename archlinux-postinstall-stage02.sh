@@ -216,7 +216,6 @@ function servers() {
 	$PACMAN openvpn 
 	$PACMAN apache 
 	$PACMAN mod_wsgi
-	$PACMAN nodejs
 	$PACMAN docker docker-compose
 }
 
@@ -331,7 +330,14 @@ function systemd_services() {
 
 ## NodeJS
 function nodejs_installs() {
+	$PACMAN nodejs
 	$PACMAN npm	
+}
+
+## ScientificComputing
+function scientific_computing() {
+	$PACMAN octave
+	$PACMAN cauchy
 }
 
 function install_all_modules() {
@@ -368,6 +374,7 @@ function install_all_modules() {
 	kde_dev
 	qt_dev
 	#lib32_apps
+	scientific_computing
 	systemd_services
 }
 
