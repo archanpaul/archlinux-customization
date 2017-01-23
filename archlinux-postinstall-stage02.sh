@@ -99,6 +99,7 @@ function dev_tools() {
 	# go get github.com/gorilla/mux
 	# go get github.com/dgrijalva/jwt-go
 	# go get github.com/boltdb/bolt
+	# go get golang.org/x/mobile/cmd/gomobile
 }
 
 ## ARM Dev tools
