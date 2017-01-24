@@ -22,7 +22,7 @@ function power_management_packages() {
 }
 
 function android_packages() {
-    $AURGET_CMD android-sdk
+    #$AURGET_CMD android-sdk
     $AURGET_CMD android-studio
 
     gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
@@ -71,14 +71,6 @@ function gtk_themes() {
     $AURGET_CMD gtk-theme-arc
 }
 
-function cordova_packages() {
-    mkdir $CDIR/cordova
-    cd $CDIR/cordova/ && npm2PKGBUILD cordova > PKGBUILD
-    cd $CDIR/cordova/ && makepkg
-    cd $CDIR/cordova/ && pacman --noconfirm -U nodejs-cordova-*.pkg.tar.xz
-    cd $CDIR
-}
-
 function debian_packages() {
     # debootstrap
     ##$PACMAN_CMD debootstrap 
@@ -111,7 +103,7 @@ function remote_desktop_pacakges() {
 
 function install_modules() {
     power_management_packages
-    #android_packages
+    android_packages
     printing_packages
     font_packages
     #java_packages
@@ -119,7 +111,6 @@ function install_modules() {
     go_packages
     #server_packages
     #browser_packages
-    #cordova_packages
     #debian_packages
     network_pacakges
     #util_pacakges
