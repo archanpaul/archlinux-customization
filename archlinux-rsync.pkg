@@ -1137,6 +1137,7 @@ RSYNC_INCLUDES_PKG="
 --include=unzip-[0-9]* \
 --include=upower-[0-9]* \
 --include=usb_modeswitch-[0-9]* \
+--include=usbmuxd-[0-9]* \
 --include=usbredir-[0-9]* \
 --include=usbutils-[0-9]* \
 --include=user-manager-[0-9]* \
