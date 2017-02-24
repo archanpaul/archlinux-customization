@@ -53,6 +53,12 @@ function java_packages() {
     sudo archlinux-java set java-8-jdk
 }
 
+
+function swift_packages() {
+    $AURGET_CMD libkqueue
+    $AURGET_CMD swift
+}
+
 function javascript_packages() {
     $AURGET_CMD nodejs-npm2arch
     $AURGET_CMD nodejs-tern
@@ -107,6 +113,7 @@ function install_modules() {
     printing_packages
     font_packages
     #java_packages
+    #swift_packages
     javascript_packages
     go_packages
     #server_packages
