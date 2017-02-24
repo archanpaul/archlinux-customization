@@ -272,6 +272,7 @@ RSYNC_INCLUDES_PKG="
 --include=hspell-[0-9]* \
 --include=http-parser-[0-9]* \
 --include=hunspell-[0-9]* \
+--include=hunspell-en-[0-9]* \
 --include=hunspell-en_US-[0-9]* \
 --include=hunspell-en_GB-[0-9]* \
 --include=hwids-[0-9]* \
