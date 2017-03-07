@@ -53,7 +53,6 @@ function java_packages() {
     sudo archlinux-java set java-8-jdk
 }
 
-
 function swift_packages() {
     $AURGET_CMD libkqueue
     $AURGET_CMD swift
@@ -100,6 +99,10 @@ function util_pacakges() {
     $AURGET_CMD ms-sys
 }
 
+function emulator_packages() {
+    $AURGET_CMD gnuarmeclipse-qemu-bin
+}
+
 function remote_desktop_pacakges() {
     sudo pacman -S multilib-devel   
     $AURGET_CMD libpng12 lib32-libpng12
@@ -122,6 +125,7 @@ function install_modules() {
     network_pacakges
     #util_pacakges
     ide_pacakges
+    emulator_packages
     #remote_desktop_pacakges
 }
 

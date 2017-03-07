@@ -982,6 +982,7 @@ RSYNC_INCLUDES_PKG="
 --include=python-websocket-client-[0-9]* \
 --include=python-xdg-[0-9]* \
 --include=python-yaml-[0-9]* \
+--include=qbs-[0-9]* \
 --include=qca-qt4-[0-9]* \
 --include=qca-qt5-[0-9]* \
 --include=qemu-[0-9]* \
