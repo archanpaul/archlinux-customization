@@ -99,9 +99,10 @@ function util_pacakges() {
     $AURGET_CMD ms-sys
 }
 
-function emulator_packages() {
+function arm_packages() {
     $AURGET_CMD gnuarmeclipse-qemu-bin
-    sudo pacman -S ninja   
+    sudo pacman -S ninja
+    $AURGET_CMD gcc-arm-none-eabi-bin
 }
 
 function remote_desktop_pacakges() {
@@ -126,7 +127,7 @@ function install_modules() {
     network_pacakges
     #util_pacakges
     ide_pacakges
-    emulator_packages
+    arm_packages
     #remote_desktop_pacakges
 }
 
