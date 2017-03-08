@@ -811,6 +811,7 @@ RSYNC_INCLUDES_PKG="
 --include=net-tools-[0-9]* \
 --include=networkmanager-[0-9]* \
 --include=networkmanager-qt-[0-9]* \
+--include=ninja-[0-9]* \
 --include=nmap-[0-9]* \
 --include=nodejs-[0-9]* \
 --include=noto-fonts-[0-9]* \

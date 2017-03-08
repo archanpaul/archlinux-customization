@@ -101,6 +101,7 @@ function util_pacakges() {
 
 function emulator_packages() {
     $AURGET_CMD gnuarmeclipse-qemu-bin
+    sudo pacman -S ninja   
 }
 
 function remote_desktop_pacakges() {
