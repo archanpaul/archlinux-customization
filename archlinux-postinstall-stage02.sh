@@ -104,6 +104,7 @@ function dev_tools() {
 
 ## ARM Dev tools
 function arm_dev_tools() {
+	# use gcc-arm-non-eabi-bin from AUR
 	$PACMAN arm-none-eabi-binutils arm-none-eabi-gcc arm-none-eabi-gdb
 }
 
