@@ -102,6 +102,8 @@ function util_pacakges() {
 function arm_packages() {
     $AURGET_CMD gnuarmeclipse-qemu-bin
     sudo pacman -S ninja
+
+    pacman -Rn arm-none-eabi-binutils arm-none-eabi-gcc
     $AURGET_CMD gcc-arm-none-eabi-bin
 }
 
