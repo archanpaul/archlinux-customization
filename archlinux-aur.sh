@@ -54,7 +54,6 @@ function java_packages() {
 }
 
 function swift_packages() {
-    $AURGET_CMD libkqueue
     $AURGET_CMD icu55
     gpg --recv-keys --keyserver hkp://pgp.mit.edu 63BC1CFE91D306C6
     $AURGET_CMD swift-bin
