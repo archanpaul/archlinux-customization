@@ -100,6 +100,7 @@ function dev_tools() {
 	# go get golang.org/x/mobile/cmd/gomobile
 	# go get github.com/boltdb/bolt
 	# go get github.com/syndtr/goleveldb/leveldb 
+	# go get github.com/google/gopacket
 }
 
 ## ARM Dev tools
