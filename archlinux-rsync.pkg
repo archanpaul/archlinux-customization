@@ -1014,6 +1014,7 @@ RSYNC_INCLUDES_PKG="
 --include=qt5-imageformats-[0-9]* \
 --include=qt5-location-[0-9]* \
 --include=qt5-multimedia-[0-9]* \
+--include=qt5-networkauth-[0-9]* \
 --include=qt5-quickcontrols-[0-9]* \
 --include=qt5-quickcontrols2-[0-9]* \
 --include=qt5-script-[0-9]* \
