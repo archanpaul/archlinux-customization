@@ -101,7 +101,7 @@ function dev_tools() {
 	# go get github.com/boltdb/bolt
 	# go get github.com/syndtr/goleveldb/leveldb 
 	# go get github.com/google/gopacket
-	# go get cloud.google.com/go
+	# go get cloud.google.com/go/...
 	# go get github.com/GoogleCloudPlatform/google-cloud-go
 }
 
