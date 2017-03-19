@@ -345,6 +345,11 @@ function scientific_computing() {
 	$PACMAN cauchy
 }
 
+## Games
+function games() {
+	$PACMAN lib32-libglvnd lib32-mesa steam
+}
+
 function install_all_modules() {
 	base
 	console_tools
@@ -379,6 +384,7 @@ function install_all_modules() {
 	kde_dev
 	qt_dev
 	#lib32_apps
+	#games
 	scientific_computing
 	systemd_services
 }

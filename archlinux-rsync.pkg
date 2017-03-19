@@ -15,7 +15,7 @@ RSYNC_INCLUDES_PKG="
 --include=lib32-libxcb-[0-9]* \
 --include=lib32-libxdamage-[0-9]* \
 --include=lib32-libxdmcp-[0-9]* \
---include=--include=lib32-libxext-[0-9]* \
+--include=lib32-libxext-[0-9]* \
 --include=lib32-libxfixes-[0-9]* \
 --include=lib32-libxml2-[0-9]* \
 --include=lib32-libxshmfence-[0-9]* \
