@@ -103,6 +103,8 @@ function dev_tools() {
 	# go get github.com/google/gopacket
 	# go get cloud.google.com/go/...
 	# go get github.com/GoogleCloudPlatform/google-cloud-go
+	# go get github.com/lib/pq
+	# go get github.com/go-sql-driver/mysql
 }
 
 ## ARM Dev tools
