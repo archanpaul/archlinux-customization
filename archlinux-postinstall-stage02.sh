@@ -105,6 +105,7 @@ function dev_tools() {
 	# go get github.com/GoogleCloudPlatform/google-cloud-go
 	# go get github.com/lib/pq
 	# go get github.com/go-sql-driver/mysql
+	# go get gopkg.in/mgo.v2
 }
 
 ## ARM Dev tools
