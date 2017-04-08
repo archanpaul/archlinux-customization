@@ -1,4 +1,5 @@
 RSYNC_INCLUDES_PKG="
+--include=screen-[0-9]* \
 --include=geoclue2-[0-9]* \
 --include=lib32-alsa-lib-[0-9]* \
 --include=lib32-alsa-plugins-[0-9]* \
