@@ -1,4 +1,12 @@
 RSYNC_INCLUDES_PKG="
+--include=python-markupsafe-[0-9]* \
+--include=python-click-[0-9]* \
+--include=python-jinja-[0-9]* \
+--include=python-markdown-[0-9]* \
+--include=python-tornado-[0-9]* \
+--include=python2-backports-abc-[0-9]* \
+--include=python2-singledispatch-[0-9]* \
+--include=python2-tornado-[0-9]* \
 --include=hardening-wrapper-[0-9]* \
 --include=screen-[0-9]* \
 --include=geoclue2-[0-9]* \

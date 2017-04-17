@@ -101,7 +101,7 @@ function util_pacakges() {
 }
 
 function arm_packages() {
-    $AURGET_CMD gnuarmeclipse-qemu-bin
+    $AURGET_CMD gnuarmeclipse-qemu-git
     sudo pacman -S ninja
 
     pacman -Rn arm-none-eabi-binutils arm-none-eabi-gcc
@@ -113,6 +113,11 @@ function remote_desktop_pacakges() {
     $AURGET_CMD libpng12 lib32-libpng12
     $AURGET_CMD lib32-libjpeg6-turbo
     $AURGET_CMD teamviewer
+}
+
+function markdown_packages() {
+    $AURGET_CMD python-livereload
+    $AURGET_CMD mkdocs
 }
 
 function install_modules() {
@@ -132,6 +137,7 @@ function install_modules() {
     ide_pacakges
     arm_packages
     #remote_desktop_pacakges
+    markdown_packages
 }
 
 aurget_install
