@@ -14,7 +14,7 @@ function base() {
 function console_tools() {
 	$PACMAN e2fsprogs extundelete ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
 	$PACMAN dosfstools
-	$PACMAN acpi acpid pm-utils powertop
+	$PACMAN acpi acpid powertop
 	$PACMAN hdparm smartmontools
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
@@ -78,6 +78,7 @@ function dev_tools() {
 	$PACMAN base-devel 
 	$PACMAN binutils gcc gcc-libs libtool
 	#$PACMAN multilib-devel 
+	$PACMAN llvm llvm-libs lld lldb
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
 	$PACMAN ctags
 	$PACMAN flex bison gperf 
@@ -278,7 +279,7 @@ function gnome_desktop() {
 ## KDE desktop
 function kde_desktop() {
 	## Dependency packages for auto selection
-	$PACMAN phonon phonon-qt4-gstreamer phonon-qt5-gstreamer
+	$PACMAN phonon-qt4-gstreamer phonon-qt5-gstreamer
 	#$PACMAN mesa-libgl libx264
 
 	## If KDE4 installed

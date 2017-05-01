@@ -36,8 +36,8 @@ function printing_packages() {
 
 function browser_packages() {
     $AURGET_CMD google-chrome
-    $AURGET_CMD google-talkplugin
-    $AURGET_CMD chrome-remote-desktop 
+    #$AURGET_CMD google-talkplugin
+    #$AURGET_CMD chrome-remote-desktop 
 }
 
 function font_packages() {
@@ -51,17 +51,6 @@ function java_packages() {
     # Oracle jdk
     $AURGET_CMD jdk
     sudo archlinux-java set java-8-jdk
-}
-
-function swift_packages() {
-    $AURGET_CMD icu55 libtinfo
-    gpg --recv-keys --keyserver hkp://pgp.mit.edu 63BC1CFE91D306C6
-    $AURGET_CMD swift-bin
-}
-
-function javascript_packages() {
-    $AURGET_CMD nodejs-npm2arch
-    $AURGET_CMD nodejs-tern
 }
 
 function go_packages() {
@@ -90,6 +79,7 @@ function ide_pacakges() {
     $AURGET_CMD atom-editor-bin
     echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next nomnoml-preview"
     echo "go get golang.org/x/tools/cmd/cover"
+    #$AURGET_CMD visual-studio-code
 }
 
 function network_pacakges() {
@@ -102,22 +92,10 @@ function util_pacakges() {
 
 function arm_packages() {
     $AURGET_CMD gnuarmeclipse-qemu-git
-    sudo pacman -S ninja
+    $PACMAN_CMD ninja
 
-    pacman -Rn arm-none-eabi-binutils arm-none-eabi-gcc
+    $PACMAN_CMD arm-none-eabi-binutils arm-none-eabi-gcc
     $AURGET_CMD gcc-arm-none-eabi-bin
-}
-
-function remote_desktop_pacakges() {
-    sudo pacman -S multilib-devel   
-    $AURGET_CMD libpng12 lib32-libpng12
-    $AURGET_CMD lib32-libjpeg6-turbo
-    $AURGET_CMD teamviewer
-}
-
-function markdown_packages() {
-    $AURGET_CMD python-livereload
-    $AURGET_CMD mkdocs
 }
 
 function install_modules() {
@@ -125,19 +103,15 @@ function install_modules() {
     android_packages
     printing_packages
     font_packages
-    #java_packages
-    #swift_packages
-    javascript_packages
+    ##java_packages
     go_packages
     #server_packages
     #browser_packages
-    #debian_packages
+    debian_packages
     network_pacakges
-    #util_pacakges
+    util_pacakges
     ide_pacakges
     arm_packages
-    #remote_desktop_pacakges
-    markdown_packages
 }
 
 aurget_install
