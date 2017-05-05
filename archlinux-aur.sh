@@ -76,10 +76,12 @@ function debian_packages() {
 }
 
 function ide_pacakges() {
+    $AURGET_CMD rtags-git
     $AURGET_CMD atom-editor-bin
-    echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next nomnoml-preview"
+    echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next nomnoml-preview linter-golinter"
     echo "go get golang.org/x/tools/cmd/cover"
-    #$AURGET_CMD visual-studio-code
+    #apm install autocomplete-clang build build-make linter linter-clang linter-gcc atomic-rtags file-icons synced-sidebar 
+    $AURGET_CMD visual-studio-code
 }
 
 function network_pacakges() {
@@ -99,11 +101,12 @@ function arm_packages() {
 }
 
 function install_modules() {
+    aurget_install
     power_management_packages
     android_packages
     printing_packages
-    font_packages
-    ##java_packages
+    #font_packages
+    #java_packages
     go_packages
     #server_packages
     #browser_packages

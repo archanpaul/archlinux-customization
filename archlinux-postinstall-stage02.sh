@@ -311,6 +311,7 @@ function kde_desktop() {
 ## KDE dev
 function kde_dev() {
 	#$PACMAN kde-meta-kdesdk
+	#$PACMAN kdevelop
 	$PACMAN kompare umbrello
 }
 
@@ -366,7 +367,7 @@ function install_all_modules() {
 	dev_tools
 	java_dev_tools
 	android_dev_tools
-	arm_dev_tools
+	#arm_dev_tools
 	dart_dev_tools
 	#php_dev_tools
 	js_dev_tools
