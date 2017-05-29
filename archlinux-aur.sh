@@ -79,7 +79,7 @@ function ide_pacakges() {
     $AURGET_CMD global
     $AURGET_CMD rtags-git
     $AURGET_CMD atom-editor-bin
-    echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next nomnoml-preview linter-golinter"
+    echo "apm install linter linter-ui-default git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next nomnoml-preview linter-golinter"
     echo "go get golang.org/x/tools/cmd/cover"
     #apm install autocomplete-clang build build-make linter linter-clang linter-gcc atomic-rtags file-icons synced-sidebar 
     $AURGET_CMD visual-studio-code
