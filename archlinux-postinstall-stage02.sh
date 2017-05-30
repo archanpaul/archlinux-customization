@@ -166,7 +166,7 @@ function python_dev_tools() {
 	$PACMAN python-numpy
 	$PACMAN python-scipy
 	$PACMAN python-matplotlib
-	# required for matplotlib (numpy, tensorflow)
+	# optional requirement for matplotlib
 	$PACMAN tk
 }
 
