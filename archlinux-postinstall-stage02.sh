@@ -163,6 +163,11 @@ function python_dev_tools() {
 	$PACMAN python-pycodestyle
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
+	$PACMAN python-numpy
+	$PACMAN python-scipy
+	$PACMAN python-matplotlib
+	# required for matplotlib (numpy, tensorflow)
+	$PACMAN tk
 }
 
 ## Archlinux dev-tools
