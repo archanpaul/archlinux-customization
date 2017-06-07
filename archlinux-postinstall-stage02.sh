@@ -32,7 +32,7 @@ function network_tools() {
 	$PACMAN usb_modeswitch wvdial
 	$PACMAN ethtool bridge-utils
 	$PACMAN net-tools netctl
-	$PACMAN rfkill wireless_tools wpa_supplicant wpa_actiond
+	$PACMAN rfkill wireless_tools wpa_supplicant wpa_actiond crda
 	$PACMAN bluez bluez-firmware bluez-utils
 	$PACMAN networkmanager 
 	$PACMAN wireshark-cli
