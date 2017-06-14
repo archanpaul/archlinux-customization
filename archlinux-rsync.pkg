@@ -141,6 +141,7 @@ RSYNC_INCLUDES_PKG="
 --include=docker-compose-[0-9]* \
 --include=dolphin-[0-9]* \
 --include=dosfstools-[0-9]* \
+--include=double-conversion-[0-9]* \
 --include=doxygen-[0-9]* \
 --include=dragon-[0-9]* \
 --include=drkonqi-[0-9]* \
