@@ -34,7 +34,6 @@ RSYNC_INCLUDES_PKG="
 --include=archlinux-appstream-data-[0-9]* \
 --include=archlinux-keyring-[0-9]* \
 --include=ark-[0-9]* \
---include=arm-none-eabi-gdb-[0-9]* \
 --include=arpack-[0-9]* \
 --include=aspell-[0-9]* \
 --include=aspell-en-[0-9]* \
