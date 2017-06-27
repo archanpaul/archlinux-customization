@@ -95,6 +95,7 @@ function util_pacakges() {
 
 function swift_pacakges() {
     $AURGET_CMD libblocksruntime
+    $PACMAN_UNINSTALL_CMD lldb
     $AURGET_CMD swift
     $PACMAN_UNINSTALL_CMD swift-lldb
     $PACMAN_CMD lldb
