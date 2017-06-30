@@ -39,9 +39,7 @@ ROOT_PART=$HDD"3"
 HOME_PART=$HDD"4"
 INSTALL_TARGET="/mnt"
 
-partprobe
 cgdisk $HDD
-partprobe 
 
 mkswap -L swap $SWAP_PART
 swapon $SWAP_PART

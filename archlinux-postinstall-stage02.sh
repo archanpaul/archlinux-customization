@@ -69,7 +69,10 @@ function scm() {
 
 ## Printing
 function printing() {
-	$PACMAN cups ghostscript gsfonts gutenprint foomatic-db foomatic-db-engine foomatic-db-nonfree foomatic-filters cups-pdf hplip splix
+	$PACMAN cups cups-pdf
+	$PACMAN foomatic-db foomatic-db-ppds foomatic-db-engine foomatic-db-nonfree foomatic-filters 
+	$PACMAN ghostscript gsfonts gutenprint 
+	$PACMAN hplip splix
 	$PACMAN sane 
 }
 
@@ -165,7 +168,9 @@ function python_dev_tools() {
 	$PACMAN python-jedi
 	$PACMAN python-numpy
 	$PACMAN python-scipy
+	$PACMAN python-pandas
 	$PACMAN python-matplotlib
+	$PACMAN python-tensorflow
 	# optional requirement for matplotlib
 	$PACMAN tk
 }
@@ -173,7 +178,6 @@ function python_dev_tools() {
 ## Archlinux dev-tools
 function archlinux_dev_tools() {
 	$PACMAN devtools
-	$PACMAN abs
 	$PACMAN arch-install-scripts
 }
 

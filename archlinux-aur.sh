@@ -27,7 +27,7 @@ function android_packages() {
 
     gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
-    $AURGET_CMD android-ndk
+    #$AURGET_CMD android-ndk
 }
 
 function printing_packages() {
@@ -93,7 +93,7 @@ function util_pacakges() {
     $AURGET_CMD ms-sys
 }
 
-function swift_pacakges() {
+function swift_packages() {
     $AURGET_CMD libblocksruntime
     $PACMAN_UNINSTALL_CMD lldb
     $AURGET_CMD swift
@@ -124,10 +124,10 @@ function install_modules() {
     util_pacakges
     ide_pacakges
     arm_packages
-    #swift_packages
+    swift_packages
 }
 
 #aurget_install
-#install_modules 2>&1 | tee archlinux-aur.log
-$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
+install_modules 2>&1 | tee archlinux-aur.log
+#$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
 

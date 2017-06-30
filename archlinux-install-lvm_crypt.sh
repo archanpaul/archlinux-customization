@@ -39,9 +39,7 @@ CRYPT_PART=$HDD"2"
 LVM_SWAP_SIZE=2G
 LVM_ROOT_SIZE=100G
 
-partprobe
 cgdisk $HDD
-partprobe 
 
 modprobe dm_crypt
 cryptsetup luksFormat $CRYPT_PART
