@@ -166,11 +166,15 @@ function python_dev_tools() {
 	$PACMAN python-pycodestyle
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
+	$PACMAN python-pylint
+
+	## Python machine-learing
 	$PACMAN python-numpy
 	$PACMAN python-scipy
 	$PACMAN python-pandas
 	$PACMAN python-matplotlib
 	$PACMAN python-tensorflow
+
 	# optional requirement for matplotlib
 	$PACMAN tk
 }
