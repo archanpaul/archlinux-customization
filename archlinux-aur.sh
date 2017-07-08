@@ -109,6 +109,10 @@ function arm_packages() {
     $AURGET_CMD gcc-arm-none-eabi-bin
 }
 
+function game_framework_packages() {
+    $AURGET_CMD cocos2d-x-src
+}
+
 function install_modules() {
     aurget_install
     power_management_packages
@@ -125,9 +129,10 @@ function install_modules() {
     ide_pacakges
     arm_packages
     swift_packages
+    game_framework_packages
 }
 
 #aurget_install
-install_modules 2>&1 | tee archlinux-aur.log
-#$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
+#install_modules 2>&1 | tee archlinux-aur.log
+$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
 
