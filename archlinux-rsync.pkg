@@ -962,6 +962,7 @@ RSYNC_INCLUDES_PKG="
 --include=python2-setuptools-[0-9]* \
 --include=python2-sip-[0-9]* \
 --include=python2-six-[0-9]* \
+--include=python2-sphinx-[0-9]* \
 --include=python2-unrardll-[0-9]* \
 --include=python2-webencodings-[0-9]* \
 --include=python-appdirs-[0-9]* \
