@@ -142,6 +142,7 @@ function java_dev_tools() {
 	#$PACMAN jre8-openjdk
 	$PACMAN jdk8-openjdk
 	$PACMAN icedtea-web
+	$PACMAN apache-ant
 }
 
 ## PHP dev-tools

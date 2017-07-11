@@ -109,10 +109,10 @@ function arm_packages() {
     $AURGET_CMD gcc-arm-none-eabi-bin
 }
 
-function game_framework_packages() {
-    $AURGET_CMD cocos2d-x-src
+function arm_packages() {
+    gpg --keyserver pgp.mit.edu --recv-keys D1483FA6C3C07136
+    $AURGET_CMD orion tor-browser
 }
-
 function install_modules() {
     aurget_install
     power_management_packages
@@ -129,7 +129,6 @@ function install_modules() {
     ide_pacakges
     arm_packages
     swift_packages
-    game_framework_packages
 }
 
 #aurget_install
