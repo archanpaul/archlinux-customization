@@ -278,6 +278,7 @@ function virtualization() {
 
 ## Generic gtk Themes
 function generic_gtk_themes() {
+	$PACMAN gnome-themes-standard
 	$PACMAN gtk-engine-murrine 
 }
 
