@@ -37,7 +37,7 @@ function printing_packages() {
 function browser_packages() {
     $AURGET_CMD google-chrome
     #$AURGET_CMD google-talkplugin
-    #$AURGET_CMD chrome-remote-desktop 
+    #$AURGET_CMD chrome-remote-desktop
 }
 
 function font_packages() {
@@ -68,7 +68,7 @@ function gtk_themes() {
 
 function debian_packages() {
     # debootstrap
-    ##$PACMAN_CMD debootstrap 
+    ##$PACMAN_CMD debootstrap
     $AURGET_CMD debian-archive-keyring
     $AURGET_CMD ubuntu-keyring
     gpg --keyserver pgp.mit.edu --recv-keys 2071B08A33BD3F06
@@ -79,9 +79,7 @@ function ide_pacakges() {
     $AURGET_CMD global
     $AURGET_CMD rtags-git
     $AURGET_CMD atom-editor-bin
-    echo "apm install linter git-plus rest-client atom-beautify file-icons dartlang atom-toolbar synced-sidebar go-plus hyperclick go-debug go-signature-statusbar oceanic-next nomnoml-preview linter-golinter markdown-preview-enhanced"
-    echo "go get golang.org/x/tools/cmd/cover"
-    #apm install autocomplete-clang build build-make linter linter-clang linter-gcc atomic-rtags file-icons synced-sidebar 
+    #apm install autocomplete-clang build build-make linter linter-clang linter-gcc atomic-rtags file-icons synced-sidebar rest-client dartlang linter-flake8 go-debug go-signature-statusbar
     $AURGET_CMD visual-studio-code
 }
 
@@ -136,4 +134,3 @@ function install_modules() {
 #aurget_install
 #install_modules 2>&1 | tee archlinux-aur.log
 $AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
-
