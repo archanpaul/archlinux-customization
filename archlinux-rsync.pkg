@@ -136,6 +136,7 @@ RSYNC_INCLUDES_PKG="
 --include=discover-[0-9]* \
 --include=djvulibre-[0-9]* \
 --include=dkms-[0-9]* \
+--include=dmidecode-[0-9]* \
 --include=dmraid-[0-9]* \
 --include=dnssec-anchors-[0-9]* \
 --include=docbook-xml-[0-9]* \
