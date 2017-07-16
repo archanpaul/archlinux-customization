@@ -94,6 +94,13 @@ function dev_tools() {
 
 	$PACMAN go go-tools
 	# go get golang.org/x/tools/cmd/...
+	# go get golang.org/x/tools/cmd/goimports
+	# go get golang.org/x/tools/cmd/gorename
+	# go get golang.org/x/tools/cmd/guru
+	# go get github.com/sqs/goreturns
+	# go get github.com/alecthomas/gometalinter
+	# go get github.com/zmb3/gogetdocs
+	# go get github.com/fatih/gomodifytags
 	# go get github.com/nsf/gocode
 	# go get github.com/rogpeppe/godef
 	# go get github.com/derekparker/delve/cmd/dlv
