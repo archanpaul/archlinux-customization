@@ -24,6 +24,7 @@ function power_management_packages() {
 function android_packages() {
     #$AURGET_CMD android-sdk
     $AURGET_CMD android-studio
+    $AURGET_CMD glxinfo
 
     gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
@@ -112,6 +113,10 @@ function tor_packages() {
     $AURGET_CMD orion tor-browser
 }
 
+function uml_packages() {
+	$PACMAN_CMD plantuml
+}
+
 function install_modules() {
     aurget_install
     power_management_packages
@@ -129,6 +134,7 @@ function install_modules() {
     arm_packages
     swift_packages
     tor_packages
+    uml_packages
 }
 
 #aurget_install

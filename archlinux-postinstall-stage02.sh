@@ -43,6 +43,7 @@ function network_tools() {
 function xorg() {
 	$PACMAN xorg-server 
 	$PACMAN xorg-server-xwayland
+	$PACMAN xorg-server-xephyr
 	$PACMAN mesa-libgl
 	$PACMAN xf86-video-intel intel-dri libva-intel-driver 
 	$PACMAN xf86-input-evdev xf86-input-synaptics 
@@ -91,6 +92,7 @@ function dev_tools() {
 	$PACMAN doxygen
 	$PACMAN zlib boost 
 	$PACMAN openmpi opencv
+	$PACMAN strace ltrace
 
 	$PACMAN go go-tools
 	# go get golang.org/x/tools/cmd/...
