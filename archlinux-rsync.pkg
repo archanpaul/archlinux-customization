@@ -1260,6 +1260,7 @@ RSYNC_INCLUDES_PKG="
 --include=xine-lib-[0-9]* \
 --include=xineramaproto-[0-9]* \
 --include=xkeyboard-config-[0-9]* \
+--include=xmlsec-[0-9]* \
 --include=xorg-bdftopcf-[0-9]* \
 --include=xorg-fonts-alias-[0-9]* \
 --include=xorg-fonts-encodings-[0-9]* \
