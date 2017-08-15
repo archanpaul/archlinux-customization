@@ -336,7 +336,7 @@ function kde_desktop() {
 ## KDE dev
 function kde_dev() {
 	#$PACMAN kde-meta-kdesdk
-	#$PACMAN kdevelop
+	$PACMAN kdevelop
 	$PACMAN kompare umbrello
 }
 
