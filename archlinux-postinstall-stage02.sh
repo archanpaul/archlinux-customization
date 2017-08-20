@@ -240,7 +240,7 @@ function graphic_utils() {
 function databases() {
 	$PACMAN sqlite
 	$PACMAN mariadb libmariadbclient mariadb-clients
-	$PACMAN mongodb
+	$PACMAN mongodb mongodb-tools
 	$PACMAN postgresql postgresql-docs postgresql-libs
 }
 

@@ -821,6 +821,7 @@ RSYNC_INCLUDES_PKG="
 --include=modemmanager-qt-[0-9]* \
 --include=mod_wsgi-[0-9]* \
 --include=mongodb-[0-9]* \
+--include=mongodb-tools-[0-9]* \
 --include=mozilla-common-[0-9]* \
 --include=mpfr-[0-9]* \
 --include=mpg123-[0-9]* \
