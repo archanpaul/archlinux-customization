@@ -153,6 +153,7 @@ RSYNC_INCLUDES_PKG="
 --include=e2fsprogs-[0-9]* \
 --include=ebook-tools-[0-9]* \
 --include=ecryptfs-utils-[0-9]* \
+--include=editorconfig-core-c-[0-9]* \
 --include=elfutils-[0-9]* \
 --include=emacs-[0-9]* \
 --include=emacs-python-mode-[0-9]* \
