@@ -106,7 +106,7 @@ function arm_packages() {
 
     $PACMAN_CMD arm-none-eabi-binutils arm-none-eabi-gcc
     $AURGET_CMD gcc-arm-none-eabi-bin
-    $AURGET_CMD libudev0-shim jlink-software-and-documentation ozone jlink
+    $AURGET_CMD libudev0-shim jlink-software-and-documentation ozone jlink-systemview jlink
 }
 
 function tor_packages() {
