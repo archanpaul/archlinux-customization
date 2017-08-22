@@ -699,6 +699,7 @@ RSYNC_INCLUDES_PKG="
 --include=libtommath-[0-9]* \
 --include=libtool-[0-9]* \
 --include=libtxc_dxtn-[0-9]* \
+--include=libudev0-shim-[0-9]* \
 --include=libunistring-[0-9]* \
 --include=libunrar-[0-9]* \
 --include=libunwind-[0-9]* \
