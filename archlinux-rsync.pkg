@@ -663,6 +663,7 @@ RSYNC_INCLUDES_PKG="
 --include=libpwquality-[0-9]* \
 --include=libqalculate-[0-9]* \
 --include=libqmi-[0-9]* \
+--include=libraqm-[0-9]* \
 --include=libraw-[0-9]* \
 --include=libraw1394-[0-9]* \
 --include=libreoffice-fresh-[0-9]* \
