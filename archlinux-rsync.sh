@@ -7,8 +7,8 @@ TIMESTAMP_FLE="$WORKDIR/archlinux-rsync.timestamp"
 
 ## mirrors
 
-SOURCE='rsync://ftp.jaist.ac.jp/pub/Linux/ArchLinux/'
-#SOURCE='rsync://mirror.leaseweb.com/archlinux/'
+#SOURCE='rsync://ftp.jaist.ac.jp/pub/Linux/ArchLinux/'
+SOURCE='rsync://mirror.leaseweb.com/archlinux/'
 
 ## rsync includes and excludes
 
