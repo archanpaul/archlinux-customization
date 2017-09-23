@@ -26,7 +26,8 @@ function android_packages() {
     $AURGET_CMD android-studio
     $AURGET_CMD glxinfo
 
-    gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
+    #gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
+    gpg --recv-keys C52048C0C0748FEE227D47A2702353E0F7E48EDB
     $AURGET_CMD ncurses5-compat-libs
     #$AURGET_CMD android-ndk
 }
@@ -93,11 +94,17 @@ function util_pacakges() {
 }
 
 function swift_packages() {
-    $AURGET_CMD libblocksruntime
-    $PACMAN_UNINSTALL_CMD lldb
-    $AURGET_CMD swift
-    $PACMAN_UNINSTALL_CMD swift-lldb
-    $PACMAN_CMD lldb
+    #$AURGET_CMD libblocksruntime
+    #$PACMAN_UNINSTALL_CMD lldb
+    #$AURGET_CMD swift
+    #$PACMAN_UNINSTALL_CMD swift-lldb
+    #$PACMAN_CMD lldb
+
+    $AURGET_CMD icu55
+    gpg --recv-keys C52048C0C0748FEE227D47A2702353E0F7E48EDB
+    $AURGET_CMD ncurses5-compat-libs
+    gpg --recv-keys --keyserver hkp://pgp.mit.edu EF5430F071E1B235
+    $AURGET_CMD swift-bin
 }
 
 function arm_packages() {

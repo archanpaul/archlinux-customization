@@ -1039,6 +1039,7 @@ RSYNC_INCLUDES_PKG="
 --include=python-olefile-[0-9]* \
 --include=python-packaging-[0-9]* \
 --include=python-pandas-[0-9]* \
+--include=python-parso-[0-9]* \
 --include=python-pillow-[0-9]* \
 --include=python-pip-[0-9]* \
 --include=python-protobuf-[0-9]* \
