@@ -531,6 +531,7 @@ RSYNC_INCLUDES_PKG="
 --include=libcaca-[0-9]* \
 --include=libcacard-[0-9]* \
 --include=libcanberra-[0-9]* \
+--include=libcanberra-pulse-[0-9]* \
 --include=libcap-[0-9]* \
 --include=libcap-ng-[0-9]* \
 --include=libcddb-[0-9]* \
