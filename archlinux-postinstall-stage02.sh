@@ -331,6 +331,10 @@ function kde_desktop() {
 	$PACMAN krdc freerdp
 
 	$PACMAN sddm sddm-kcm
+
+	# KDE Telepathy
+	$PACMAN telepathy-kde-meta
+	$PACMAN telepathy-haze telepathy-gabble telepathy-idle telepathy-morse telepathy-rakia
 }
 
 ## KDE dev
