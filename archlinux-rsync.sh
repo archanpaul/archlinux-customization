@@ -36,6 +36,9 @@ RSYNC_EXCLUDES="
 --exclude=.~tmp~ \
 --exclude=.* \
 --exclude=*5.[2-9].95-** \
+--exclude=*.[0-9]beta** \
+--exclude=*.[0-9].beta** \
+--exclude=*.[0-9]-beta** \
 "
 
 RSYNC_RULES="--include=*/ $RSYNC_EXCLUDES $RSYNC_INCLUDES_GENERIC $RSYNC_INCLUDES_PKG $RSYNC_INCLUDES_ISO --exclude=*"

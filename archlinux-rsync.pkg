@@ -1078,6 +1078,7 @@ RSYNC_INCLUDES_PKG="
 --include=qimageblitz-[0-9]* \
 --include=qjson-[0-9]* \
 --include=qpdf-[0-9]* \
+--include=qqc2-desktop-style-[0-9]* \
 --include=qrencode-[0-9]* \
 --include=qscintilla-qt5-[0-9]* \
 --include=qt4-[0-9]* \
