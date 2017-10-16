@@ -117,8 +117,12 @@ function arm_packages() {
 }
 
 function tor_packages() {
-    gpg --keyserver pgp.mit.edu --recv-keys D1483FA6C3C07136
+    gpg --recv-keys --keyserver hkp://pgp.mit.edu D1483FA6C3C07136
     $AURGET_CMD tor-browser
+}
+
+function im_packages() {
+    $AURGET_CMD skypeforlinux-bin
 }
 
 function install_modules() {
@@ -138,6 +142,7 @@ function install_modules() {
     arm_packages
     swift_packages
     tor_packages
+    im-packages
 }
 
 #aurget_install

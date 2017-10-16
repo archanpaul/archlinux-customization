@@ -917,6 +917,7 @@ RSYNC_INCLUDES_PKG="
 --include=plasma-nm-[0-9]* \
 --include=plasma-pa-[0-9]* \
 --include=plasma-sdk-[0-9]* \
+--include=plasma-vault-[0-9]* \
 --include=plasma-workspace-[0-9]* \
 --include=plasma-workspace-wallpapers-[0-9]* \
 --include=podofo-[0-9]* \
