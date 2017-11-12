@@ -910,6 +910,7 @@ RSYNC_INCLUDES_PKG="
 --include=pixman-[0-9]* \
 --include=pkcs11-helper-[0-9]* \
 --include=pkg-config-[0-9]* \
+--include=pkgfile-[0-9]* \
 --include=plasma-desktop-[0-9]* \
 --include=plasma-framework-[0-9]* \
 --include=plasma-integration-[0-9]* \

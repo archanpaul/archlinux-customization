@@ -21,7 +21,7 @@ function console_tools() {
 	$PACMAN minicom screen
 	$PACMAN dvd+rw-tools 
 	$PACMAN zip unzip p7zip bzip2 unrar lxsplit
-	$PACMAN schroot debootstrap
+	$PACMAN schroot debootstrap 
 	$PACMAN pwgen
 	$PACMAN dmidecode
 }

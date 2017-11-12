@@ -85,12 +85,22 @@ function ide_pacakges() {
     $AURGET_CMD visual-studio-code
 }
 
+function dart_pacakges() {
+    $AURGET_CMD flutter
+}
+
 function network_pacakges() {
     $AURGET_CMD tcptrack
 }
 
 function util_pacakges() {
     $AURGET_CMD ms-sys
+    $PACMAN_CMD pkgfile
+    $AURGET_CMD debtap
+}
+
+function bluetooth_pacakges() {
+    $AURGET_CMD bluez-utils-compat
 }
 
 function swift_packages() {
@@ -139,6 +149,7 @@ function install_modules() {
     network_pacakges
     util_pacakges
     ide_pacakges
+    dart_packages
     arm_packages
     swift_packages
     tor_packages
