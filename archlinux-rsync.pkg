@@ -585,6 +585,7 @@ RSYNC_INCLUDES_PKG="
 --include=libice-[0-9]* \
 --include=libid3tag-[0-9]* \
 --include=libidn-[0-9]* \
+--include=libidn2-[0-9]* \
 --include=libiec61883-[0-9]* \
 --include=libieee1284-[0-9]* \
 --include=libimobiledevice-[0-9]* \
