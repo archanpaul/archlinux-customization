@@ -22,24 +22,11 @@ function power_management_packages() {
 }
 
 function android_packages() {
-    #$AURGET_CMD android-sdk
     $AURGET_CMD android-studio
-    $AURGET_CMD glxinfo
-
-    #gpg --keyserver pgp.mit.edu --recv-keys 702353E0F7E48EDB
-    gpg --recv-keys C52048C0C0748FEE227D47A2702353E0F7E48EDB
-    $AURGET_CMD ncurses5-compat-libs
-    #$AURGET_CMD android-ndk
 }
 
 function printing_packages() {
     $AURGET_CMD hplip-plugin
-}
-
-function browser_packages() {
-    $AURGET_CMD google-chrome
-    #$AURGET_CMD google-talkplugin
-    #$AURGET_CMD chrome-remote-desktop
 }
 
 function font_packages() {
@@ -49,44 +36,8 @@ function font_packages() {
     $AURGET_CMD ttf-google-fonts-git
 }
 
-function java_packages() {
-    # Oracle jdk
-    $AURGET_CMD jdk
-    sudo archlinux-java set java-8-jdk
-}
-
-function go_packages() {
-    $AURGET_CMD gocode-git
-    $AURGET_CMD go-gpm
-}
-
-function server_packages() {
-    $AURGET_CMD nsq
-}
-
-function gtk_themes() {
-    $AURGET_CMD gtk-theme-arc
-}
-
-function debian_packages() {
-    # debootstrap
-    ##$PACMAN_CMD debootstrap
-    $AURGET_CMD debian-archive-keyring
-    $AURGET_CMD ubuntu-keyring
-    gpg --keyserver pgp.mit.edu --recv-keys 2071B08A33BD3F06
-    $AURGET_CMD gnupg1
-}
-
 function ide_pacakges() {
-    $AURGET_CMD global
-    $AURGET_CMD rtags-git
-    $AURGET_CMD atom-editor-bin
-    #apm install autocomplete-clang build build-make linter linter-clang linter-gcc atomic-rtags file-icons synced-sidebar rest-client dartlang linter-flake8 go-debug go-signature-statusbar
     $AURGET_CMD visual-studio-code
-}
-
-function dart_pacakges() {
-    $AURGET_CMD flutter
 }
 
 function network_pacakges() {
@@ -99,40 +50,13 @@ function util_pacakges() {
     $AURGET_CMD debtap
 }
 
-function bluetooth_pacakges() {
-    $AURGET_CMD bluez-utils-compat
-}
-
-function swift_packages() {
-    #$AURGET_CMD libblocksruntime
-    #$PACMAN_UNINSTALL_CMD lldb
-    #$AURGET_CMD swift
-    #$PACMAN_UNINSTALL_CMD swift-lldb
-    #$PACMAN_CMD lldb
-
-    $AURGET_CMD icu55
-    gpg --recv-keys C52048C0C0748FEE227D47A2702353E0F7E48EDB
-    $AURGET_CMD ncurses5-compat-libs
-    gpg --recv-keys --keyserver hkp://pgp.mit.edu EF5430F071E1B235
-    $AURGET_CMD swift-bin
-}
-
 function arm_packages() {
-    $AURGET_CMD gnuarmeclipse-qemu-git
-    $PACMAN_CMD ninja
-
-    $PACMAN_CMD arm-none-eabi-binutils arm-none-eabi-gcc
     $AURGET_CMD gcc-arm-none-eabi-bin
-    $AURGET_CMD libudev0-shim jlink-software-and-documentation nrf5x-command-line-tools
 }
 
 function tor_packages() {
     gpg --recv-keys --keyserver hkp://pgp.mit.edu D1483FA6C3C07136
     $AURGET_CMD tor-browser
-}
-
-function im_packages() {
-    $AURGET_CMD skypeforlinux-bin
 }
 
 function install_modules() {
@@ -141,19 +65,11 @@ function install_modules() {
     android_packages
     printing_packages
     #font_packages
-    #java_packages
-    go_packages
-    #server_packages
-    #browser_packages
-    debian_packages
     network_pacakges
     util_pacakges
     ide_pacakges
-    dart_packages
     arm_packages
-    swift_packages
     tor_packages
-    im-packages
 }
 
 #aurget_install

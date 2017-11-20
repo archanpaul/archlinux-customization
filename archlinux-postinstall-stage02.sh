@@ -6,7 +6,7 @@ PACMAN="pacman -S --noconfirm --needed "
 ## Base
 function base() {
 	$PACMAN base grub lsb-release
-	$PACMAN dbus systemd systemd-sysvcompat syslog-ng cronie
+	$PACMAN util-linux dbus systemd systemd-sysvcompat syslog-ng cronie
 	$PACMAN linux linux-headers linux-api-headers linux-firmware acpi_call
 }
 
@@ -33,7 +33,7 @@ function network_tools() {
 	$PACMAN usb_modeswitch wvdial
 	$PACMAN ethtool bridge-utils
 	$PACMAN net-tools netctl
-	$PACMAN rfkill wireless_tools wpa_supplicant wpa_actiond crda
+	$PACMAN wireless_tools wpa_supplicant wpa_actiond crda
 	$PACMAN bluez bluez-firmware bluez-utils
 	$PACMAN networkmanager 
 	$PACMAN wireshark-cli
