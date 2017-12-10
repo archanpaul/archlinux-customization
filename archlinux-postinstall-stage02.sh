@@ -283,7 +283,7 @@ function localized_input_systems() {
 ## Virtualization
 function virtualization() {
 	$PACMAN sdl sdl_image sdl2 sdl2_image
-	$PACMAN qemu libvirt 
+	$PACMAN qemu 
 	$PACMAN virtualbox
 }
 
