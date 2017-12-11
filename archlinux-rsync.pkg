@@ -1317,5 +1317,6 @@ RSYNC_INCLUDES_PKG="
 --include=zita-alsa-pcmi-[0-9]* \
 --include=zita-resampler-[0-9]* \
 --include=zlib-[0-9]* \
+--include=zstd-[0-9]* \
 --include=zvbi-[0-9]* \
 "
