@@ -72,7 +72,7 @@ function scm() {
 ## Printing
 function printing() {
 	$PACMAN cups cups-pdf
-	$PACMAN foomatic-db foomatic-db-ppds foomatic-db-engine foomatic-db-nonfree foomatic-filters 
+	$PACMAN foomatic-db foomatic-db-ppds foomatic-db-engine foomatic-db-nonfree 
 	$PACMAN ghostscript gsfonts gutenprint 
 	$PACMAN hplip splix
 	$PACMAN sane 
@@ -137,7 +137,7 @@ function android_dev_tools() {
 	$PACMAN android-tools
 	#For compiling Android build
 	#$PACMAN gcc-multilib
-	$PACMAN lib32-zlib lib32-ncurses lib32-readline
+	#$PACMAN lib32-zlib lib32-ncurses lib32-readline
 	$PACMAN uboot-tools
 }
 
@@ -359,7 +359,6 @@ function lib32_apps() {
 
 ## systemd services
 function systemd_services() {
-	systemctl enable syslog-ng
 	systemctl enable acpid
 	systemctl enable cronie
 	systemctl enable sddm
