@@ -150,8 +150,8 @@ function dart_dev_tools() {
 function java_dev_tools() {
 	# temporary fix
 	#pacman -S java-environment
-	#$PACMAN jre8-openjdk
-	$PACMAN jdk8-openjdk
+	#$PACMAN jre9-openjdk
+	$PACMAN jdk9-openjdk
 	$PACMAN icedtea-web
 	$PACMAN apache-ant
 }
