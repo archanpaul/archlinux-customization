@@ -25,51 +25,25 @@ function android_packages() {
     $AURGET_CMD android-studio
 }
 
-function printing_packages() {
-    $AURGET_CMD hplip-plugin
-}
-
-function font_packages() {
-    #$PACMAN_UNINSTALL_CMD ttf-droid
-    #$PACMAN_UNINSTALL_CMD ttf-oxygen
-    #$PACMAN_UNINSTALL_CMD noto-fonts
-    $AURGET_CMD ttf-google-fonts-git
-}
-
 function ide_pacakges() {
     $AURGET_CMD visual-studio-code
 }
 
-function network_pacakges() {
-    $AURGET_CMD tcptrack
-}
-
-function util_pacakges() {
-    $AURGET_CMD ms-sys
-    $PACMAN_CMD pkgfile
-    $AURGET_CMD debtap
+function printutil_packages() {
+    $AURGET_CMD hplip-plugin
 }
 
 function arm_packages() {
     $AURGET_CMD gcc-arm-none-eabi-bin
 }
 
-function tor_packages() {
-    gpg --recv-keys --keyserver hkp://pgp.mit.edu D1483FA6C3C07136
-    $AURGET_CMD tor-browser
-}
-
 function install_modules() {
     aurget_install
     power_management_packages
     android_packages
-    printing_packages
-    #font_packages
-    network_pacakges
-    util_pacakges
     ide_pacakges
+    printutil_packages
     arm_packages
-    tor_packages
 }
 
 #aurget_install
