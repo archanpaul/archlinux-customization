@@ -154,6 +154,9 @@ function java_dev_tools() {
 	$PACMAN jdk9-openjdk
 	$PACMAN icedtea-web
 	$PACMAN apache-ant
+
+	# required for QT-SDK to compile for Android
+	$PACMAN jdk8-openjdk
 }
 
 ## PHP dev-tools
