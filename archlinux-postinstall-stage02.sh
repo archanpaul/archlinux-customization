@@ -319,15 +319,15 @@ function kde_desktop() {
 	## KDE5
 	$PACMAN plasma-meta plasma-desktop plasma-workspace
 	$PACMAN plasma-nm plasma-pa
-	$PACMAN kde-meta-kdebase kde-meta-kdeadmin
-	$PACMAN kde-meta-kdegraphics kde-meta-kdemultimedia kde-meta-kdenetwork
-	$PACMAN kde-meta-kdepim kde-meta-kdeutils
+	$PACMAN kdebase-meta kdeadmin-meta
+	$PACMAN kdegraphics-meta kdemultimedia-meta kdenetwork-meta
+	$PACMAN kdepim-meta kdeutils-meta
 
 	## KDE extra apps
 	$PACMAN ktorrent 
 	$PACMAN skanlite
 	$PACMAN cdrdao k3b 
-	$PACMAN amarok 
+	$PACMAN clementine
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
 	$PACMAN konversation
