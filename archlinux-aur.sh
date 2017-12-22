@@ -26,7 +26,7 @@ function android_packages() {
 }
 
 function ide_pacakges() {
-    $AURGET_CMD visual-studio-code
+    $AURGET_CMD visual-studio-code-bin
 }
 
 function printutil_packages() {
