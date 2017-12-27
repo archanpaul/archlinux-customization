@@ -1065,6 +1065,7 @@ RSYNC_INCLUDES_PKG="
 --include=qt5-webchannel-[0-9]* \
 --include=qt5-webengine-[0-9]* \
 --include=qt5-webkit-[0-9]* \
+--include=qt5-webglplugin-[0-9]* \
 --include=qt5-websockets-[0-9]* \
 --include=qt5-webview-[0-9]* \
 --include=qt5-x11extras-[0-9]* \
