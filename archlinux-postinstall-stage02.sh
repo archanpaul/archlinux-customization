@@ -248,6 +248,12 @@ function databases() {
 	$PACMAN postgresql postgresql-docs postgresql-libs
 }
 
+## Data processing
+function dataprocessing() {
+	$PACMAN tensorflow
+	$PACMAN tensorboard
+}
+
 ## Servers
 function servers() {
 	$PACMAN openssh sshpass openssl openvpn 
@@ -411,6 +417,7 @@ function install_all_modules() {
 	editors
 	graphic_utils
 	databases
+	dataprocessing
 	servers
 	documentations
 	browsers
