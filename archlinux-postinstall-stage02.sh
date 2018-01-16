@@ -82,6 +82,7 @@ function printing() {
 function dev_tools() {
 	$PACMAN base-devel 
 	$PACMAN binutils gcc gcc-libs libtool
+	$PACMAN lib32-gcc-libs
 	#$PACMAN multilib-devel 
 	$PACMAN llvm llvm-libs lld lldb
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config

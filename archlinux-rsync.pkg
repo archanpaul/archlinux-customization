@@ -496,6 +496,7 @@ RSYNC_INCLUDES_PKG="
 --include=ldns-[0-9]* \
 --include=less-[0-9]* \
 --include=lftp-[0-9]* \
+--include=lib32-gcc-libs-[0-9]* \
 --include=lib32-glibc-[0-9]* \
 --include=libabw-[0-9]* \
 --include=libaccounts-glib-[0-9]* \
