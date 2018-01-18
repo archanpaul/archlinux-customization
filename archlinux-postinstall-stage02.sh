@@ -134,6 +134,7 @@ function android_dev_tools() {
 ## Dart dev-tools
 function dart_dev_tools() {
 	$PACMAN dart
+	#pub global activate stagehand
 }
 
 ## Java dev-tools
