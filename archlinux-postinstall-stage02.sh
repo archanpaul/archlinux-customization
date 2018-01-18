@@ -96,33 +96,22 @@ function dev_tools() {
 	$PACMAN strace ltrace
 
 	$PACMAN go go-tools
-	# go get golang.org/x/tools/cmd/...
-	# go get golang.org/x/tools/cmd/goimports
-	# go get golang.org/x/tools/cmd/gorename
-	# go get golang.org/x/tools/cmd/guru
-	# go get github.com/sqs/goreturns
-	# go get github.com/alecthomas/gometalinter
-	# go get github.com/zmb3/gogetdocs
-	# go get github.com/fatih/gomodifytags
-	# go get github.com/nsf/gocode
-	# go get github.com/rogpeppe/godef
-	# go get github.com/derekparker/delve/cmd/dlv
-	# go get github.com/cespare/reflex
-	# go get github.com/alecthomas/gometalinter
-	# go get github.com/gorilla/context
-	# go get github.com/urfave/negroni
-	# go get github.com/gorilla/mux
-	# go get github.com/dgrijalva/jwt-go
-	# go get golang.org/x/mobile/cmd/gomobile
-	# go get github.com/boltdb/bolt
-	# go get github.com/syndtr/goleveldb/leveldb 
-	# go get github.com/google/gopacket
-	# go get cloud.google.com/go/...
-	# go get github.com/GoogleCloudPlatform/google-cloud-go
-	# go get github.com/lib/pq
-	# go get github.com/go-sql-driver/mysql
-	# go get gopkg.in/mgo.v2
-	# go get github.com/sourcegraph/go-langserver
+	#go get -u golang.org/x/tools/...
+	#go get -v github.com/uudashr/gopkgs/cmd/gopkgs
+	#go get -v github.com/rogpeppe/godef
+	#go get -v github.com/cespare/reflex
+	#go get -v github.com/urfave/negroni
+	#go get -v github.com/gorilla/mux
+	#go get -v github.com/dgrijalva/jwt-go
+	#go get -v golang.org/x/mobile/cmd/gomobile
+	#go get -v github.com/boltdb/bolt
+	#go get -v github.com/google/gopacket
+	#go get -v github.com/lib/pq
+	#go get -v gopkg.in/mgo.v2
+	#go get -c golang.org/x/crypto/blowfish
+	#go get -v golang.org/x/crypto/bcrypt
+	#go get -v github.com/gorilla/context
+
 }
 
 ## ARM Dev tools
