@@ -97,8 +97,6 @@ function dev_tools() {
 
 	$PACMAN go go-tools
 	#go get -u golang.org/x/tools/...
-	#go get -v github.com/uudashr/gopkgs/cmd/gopkgs
-	#go get -v github.com/rogpeppe/godef
 	#go get -v github.com/cespare/reflex
 	#go get -v github.com/urfave/negroni
 	#go get -v github.com/gorilla/mux
@@ -111,7 +109,11 @@ function dev_tools() {
 	#go get -c golang.org/x/crypto/blowfish
 	#go get -v golang.org/x/crypto/bcrypt
 	#go get -v github.com/gorilla/context
-
+	##vs-code/go dependencies
+	#go get -v github.com/uudashr/gopkgs/cmd/gopkgs
+	#go get -v github.com/rogpeppe/godef
+	#go get -v github.com/ramya-rao-a/go-outline
+	#go get -v sourcegraph.com/sqs/goreturns
 }
 
 ## ARM Dev tools
