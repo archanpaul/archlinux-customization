@@ -114,6 +114,11 @@ function dev_tools() {
 	#go get -v github.com/rogpeppe/godef
 	#go get -v github.com/ramya-rao-a/go-outline
 	#go get -v sourcegraph.com/sqs/goreturns
+	#go get -v github.com/nsf/gocode
+
+	#go get -v  github.com/acroca/go-symbols
+	#go get -v github.com/golang/lint/golint
+	#go get -v github.com/derekparker/delve/cmd/dlv
 }
 
 ## ARM Dev tools
