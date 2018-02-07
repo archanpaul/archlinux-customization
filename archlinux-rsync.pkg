@@ -450,7 +450,6 @@ RSYNC_INCLUDES_PKG="
 --include=konversation-[0-9]* \
 --include=kopete-[0-9]* \
 --include=korganizer-[0-9]* \
---include=kotlin-[0-9]* \
 --include=kpackage-[0-9]* \
 --include=kparts-[0-9]* \
 --include=kpeople-[0-9]* \

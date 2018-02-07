@@ -157,11 +157,6 @@ function java_dev_tools() {
 	$PACMAN jdk8-openjdk
 }
 
-## Java dev-tools
-function java_dev_tools() {
-	$PACMAN kotlin
-}
-
 ## PHP dev-tools
 function php_dev_tools() {
 	$PACMAN php php-apache
@@ -407,7 +402,6 @@ function install_all_modules() {
 	printing
 	dev_tools
 	java_dev_tools
-	kotlin_dev_tools
 	android_dev_tools
 	#arm_dev_tools
 	dart_dev_tools
