@@ -27,6 +27,16 @@ function android_packages() {
 
 function ide_pacakges() {
     $AURGET_CMD visual-studio-code-bin
+    #code --install-extension Dart-Code.dart-code
+    #code --install-extension PKief.material-icon-theme
+    #code --install-extension donjayamanne.githistory
+    #code --install-extension formulahendry.code-runner
+    #code --install-extension joshpeng.theme-charcoal-oceanicnext
+    #code --install-extension lukehoban.Go
+    #code --install-extension ms-python.python
+    #code --install-extension ms-vscode-devlab.vscode-mongodb
+    #code --install-extension ms-vscode.cpptools
+    #code --install-extension msjsdiag.debugger-for-chrome
 }
 
 function printutil_packages() {
