@@ -115,6 +115,8 @@ function dev_tools() {
 	#go get -v github.com/ramya-rao-a/go-outline
 	#go get -v sourcegraph.com/sqs/goreturns
 	#go get -v github.com/nsf/gocode
+	#go get -u -t gonum.org/v1/gonum/...
+	#go get -u github.com/wcharczuk/go-chart
 
 	#go get -v  github.com/acroca/go-symbols
 	#go get -v github.com/golang/lint/golint
