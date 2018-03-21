@@ -4,6 +4,7 @@ MY_HOSTNAME=arp
 #INSTALL_SRC="http://192.168.168.101"
 INSTALL_SRC="file:///home"
 INSTALL_TARGET_DISK=/dev/sda
+EFI_PART=$INSTALL_TARGET_DISK"1"
 
 hwclock --localtime -w
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
@@ -31,7 +32,12 @@ vim /etc/hosts
 echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg
 grub-mkconfig >> /boot/grub/grub.cfg
 vim /boot/grub/grub.cfg
+#Non EFI install
 grub-install $INSTALL_TARGET_DISK
+#EFI install
+#mkdir /boot/efi
+#mount $EFI_PART /boot/efi
+#grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 

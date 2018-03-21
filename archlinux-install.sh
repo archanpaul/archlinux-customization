@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 #INSTALL_SRC="http://192.168.168.101"
 #INSTALL_SRC="file:///run/archiso/img_dev"
 INSTALL_SRC="file:///home/"
@@ -34,12 +33,16 @@ pacman -Sy
 
 ## disk partitioning, formatting, mounting
 HDD=/dev/sda
+EFI_PART=$HDD"1"
 SWAP_PART=$HDD"2"
 ROOT_PART=$HDD"3"
 HOME_PART=$HDD"4"
 INSTALL_TARGET="/mnt"
 
 cgdisk $HDD
+
+# Don't format EFI_PART
+#mkfs.fat -F32 $EFI_PART
 
 mkswap -L swap $SWAP_PART
 swapon $SWAP_PART
