@@ -6,10 +6,14 @@ INSTALL_SRC="file:///home"
 INSTALL_TARGET_DISK=/dev/sda
 EFI_PART=$INSTALL_TARGET_DISK"1"
 
-hwclock --localtime -w
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-hwclock --systohc 
-hwclock --adjust
+# Set systemtime
+#hwclock --localtime -w
+#ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
+#hwclock --systohc 
+#hwclock --adjust
+ntpd -qg
+timedatectl set-local-rtc 1
+timedatectl set-timezone Asia/Kolkata
 
 echo "LANG=\"en_US\"" > /etc/locale.conf
 echo "LC_ALL=\"en_US\"" >> /etc/locale.conf

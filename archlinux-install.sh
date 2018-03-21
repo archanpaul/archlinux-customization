@@ -7,10 +7,13 @@ INSTALL_SRC="file:///home/"
 # In bootup console
 
 ## setup system time
-hwclock --localtime -w
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime 
-hwclock --hctosys
-hwclock --adjust
+#hwclock --localtime -w
+#ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime 
+#hwclock --hctosys
+#hwclock --adjust
+ntpd -qg
+timedatectl set-local-rtc 1
+timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
@@ -52,7 +55,7 @@ tune2fs -c 20 $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
-pacstrap $INSTALL_TARGET/ base grub linux vim net-tools curl rsync
+pacstrap $INSTALL_TARGET/ base grub linux vim net-tools curl rsync efibootmgr
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART

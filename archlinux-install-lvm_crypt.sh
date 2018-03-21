@@ -9,10 +9,13 @@ INSTALL_SRC="file:///home/"
 # In bootup console
 
 ## setup system time
-hwclock --localtime -w
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime 
-hwclock --hctosys
-hwclock --adjust
+#hwclock --localtime -w
+#ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime 
+#hwclock --hctosys
+#hwclock --adjust
+ntpd -qg
+timedatectl set-local-rtc 1
+timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
@@ -34,12 +37,16 @@ pacman -Sy
 
 ## disk partitioning, LVM
 HDD=/dev/sda
+EFI_PART=$HDD"1"
 CRYPT_PART=$HDD"2"
 ####BOOT_PART=$HDD"2"
 LVM_SWAP_SIZE=2G
 LVM_ROOT_SIZE=100G
 
 cgdisk $HDD
+
+# Don't format EFI_PATH
+#mkfs.fat -F32 $EFI_PART
 
 modprobe dm_crypt
 cryptsetup luksFormat $CRYPT_PART
@@ -78,7 +85,7 @@ mount $ROOT_PART $INSTALL_TARGET
 #mkfs.ext4 -m 0 -L boot $BOOT_PART
 #mount $BOOT_PART $INSTALL_TARGET/boot/
 
-pacstrap $INSTALL_TARGET/ base grub linux cryptsetup lvm2 vim net-tools wget rsync
+pacstrap $INSTALL_TARGET/ base grub linux cryptsetup lvm2 vim net-tools wget rsync efibootmgr
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART
