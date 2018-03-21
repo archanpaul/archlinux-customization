@@ -47,4 +47,7 @@ awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist");
 # Edit fstab for additional swap partition
 vim /etc/fstab
 
+
+umount /boot/efi
+
 echo "Exit and reboot. On rebooted system run : bash archlinux-postinstall-stage02.sh"
