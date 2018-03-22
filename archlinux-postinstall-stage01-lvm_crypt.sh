@@ -4,6 +4,7 @@ MY_HOSTNAME=arp
 #INSTALL_SRC="http://192.168.168.101"
 INSTALL_SRC="file:///home"
 INSTALL_TARGET_DISK=/dev/sda
+EFI_PART=$INSTALL_TARGET_DISK"1"
 CRYPT_PART=$INSTALL_TARGET_DISK"2"
 
 hwclock --localtime -w
@@ -34,18 +35,20 @@ chmod 000 /etc/crypto_keyfile.bin
 
 ## Moved to install script
 cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub(/FILES=\"\"/, "FILES=\"/etc/crypto_keyfile.bin\""); gsub(/MODULES=\"\"/, "MODULES=\"ahci ext4 intel-agp i915\""); gsub(/HOOKS=\"base udev autodetect modconf block filesystems keyboard fsck\"/, "HOOKS=\"base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\""); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
+awk '{gsub("FILES=\\(", "FILES=\(/etc/crypto_keyfile.bin"); gsub("MODULES=\\(", "MODULES=\(ahci ext4 intel-agp i915\)"); gsub("HOOKS=\\(base udev autodetect modconf block filesystems keyboard fsck\\)", "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
 vim /etc/hostname
 vim /etc/hosts 
 
-cp /etc/default/grub /etc/default/grub.orig
-awk '{gsub(/GRUB_CMDLINE_LINUX=\"\"/, "GRUB_CMDLINE_LINUX=\"cryptdevice='$CRYPT_PART':lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
+mkdir /boot/efi
+mount $EFI_PART /boot/efi
+awk '{gsub("GRUB_CMDLINE_LINUX=\"\"", "GRUB_CMDLINE_LINUX=\"cryptdevice='$CRYPT_PART':lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
 echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
 grub-mkconfig > /boot/grub/grub.cfg
-grub-install $INSTALL_TARGET_DISK
+#grub-install $INSTALL_TARGET_DISK
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
@@ -57,4 +60,6 @@ awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist");
 
 vim /etc/fstab
 
+umount $EFI_PART
 echo "Exit and reboot. On rebooted system run : bash archlinux-postinstall-stage02.sh"
+echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg

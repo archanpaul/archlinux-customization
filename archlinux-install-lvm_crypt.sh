@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOSTNAME=arp
+HOSTNAME=arpo
 LVMNAME=lvm_$HOSTNAME
 VGNAME=vg_$HOSTNAME
 #INSTALL_SRC="http://192.168.168.101"
@@ -9,12 +9,13 @@ INSTALL_SRC="file:///home/"
 # In bootup console
 
 ## setup system time
+ntpd -qg &
+sleep 10
 #hwclock --localtime -w
 #ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime 
 #hwclock --hctosys
 #hwclock --adjust
-ntpd -qg
-timedatectl set-local-rtc 1
+#timedatectl set-local-rtc 1
 timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
@@ -40,8 +41,8 @@ HDD=/dev/sda
 EFI_PART=$HDD"1"
 CRYPT_PART=$HDD"2"
 ####BOOT_PART=$HDD"2"
-LVM_SWAP_SIZE=2G
-LVM_ROOT_SIZE=100G
+LVM_SWAP_SIZE=8G
+LVM_ROOT_SIZE=240G
 
 cgdisk $HDD
 
