@@ -7,11 +7,8 @@ INSTALL_TARGET_DISK=/dev/sda
 EFI_PART=$INSTALL_TARGET_DISK"1"
 
 # Set systemtime
-#hwclock --localtime -w
-#ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-#hwclock --systohc 
-#hwclock --adjust
 ntpd -qg
+sleep 10
 timedatectl set-local-rtc 1
 timedatectl set-timezone Asia/Kolkata
 
@@ -25,8 +22,7 @@ locale-gen
 
 ## Moved to install script
 cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub(/MODULES=\(\)/, "MODULES=\(ahci ext4 intel-agp i915\)"); gsub(/HOOKS=\(base udev autodetect modconf block filesystems keyboard fsck\)/, "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
-vim /etc/mkinitcpio.conf
+awk '{gsub("FILES=\\(", "FILES=\(/etc/crypto_keyfile.bin"); gsub("MODULES=\\(", "MODULES=\(ahci ext4 intel-agp i915\)"); gsub("HOOKS=\\(base udev autodetect modconf block filesystems keyboard fsck\\)", "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
@@ -34,7 +30,7 @@ vim /etc/hostname
 vim /etc/hosts 
 
 echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg
-grub-mkconfig >> /boot/grub/grub.cfg
+grub-mkconfig > /boot/grub/grub.cfg
 vim /boot/grub/grub.cfg
 #Non EFI install
 grub-install $INSTALL_TARGET_DISK
