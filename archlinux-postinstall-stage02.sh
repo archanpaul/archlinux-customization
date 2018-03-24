@@ -209,7 +209,7 @@ function multimedia() {
 	$PACMAN alsa-utils
 	$PACMAN webrtc-audio-processing
 	$PACMAN flac faad2 xvidcore speex x264 opencore-amr ffmpeg
-	$PACMAN lame id3
+	$PACMAN lame 
 	$PACMAN vlc
 	$PACMAN cdrkit
 }
@@ -315,7 +315,7 @@ function gnome_desktop() {
 ## KDE desktop
 function kde_desktop() {
 	## Dependency packages for auto selection
-	$PACMAN phonon-qt4-gstreamer phonon-qt5-gstreamer
+	$PACMAN phonon-qt5-gstreamer
 	#$PACMAN mesa-libgl libx264
 
 	## If KDE4 installed
@@ -345,7 +345,7 @@ function kde_desktop() {
 
 	# KDE Telepathy
 	$PACMAN telepathy-kde-meta
-	$PACMAN telepathy-haze telepathy-gabble telepathy-idle telepathy-morse telepathy-rakia
+	$PACMAN telepathy-haze telepathy-gabble telepathy-idle telepathy-morse 
 }
 
 ## KDE dev

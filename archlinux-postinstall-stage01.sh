@@ -9,7 +9,7 @@ EFI_PART=$INSTALL_TARGET_DISK"1"
 # Set systemtime
 ntpd -qg
 sleep 10
-timedatectl set-local-rtc 1
+#timedatectl set-local-rtc 1
 timedatectl set-timezone Asia/Kolkata
 
 echo "LANG=\"en_US\"" > /etc/locale.conf
@@ -33,11 +33,11 @@ echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub
 grub-mkconfig > /boot/grub/grub.cfg
 vim /boot/grub/grub.cfg
 #Non EFI install
-grub-install $INSTALL_TARGET_DISK
+#grub-install $INSTALL_TARGET_DISK
 #EFI install
-#mkdir /boot/efi
-#mount $EFI_PART /boot/efi
-#grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
+mkdir /boot/efi
+mount $EFI_PART /boot/efi
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
