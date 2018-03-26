@@ -8,6 +8,7 @@ function base() {
 	$PACMAN base grub lsb-release
 	$PACMAN util-linux dbus systemd systemd-sysvcompat syslog-ng cronie
 	$PACMAN linux linux-headers linux-api-headers linux-firmware acpi_call
+	$PACMAN intel-ucode
 }
 
 ## Console tools
