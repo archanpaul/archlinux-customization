@@ -196,6 +196,7 @@ RSYNC_INCLUDES_PKG="
 --include=gawk-[0-9]* \
 --include=gc-[0-9]* \
 --include=gcc-[0-9]* \
+--include=gcc-fortran-[0-9]* \
 --include=gcc-libs-[0-9]* \
 --include=gconf-[0-9]* \
 --include=gd-[0-9]* \

@@ -85,6 +85,7 @@ function dev_tools() {
 	$PACMAN binutils gcc gcc-libs libtool
 	$PACMAN lib32-gcc-libs
 	#$PACMAN multilib-devel 
+	$PACMAN gcc-fortran
 	$PACMAN llvm llvm-libs lld lldb
 	$PACMAN make cmake scons automake autoconf libtool m4 patch pkg-config
 	$PACMAN ctags
