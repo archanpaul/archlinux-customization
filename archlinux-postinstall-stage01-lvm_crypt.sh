@@ -7,10 +7,12 @@ INSTALL_TARGET_DISK=/dev/sda
 EFI_PART=$INSTALL_TARGET_DISK"1"
 CRYPT_PART=$INSTALL_TARGET_DISK"2"
 
-hwclock --localtime -w
-ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
-hwclock --systohc 
-hwclock --adjust
+# Set systemtime
+ntpd -qg
+sleep 10
+#timedatectl set-local-rtc 1
+timedatectl set-timezone Asia/Kolkata
+
 
 echo "LANG=\"en_US.UTF-8\"" > /etc/locale.conf
 echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/locale.conf
@@ -35,20 +37,24 @@ chmod 000 /etc/crypto_keyfile.bin
 
 ## Moved to install script
 cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub("FILES=\\(", "FILES=\(/etc/crypto_keyfile.bin"); gsub("MODULES=\\(", "MODULES=\(ahci ext4 intel-agp i915\)"); gsub("HOOKS=\\(base udev autodetect modconf block filesystems keyboard fsck\\)", "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
+awk '{gsub("FILES=\\(", "FILES=\(/etc/crypto_keyfile.bin"); gsub("MODULES=\\(", "MODULES=\(ahci ext4 intel-agp i915"); gsub("HOOKS=\\(base udev autodetect modconf block filesystems keyboard fsck\\)", "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
 vim /etc/hostname
+echo "127.0.0.1 localhost.localdomain localhost" >> /etc/hosts
 vim /etc/hosts 
 
+cp /etc/default/grub /etc/default/grub.orig
+awk '{gsub("GRUB_CMDLINE_LINUX=\"\"", "GRUB_CMDLINE_LINUX=\"cryptdevice='$CRYPT_PART':lvm\""); gsub("#GRUB_ENABLE_CRYPTODISK=y", "GRUB_ENABLE_CRYPTODISK=y"); print}' /etc/default/grub.orig > /etc/default/grub
+grub-mkconfig > /boot/grub/grub.cfg
+vim /boot/grub/grub.cfg
+#Non EFI install
+#grub-install $INSTALL_TARGET_DISK
+#EFI install
 mkdir /boot/efi
 mount $EFI_PART /boot/efi
-awk '{gsub("GRUB_CMDLINE_LINUX=\"\"", "GRUB_CMDLINE_LINUX=\"cryptdevice='$CRYPT_PART':lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
-echo "GRUB_ENABLE_CRYPTODISK=y" >> /etc/default/grub
-grub-mkconfig > /boot/grub/grub.cfg
-#grub-install $INSTALL_TARGET_DISK
-grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub
+grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux-$MY_HOSTNAME
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 

@@ -1,10 +1,13 @@
 #!/bin/bash
 
 HOSTNAME=arpo
+HDD=/dev/sda
+LVM_SWAP_SIZE=8G
+LVM_ROOT_SIZE=240G
+INSTALL_SRC="file:///home/"
+
 LVMNAME=lvm_$HOSTNAME
 VGNAME=vg_$HOSTNAME
-#INSTALL_SRC="http://192.168.168.101"
-INSTALL_SRC="file:///home/"
 
 # In bootup console
 
@@ -37,12 +40,8 @@ EOF
 pacman -Sy
 
 ## disk partitioning, LVM
-HDD=/dev/sda
 EFI_PART=$HDD"1"
 CRYPT_PART=$HDD"2"
-####BOOT_PART=$HDD"2"
-LVM_SWAP_SIZE=8G
-LVM_ROOT_SIZE=240G
 
 cgdisk $HDD
 
@@ -66,6 +65,7 @@ lvdisplay
 
 vgscan
 vgchange -ay
+lvscan
 
 ## formatting, mounting
 SWAP_PART=/dev/$VGNAME/swap
@@ -86,7 +86,7 @@ mount $ROOT_PART $INSTALL_TARGET
 #mkfs.ext4 -m 0 -L boot $BOOT_PART
 #mount $BOOT_PART $INSTALL_TARGET/boot/
 
-pacstrap $INSTALL_TARGET/ base grub linux cryptsetup lvm2 vim net-tools wget rsync efibootmgr
+pacstrap $INSTALL_TARGET/ base grub linux cryptsetup lvm2 vim net-tools wget rsync efibootmgr ntp
 
 mkfs.ext4 -m 0 -L home $HOME_PART
 tune2fs -c 20 $HOME_PART

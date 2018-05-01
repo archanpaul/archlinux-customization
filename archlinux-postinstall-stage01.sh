@@ -27,6 +27,7 @@ mkinitcpio -p linux
 
 echo $MY_HOSTNAME > /etc/hostname
 vim /etc/hostname
+echo "127.0.0.1 localhost.localdomain localhost" >> /etc/hosts
 vim /etc/hosts 
 
 echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg
@@ -47,6 +48,8 @@ awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist");
 # Edit fstab for additional swap partition
 vim /etc/fstab
 
+# Securing boot
+# chmod -R g-rwx,o-rwx /boot
 
 umount /boot/efi
 
