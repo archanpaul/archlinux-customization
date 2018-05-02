@@ -1,8 +1,8 @@
 #!/bin/bash
 
 HOSTNAME=arp
-INSTALL_SRC="file:///home"
 INSTALL_TARGET_DISK=/dev/sda
+INSTALL_SRC="file:///home"
 
 IS_EFI_INSTALL="yes"
 IS_LUKS_INSTALL="yes"
