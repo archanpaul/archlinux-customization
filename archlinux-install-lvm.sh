@@ -47,7 +47,7 @@ if [ "$CREATE_NEW_LVM" == "yes" ]
 then
     pvcreate $LVM_PART
     pvdisplay
-    vgcreate $VGNAME /dev/mapper/$LVMNAME
+    vgcreate $VGNAME $LVM_PART
     lvcreate -L $LVM_SWAP_SIZE $VGNAME -n swap
     lvcreate -L $LVM_ROOT_SIZE $VGNAME -n root
     lvcreate -l +100%FREE $VGNAME -n home
@@ -86,7 +86,7 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> $INSTALL_TARGET/etc/fstab
 
-curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01-lvm.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm_crypt.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01-lvm.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm.sh
 curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
 
 echo "Run : bash /root/archlinux-postinstall-stage01-lvm.sh inside chroot"
