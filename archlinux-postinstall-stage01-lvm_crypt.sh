@@ -68,4 +68,4 @@ vim /etc/fstab
 
 umount $EFI_PART
 echo "Exit and reboot. On rebooted system run : bash archlinux-postinstall-stage02.sh"
-echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg
+##echo "#cryptdevice=/dev/LUKS_PART:VG root=/dev/mapper/VG-root" > /boot/grub/grub.cfg

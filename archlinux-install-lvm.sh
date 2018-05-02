@@ -9,6 +9,7 @@ INSTALL_SRC="file:///home/"
 INSTALL_TARGET="/mnt"
 
 FORMAT_EFI_PART="no"
+IS_LUKS_INSTALL="no"
 CREATE_NEW_LVM="yes"
 FORMAT_HOME="yes"
 
@@ -36,6 +37,14 @@ then
     mkfs.fat -F32 $EFI_PART
 fi
 
+# Create LUKS
+if [ "$IS_LUKS_INSTALL" == "yes" ]
+then
+    modprobe dm_crypt
+    cryptsetup luksFormat $LVM_PART
+    cryptsetup luksOpen $LVM_PART $LVMNAME
+fi
+
 # Create LVM
 LVMNAME=lvm_$HOSTNAME
 VGNAME=vg_$HOSTNAME
@@ -45,9 +54,14 @@ lvmdiskscan
 
 if [ "$CREATE_NEW_LVM" == "yes" ]
 then
-    pvcreate $LVM_PART
-    pvdisplay
-    vgcreate $VGNAME $LVM_PART
+    if [ "$IS_LUKS_INSTALL" == "yes" ]
+    then
+	pvcreate /dev/mapper/$LVMNAME
+	vgcreate $VGNAME /dev/mapper/$LVMNAME
+    else
+	pvcreate $LVM_PART
+	vgcreate $VGNAME $LVM_PART
+    fi
     lvcreate -L $LVM_SWAP_SIZE $VGNAME -n swap
     lvcreate -L $LVM_ROOT_SIZE $VGNAME -n root
     lvcreate -l +100%FREE $VGNAME -n home
