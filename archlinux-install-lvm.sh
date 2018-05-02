@@ -13,6 +13,9 @@ IS_LUKS_INSTALL="no"
 CREATE_NEW_LVM="yes"
 FORMAT_HOME="yes"
 
+LVMNAME=lvm_$HOSTNAME
+VGNAME=vg_$HOSTNAME
+
 # In bootup console
 
 ## setup system time
@@ -46,9 +49,6 @@ then
 fi
 
 # Create LVM
-LVMNAME=lvm_$HOSTNAME
-VGNAME=vg_$HOSTNAME
-
 modprobe dm_mod
 lvmdiskscan
 
