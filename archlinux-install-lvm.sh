@@ -92,7 +92,7 @@ curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.s
 echo "Run : bash /root/archlinux-postinstall-stage01-lvm.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
 
-rm $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm_crypt.sh
+rm $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm.sh
 umount $INSTALL_TARGET/home
 #umount $INSTALL_TARGET/boot
 umount $INSTALL_TARGET
