@@ -134,13 +134,13 @@ function arm_dev_tools() {
 
 ## Android dev-tools
 function android_dev_tools() {
-	$PACMAN gradle gradle-doc
+	$PACMAN gradle
 	$PACMAN android-udev
 	$PACMAN android-tools
 	#For compiling Android build
 	#$PACMAN gcc-multilib
 	#$PACMAN lib32-zlib lib32-ncurses lib32-readline
-	$PACMAN uboot-tools
+	#$PACMAN uboot-tools
 }
 
 ## Dart dev-tools
@@ -151,15 +151,10 @@ function dart_dev_tools() {
 
 ## Java dev-tools
 function java_dev_tools() {
-	# temporary fix
 	#pacman -S java-environment
-	#$PACMAN jre9-openjdk
-	$PACMAN jdk9-openjdk
+	$PACMAN jdk10-openjdk
 	$PACMAN icedtea-web
 	$PACMAN apache-ant
-
-	# required for QT-SDK to compile for Android
-	$PACMAN jdk8-openjdk
 }
 
 ## PHP dev-tools
@@ -266,11 +261,6 @@ function servers() {
 	$PACMAN docker docker-compose
 }
 
-## Documentations 
-function documentations() {
-	$PACMAN linux-manpages
-}
-
 ## Browsers
 function browsers() {
 	$PACMAN chromium
@@ -320,11 +310,6 @@ function kde_desktop() {
 	$PACMAN phonon-qt5-gstreamer
 	#$PACMAN mesa-libgl libx264
 
-	## If KDE4 installed
-	#pacman -Rc kdebase-workspace
-	#pacman -Rc kdebase-plasma kdeplasma-applets-plasma-nm kdeplasma-addons-applets-kimpanel
-	$PACMAN breeze-kde4
-
 	## KDE5
 	$PACMAN plasma-meta plasma-desktop plasma-workspace
 	$PACMAN plasma-nm plasma-pa
@@ -336,7 +321,7 @@ function kde_desktop() {
 	$PACMAN ktorrent 
 	$PACMAN skanlite
 	$PACMAN cdrdao k3b 
-	$PACMAN clementine
+	#$PACMAN clementine
 	$PACMAN kde-gtk-config
 	$PACMAN kmplot
 	$PACMAN konversation
@@ -422,7 +407,6 @@ function install_all_modules() {
 	databases
 	dataprocessing
 	servers
-	documentations
 	browsers
 	fonts
 	#localized_input_systems

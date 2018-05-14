@@ -1,15 +1,15 @@
 #!/bin/bash
 
-HOSTNAME=arp
+HOSTNAME=arpo
 INSTALL_TARGET_DISK=/dev/sda
 LVM_SWAP_SIZE=8G
 LVM_ROOT_SIZE=240G
 
 INSTALL_SRC="file:///home/"
-INSTALL_TARGET="/mnt"
+INSTALL_TARGET="/tmp/mnt"
 
-FORMAT_EFI_PART="no"
-IS_LUKS_INSTALL="no"
+FORMAT_EFI_PART="yes"
+IS_LUKS_INSTALL="yes"
 CREATE_NEW_LVM="yes"
 FORMAT_HOME="yes"
 
@@ -27,6 +27,8 @@ timedatectl set-timezone Asia/Kolkata
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
 pacman -Sy
+
+mkdir -p $INSTALL_TARGET
 
 ## disk partitioning, LVM
 EFI_PART=$INSTALL_TARGET_DISK"1"
@@ -88,6 +90,7 @@ tune2fs -c 20 $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
+pacman -S arch-install-scripts
 pacstrap $INSTALL_TARGET/ base grub linux cryptsetup lvm2 vim net-tools wget rsync efibootmgr ntp
 
 if [ "$FORMAT_HOME" == "yes" ]

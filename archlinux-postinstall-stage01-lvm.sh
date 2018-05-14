@@ -1,6 +1,6 @@
 #!/bin/bash
 
-HOSTNAME=arp
+HOSTNAME=arpo
 INSTALL_TARGET_DISK=/dev/sda
 INSTALL_SRC="file:///home"
 
