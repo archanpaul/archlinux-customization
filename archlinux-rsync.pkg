@@ -816,6 +816,7 @@ RSYNC_INCLUDES_PKG="
 --include=namcap-[0-9]* \
 --include=nano-[0-9]* \
 --include=ncurses-[0-9]* \
+--include=ndctl-[0-9]* \
 --include=neon-[0-9]* \
 --include=netctl-[0-9]* \
 --include=net-snmp-[0-9]* \

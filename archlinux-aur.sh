@@ -47,6 +47,10 @@ function arm_packages() {
     $AURGET_CMD gcc-arm-none-eabi-bin
 }
 
+function db_packages() {
+    $AURGET_CMD mongodb-compass
+}
+
 function install_modules() {
     aurget_install
     power_management_packages
