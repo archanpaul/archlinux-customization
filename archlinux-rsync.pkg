@@ -694,6 +694,7 @@ RSYNC_INCLUDES_PKG="
 --include=libusb-[0-9]* \
 --include=libusbmuxd-[0-9]* \
 --include=libutempter-[0-9]* \
+--include=libutf8proc-[0-9]* \
 --include=libutil-linux-[0-9]* \
 --include=libuv-[0-9]* \
 --include=libva-[0-9]* \
