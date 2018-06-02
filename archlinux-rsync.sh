@@ -24,7 +24,8 @@ RSYNC_INCLUDES_GENERIC="
 source $WORKDIR/scripts/archlinux-rsync.pkg
 
 RSYNC_INCLUDES_ISO="
---include=archlinux-bootstrap-2016.08.01-x86_64.tar.gz \
+--include=archlinux-2018.06.01-x86_64.iso \
+--include=archlinux-bootstrap-2018.06.01-x86_64.tar.gz \
 "
 
 RSYNC_EXCLUDES="
@@ -32,10 +33,8 @@ RSYNC_EXCLUDES="
 --exclude=**staging** \
 --exclude=**testing** \
 --exclude=**unstable** \
---exclude=iso/ \
 --exclude=.~tmp~ \
 --exclude=.* \
---exclude=*5.[2-9].95-** \
 --exclude=*.[0-9]beta** \
 --exclude=*.[0-9].beta** \
 --exclude=*.[0-9]-beta** \

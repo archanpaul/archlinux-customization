@@ -17,6 +17,9 @@ sleep 10
 #timedatectl set-local-rtc 1
 timedatectl set-timezone Asia/Kolkata
 
+# Init keys
+#pacman-key --init
+
 # Set locale
 echo "LANG=\"en_US.UTF-8\"" > /etc/locale.conf
 echo "LC_ALL=\"en_US.UTF-8\"" >> /etc/locale.conf
@@ -71,7 +74,8 @@ else
 fi
 
 ## setup package repository
-echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
+echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.cse.iitk.ac.in/archlinux/$repo/os/$arch" >> /etc/pacman.d/mirrorlist
 mv /etc/pacman.conf /etc/pacman.conf.orig
 awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist"); print}' /etc/pacman.conf.orig > /etc/pacman.conf
 

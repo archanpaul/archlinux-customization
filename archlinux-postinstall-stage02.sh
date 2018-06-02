@@ -20,9 +20,7 @@ function console_tools() {
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
 	$PACMAN minicom screen
-	$PACMAN dvd+rw-tools 
 	$PACMAN zip unzip p7zip bzip2 unrar lxsplit
-	$PACMAN schroot debootstrap 
 	$PACMAN pwgen
 	$PACMAN dmidecode
 }
@@ -53,7 +51,6 @@ function xorg() {
 	$PACMAN xorg-xdm
 	$PACMAN xorg-xinit
 	$PACMAN xcursor-simpleandsoft
-	$PACMAN fluxbox
 
 #echo "Section "Device"
 #   Identifier  "Intel Graphics"
@@ -67,7 +64,7 @@ function xorg() {
 ## SCM
 function scm() {
 	$PACMAN git cgit repo
-	$PACMAN subversion bzr mercurial
+	#$PACMAN subversion bzr mercurial
 }
 
 ## Printing
@@ -91,7 +88,7 @@ function dev_tools() {
 	$PACMAN ctags
 	$PACMAN flex bison gperf 
 	$PACMAN gdb valgrind
-	$PACMAN cppunit gtest
+	#$PACMAN cppunit gtest
 	$PACMAN doxygen
 	$PACMAN zlib boost 
 	$PACMAN openmpi opencv
@@ -154,12 +151,7 @@ function java_dev_tools() {
 	#pacman -S java-environment
 	$PACMAN jdk10-openjdk
 	$PACMAN icedtea-web
-	$PACMAN apache-ant
-}
-
-## PHP dev-tools
-function php_dev_tools() {
-	$PACMAN php php-apache
+	#$PACMAN apache-ant
 }
 
 ## JS/NPM dev-tools
@@ -170,26 +162,11 @@ function js_dev_tools() {
 ## Python dev-tools
 function python_dev_tools() {
 	$PACMAN python python-docs
-	$PACMAN python-django
-	$PACMAN python-pillow
-	$PACMAN python-psycopg2 python-pymongo
+	$PACMAN python-pymongo
 	$PACMAN python-pip python-virtualenv python-setuptools 
-	$PACMAN python-six
-	$PACMAN python-docutils
-	$PACMAN python-pycodestyle
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
 	$PACMAN python-pylint
-
-	## Python machine-learing
-	$PACMAN python-numpy
-	$PACMAN python-scipy
-	$PACMAN python-pandas
-	$PACMAN python-matplotlib
-	$PACMAN python-tensorflow
-
-	# optional requirement for matplotlib
-	$PACMAN tk
 }
 
 ## Archlinux dev-tools
@@ -201,14 +178,14 @@ function archlinux_dev_tools() {
 ## Multimedia
 function multimedia() {
 	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
-	#OBSOLETE $PACMAN gstreamer0.10 gstreamer0.10-base-plugins gstreamer0.10-good-plugins gstreamer0.10-bad-plugins gstreamer0.10-ugly-plugins
-	$PACMAN pulseaudio pulseaudio-alsa 
-	$PACMAN alsa-utils
-	$PACMAN webrtc-audio-processing
-	$PACMAN flac faad2 xvidcore speex x264 opencore-amr ffmpeg
-	$PACMAN lame 
-	$PACMAN vlc
-	$PACMAN cdrkit
+	#$PACMAN pulseaudio pulseaudio-alsa 
+	#$PACMAN alsa-utils
+	#$PACMAN webrtc-audio-processing
+	#$PACMAN flac faad2 xvidcore speex x264 opencore-amr ffmpeg
+	#$PACMAN lame 
+	#$PACMAN vlc
+	#$PACMAN cdrkit
+	$PACMAN dvd+rw-tools
 }
 
 ## Ebooks tools
@@ -241,15 +218,9 @@ function graphic_utils() {
 ## Databases
 function databases() {
 	$PACMAN sqlite
-	$PACMAN mariadb libmariadbclient mariadb-clients
+	#$PACMAN mariadb libmariadbclient mariadb-clients
 	$PACMAN mongodb mongodb-tools
-	$PACMAN postgresql postgresql-docs postgresql-libs
-}
-
-## Data processing
-function dataprocessing() {
-	$PACMAN tensorflow
-	$PACMAN tensorboard
+	#$PACMAN postgresql postgresql-docs postgresql-libs
 }
 
 ## Servers
@@ -276,29 +247,19 @@ function fonts() {
 	$PACMAN ttf-hanazono
 }
 
-## Localized input-systems
-function localized_input_systems() {
-	$PACMAN fcitx fcitx-m17n fcitx-mozc
-	$PACMAN fcitx-gtk2 fcitx-gtk3 fcitx-qt4 fcitx-qt5
-}
-
 ## Virtualization
 function virtualization() {
-	$PACMAN sdl sdl_image sdl2 sdl2_image
 	$PACMAN qemu 
-	$PACMAN virtualbox
-}
-
-## Generic gtk Themes
-function generic_gtk_themes() {
-	$PACMAN gnome-themes-standard
-	$PACMAN gtk-engine-murrine 
+	#$PACMAN virtualbox
 }
 
 ## GNOME desktop
 function gnome_desktop() {
 	$PACMAN gnome
-	$PACMAN gnome-extra
+	#$PACMAN gnome-extra
+	$PACMAN evolution
+	$PACMAN gnome-sound-recorder
+	$PACMAN vinagre
 	$PACMAN transmission-gtk
 	$PACMAN giggle
 	$PACMAN wireshark-gtk
@@ -349,23 +310,6 @@ function qt_dev() {
 	$PACMAN sqlitebrowser
 }
 
-## Lib32 apps
-function lib32_apps() {
-	$PACMAN wine
-}
-
-## systemd services
-function systemd_services() {
-	systemctl enable acpid
-	systemctl enable cronie
-	systemctl enable sddm
-	systemctl enable NetworkManager
-	systemctl enable ufw
-	systemctl enable sshd
-	#systemctl enable httpd
-	#systemctl enable org.cups.cupsd
-}
-
 ## NodeJS
 function nodejs_installs() {
 	$PACMAN nodejs
@@ -374,13 +318,27 @@ function nodejs_installs() {
 
 ## ScientificComputing
 function scientific_computing() {
-	$PACMAN octave
-	$PACMAN cauchy
+        $PACMAN octave
+    
+    	## Python machine-learing
+	$PACMAN python-numpy
+	$PACMAN python-scipy
+	$PACMAN python-pandas
+	$PACMAN python-matplotlib
+	$PACMAN python-tensorflow
+
 }
 
-## Games
-function games() {
-	$PACMAN lib32-libglvnd lib32-mesa steam
+## systemd services
+function systemd_services() {
+	systemctl enable acpid
+	systemctl enable cronie
+	systemctl enable gdm
+	systemctl enable NetworkManager
+	systemctl enable ufw
+	systemctl enable sshd
+	#systemctl enable httpd
+	#systemctl enable org.cups.cupsd
 }
 
 function install_all_modules() {
@@ -395,29 +353,23 @@ function install_all_modules() {
 	android_dev_tools
 	#arm_dev_tools
 	dart_dev_tools
-	#php_dev_tools
 	js_dev_tools
 	python_dev_tools
 	archlinux_dev_tools
 	multimedia
-	ebook_tools
+	#ebook_tools
 	office_suite
 	editors
 	graphic_utils
 	databases
-	dataprocessing
 	servers
 	browsers
 	fonts
-	#localized_input_systems
 	virtualization
-	generic_gtk_themes
-	#gnome_desktop
-	kde_desktop
-	kde_dev
-	qt_dev
-	#lib32_apps
-	#games
+	gnome_desktop
+	#kde_desktop
+	#kde_dev
+	#qt_dev
 	scientific_computing
 	systemd_services
 }
