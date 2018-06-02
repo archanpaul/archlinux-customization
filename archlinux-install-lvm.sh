@@ -10,6 +10,7 @@ INSTALL_TARGET="/tmp/mnt"
 
 FORMAT_EFI_PART="yes"
 IS_LUKS_INSTALL="yes"
+LUKS_FORMAT="yes"
 CREATE_NEW_LVM="yes"
 FORMAT_HOME="yes"
 
@@ -46,7 +47,10 @@ fi
 if [ "$IS_LUKS_INSTALL" == "yes" ]
 then
     modprobe dm_crypt
-    cryptsetup luksFormat $LVM_PART
+    if [ "$LUKS_FORMAT" == "yes" ]
+    then
+        cryptsetup luksFormat $LVM_PART
+    fi
     cryptsetup luksOpen $LVM_PART $LVMNAME
 fi
 
