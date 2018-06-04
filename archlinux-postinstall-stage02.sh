@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# It should get reflected in Stage-01 but it does not.
+timedatectl set-timezone Asia/Kolkata
+
 #PACMAN="pacman -S --noconfirm --needed -w "
 PACMAN="pacman -S --noconfirm --needed "
 
@@ -151,7 +154,6 @@ function java_dev_tools() {
 	#pacman -S java-environment
 	$PACMAN jdk10-openjdk
 	$PACMAN icedtea-web
-	#$PACMAN apache-ant
 }
 
 ## JS/NPM dev-tools
@@ -178,13 +180,6 @@ function archlinux_dev_tools() {
 ## Multimedia
 function multimedia() {
 	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
-	#$PACMAN pulseaudio pulseaudio-alsa 
-	#$PACMAN alsa-utils
-	#$PACMAN webrtc-audio-processing
-	#$PACMAN flac faad2 xvidcore speex x264 opencore-amr ffmpeg
-	#$PACMAN lame 
-	#$PACMAN vlc
-	#$PACMAN cdrkit
 	$PACMAN dvd+rw-tools
 }
 
@@ -218,9 +213,7 @@ function graphic_utils() {
 ## Databases
 function databases() {
 	$PACMAN sqlite
-	#$PACMAN mariadb libmariadbclient mariadb-clients
 	$PACMAN mongodb mongodb-tools
-	#$PACMAN postgresql postgresql-docs postgresql-libs
 }
 
 ## Servers
@@ -256,6 +249,7 @@ function virtualization() {
 ## GNOME desktop
 function gnome_desktop() {
 	$PACMAN gnome
+	$PACMAN gnome-tweaks chrome-gnome-shell
 	#$PACMAN gnome-extra
 	$PACMAN evolution
 	$PACMAN gnome-sound-recorder
@@ -263,51 +257,6 @@ function gnome_desktop() {
 	$PACMAN transmission-gtk
 	$PACMAN giggle
 	$PACMAN wireshark-gtk
-}
-
-## KDE desktop
-function kde_desktop() {
-	## Dependency packages for auto selection
-	$PACMAN phonon-qt5-gstreamer
-	#$PACMAN mesa-libgl libx264
-
-	## KDE5
-	$PACMAN plasma-meta plasma-desktop plasma-workspace
-	$PACMAN plasma-nm plasma-pa
-	$PACMAN kdebase-meta kdeadmin-meta
-	$PACMAN kdegraphics-meta kdemultimedia-meta kdenetwork-meta
-	$PACMAN kdepim-meta kdeutils-meta
-
-	## KDE extra apps
-	$PACMAN ktorrent 
-	$PACMAN skanlite
-	$PACMAN cdrdao k3b 
-	#$PACMAN clementine
-	$PACMAN kde-gtk-config
-	$PACMAN kmplot
-	$PACMAN konversation
-	$PACMAN wireshark-qt
-	$PACMAN krdc freerdp
-
-	$PACMAN sddm sddm-kcm
-
-	# KDE Telepathy
-	$PACMAN telepathy-kde-meta
-	$PACMAN telepathy-haze telepathy-gabble telepathy-idle telepathy-morse 
-}
-
-## KDE dev
-function kde_dev() {
-	#$PACMAN kde-meta-kdesdk
-	$PACMAN kdevelop
-	$PACMAN kompare umbrello
-}
-
-## QT dev
-function qt_dev() {
-	$PACMAN qt5 qtcreator
-	$PACMAN qgit
-	$PACMAN sqlitebrowser
 }
 
 ## NodeJS
@@ -318,7 +267,7 @@ function nodejs_installs() {
 
 ## ScientificComputing
 function scientific_computing() {
-        $PACMAN octave
+        #$PACMAN octave
     
     	## Python machine-learing
 	$PACMAN python-numpy
@@ -367,9 +316,6 @@ function install_all_modules() {
 	fonts
 	virtualization
 	gnome_desktop
-	#kde_desktop
-	#kde_dev
-	#qt_dev
 	scientific_computing
 	systemd_services
 }
