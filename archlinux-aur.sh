@@ -58,8 +58,9 @@ function install_modules() {
     ide_pacakges
     printutil_packages
     arm_packages
+    db_packages
 }
 
-#aurget_install
-#install_modules 2>&1 | tee archlinux-aur.log
+aurget_install
+install_modules 2>&1 | tee archlinux-aur.log
 $AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log

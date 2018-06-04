@@ -64,6 +64,14 @@ function xorg() {
 
 }
 
+## Wayland
+function wayland() {
+	$PACMAN wayland wayland-protocols
+	$PACMAN xorg-server-xwayland 
+	$PACMAN glew-wayland 
+	$PACMAN weston
+}
+
 ## SCM
 function scm() {
 	$PACMAN git cgit repo
@@ -294,6 +302,7 @@ function install_all_modules() {
 	base
 	console_tools
 	network_tools
+	wayland
 	xorg
 	scm
 	printing
