@@ -159,9 +159,9 @@ function dart_dev_tools() {
 
 ## Java dev-tools
 function java_dev_tools() {
-	#pacman -S java-environment
 	$PACMAN jdk10-openjdk
 	$PACMAN icedtea-web
+	#$PACMAN jre8-openjdk
 }
 
 ## JS/NPM dev-tools
@@ -261,10 +261,32 @@ function gnome_desktop() {
 	#$PACMAN gnome-extra
 	$PACMAN evolution
 	$PACMAN gnome-sound-recorder
+	$PACMAN media-player-info rhythmbox
 	$PACMAN vinagre
 	$PACMAN transmission-gtk
 	$PACMAN giggle
 	$PACMAN wireshark-gtk
+}
+
+## KDE desktop
+function kde_desktop() {
+	$PACMAN phonon-qt5-gstreamer
+	$PACMAN plasma-wayland-session plasma-meta
+	#$PACMAN kde-applications-meta
+	#$PACMAN kdeaccessibility-meta
+	$PACMAN kdeadmin-meta
+	$PACMAN kdebase-meta
+	#$PACMAN kdeedu-meta
+	#$PACMAN kdegames-meta
+	$PACMAN kdegraphics-meta
+	$PACMAN kdemultimedia-meta
+	$PACMAN kdenetwork-meta
+	#$PACMAN kdepim-meta
+	#$PACMAN kdesdk-meta
+	$PACMAN kdeutils-meta
+	#$PACMAN kdewebdev-meta
+
+	#$PACMAN calibre
 }
 
 ## NodeJS
@@ -291,6 +313,7 @@ function systemd_services() {
 	systemctl enable acpid
 	systemctl enable cronie
 	systemctl enable gdm
+	#systemctl enable sddm
 	systemctl enable NetworkManager
 	systemctl enable ufw
 	systemctl enable sshd
@@ -325,6 +348,7 @@ function install_all_modules() {
 	fonts
 	virtualization
 	gnome_desktop
+	#kde_desktop
 	scientific_computing
 	systemd_services
 }
@@ -342,5 +366,4 @@ install_all_modules 2>&1 | tee archlinux-postinstall-stage02.log
 
 ##remove un-necessary packages (dependencies that are no longer needed)
 #pacman -Rs $(pacman -Qqtd)
-
 
