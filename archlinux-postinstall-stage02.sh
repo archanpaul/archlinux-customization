@@ -266,6 +266,9 @@ function gnome_desktop() {
 	$PACMAN transmission-gtk
 	$PACMAN giggle
 	$PACMAN wireshark-gtk
+
+	#GnomeSoftware support for ArchLinux
+	$PACMAN gnome-software-packagekit-plugin
 }
 
 ## KDE desktop
@@ -286,7 +289,7 @@ function kde_desktop() {
 	$PACMAN kdeutils-meta
 	#$PACMAN kdewebdev-meta
 
-	#$PACMAN calibre
+	$PACMAN calibre
 }
 
 ## NodeJS
