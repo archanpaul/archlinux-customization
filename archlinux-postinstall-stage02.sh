@@ -269,6 +269,8 @@ function gnome_desktop() {
 
 	#GnomeSoftware support for ArchLinux
 	$PACMAN gnome-software-packagekit-plugin
+
+	systemctl enable gdm
 }
 
 ## KDE desktop
@@ -290,6 +292,8 @@ function kde_desktop() {
 	#$PACMAN kdewebdev-meta
 
 	$PACMAN calibre
+
+	systemctl enable sddm
 }
 
 ## NodeJS
@@ -315,8 +319,6 @@ function scientific_computing() {
 function systemd_services() {
 	systemctl enable acpid
 	systemctl enable cronie
-	systemctl enable gdm
-	#systemctl enable sddm
 	systemctl enable NetworkManager
 	systemctl enable ufw
 	systemctl enable sshd
@@ -350,8 +352,8 @@ function install_all_modules() {
 	browsers
 	fonts
 	virtualization
-	gnome_desktop
-	#kde_desktop
+	#gnome_desktop
+	kde_desktop
 	scientific_computing
 	systemd_services
 }
