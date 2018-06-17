@@ -2,7 +2,7 @@
 
 PACMAN_CMD="pacman -U --noconfirm --needed "
 PACMAN_UNINSTALL_CMD="pacman -Rn --noconfirm "
-AUR_CMD="aurman -S --noedit --nodiscard --noconfirm --needed "
+AUR_CMD="aurman -S --noedit --noconfirm --needed "
 AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed "
 
 
@@ -22,14 +22,6 @@ function aurman_install() {
     curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurman.tar.gz | tar zxv
     cd $CDIR/aurman && makepkg
     cd $CDIR/aurman && sudo $PACMAN_CMD aurman-*.xz
-    cd $CDIR
-}
-
-function aurget_install() {
-    rm -rf $CDIR/aurget*
-    curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurget.tar.gz | tar zxv
-    cd $CDIR/aurget && makepkg
-    cd $CDIR/aurget && sudo $PACMAN_CMD aurget-*.xz
     cd $CDIR
 }
 
@@ -70,7 +62,7 @@ function db_packages() {
 }
 
 function install_modules() {
-    aurget_install
+    #aurman_install
     power_management_packages
     android_packages
     ide_pacakges
@@ -79,6 +71,5 @@ function install_modules() {
     db_packages
 }
 
-aurman_install
 install_modules 2>&1 | tee archlinux-aur.log
 $AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
