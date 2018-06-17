@@ -291,8 +291,6 @@ function kde_desktop() {
 	$PACMAN kdeutils-meta
 	#$PACMAN kdewebdev-meta
 
-	$PACMAN calibre
-
 	systemctl enable sddm
 }
 

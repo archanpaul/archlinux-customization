@@ -1,7 +1,7 @@
 # AUR packages install
 
-PACMAN_CMD="pacman -U --noconfirm --needed "
-PACMAN_UNINSTALL_CMD="pacman -Rn --noconfirm "
+PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
+PACMAN_CMD="sudo pacman -S --noconfirm --needed "
 AUR_CMD="aurman -S --noedit --noconfirm --needed "
 AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed "
 
@@ -9,10 +9,11 @@ AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed "
 CDIR=`pwd`
 
 function expac-git_install() {
+    $PACMAN_CMD python-regex
     rm -rf $CDIR/expac-git*
     curl https://aur.archlinux.org/cgit/aur.git/snapshot/expac-git.tar.gz | tar zxv
     cd $CDIR/expac-git && makepkg
-    cd $CDIR/expac-git && sudo $PACMAN_CMD expac-git-*.xz
+    cd $CDIR/expac-git && sudo $PACMAN_PKG_INSTALL_CMD expac-git-*.xz
     cd $CDIR
 }
 
@@ -21,7 +22,7 @@ function aurman_install() {
     rm -rf $CDIR/aurman*
     curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurman.tar.gz | tar zxv
     cd $CDIR/aurman && makepkg
-    cd $CDIR/aurman && sudo $PACMAN_CMD aurman-*.xz
+    cd $CDIR/aurman && sudo $PACMAN_PKG_INSTALL_CMD aurman-*.xz
     cd $CDIR
 }
 
