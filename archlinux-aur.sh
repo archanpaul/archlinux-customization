@@ -2,10 +2,28 @@
 
 PACMAN_CMD="pacman -U --noconfirm --needed "
 PACMAN_UNINSTALL_CMD="pacman -Rn --noconfirm "
-AURGET_CMD="aurget -Sy --noedit --nodiscard --noconfirm "
-AURGET_UPGRADE_CMD="aurget -Syu --noedit --nodiscard --noconfirm "
+AUR_CMD="aurman -S --noedit --nodiscard --noconfirm --needed "
+AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed "
+
 
 CDIR=`pwd`
+
+function expac-git_install() {
+    rm -rf $CDIR/expac-git*
+    curl https://aur.archlinux.org/cgit/aur.git/snapshot/expac-git.tar.gz | tar zxv
+    cd $CDIR/expac-git && makepkg
+    cd $CDIR/expac-git && sudo $PACMAN_CMD expac-git-*.xz
+    cd $CDIR
+}
+
+function aurman_install() {
+    expac-git_install
+    rm -rf $CDIR/aurman*
+    curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurman.tar.gz | tar zxv
+    cd $CDIR/aurman && makepkg
+    cd $CDIR/aurman && sudo $PACMAN_CMD aurman-*.xz
+    cd $CDIR
+}
 
 function aurget_install() {
     rm -rf $CDIR/aurget*
@@ -16,17 +34,17 @@ function aurget_install() {
 }
 
 function power_management_packages() {
-    $AURGET_CMD laptop-mode-tools
+    $AUR_CMD laptop-mode-tools
     sudo systemctl enable laptop-mode
     sudo systemctl restart laptop-mode
 }
 
 function android_packages() {
-    $AURGET_CMD android-studio
+    $AUR_CMD android-studio
 }
 
 function ide_pacakges() {
-    $AURGET_CMD visual-studio-code-bin
+    $AUR_CMD visual-studio-code-bin
     #code --install-extension Dart-Code.dart-code
     #code --install-extension PKief.material-icon-theme
     #code --install-extension donjayamanne.githistory
@@ -40,15 +58,15 @@ function ide_pacakges() {
 }
 
 function printutil_packages() {
-    $AURGET_CMD hplip-plugin
+    $AUR_CMD hplip-plugin
 }
 
 function arm_packages() {
-    $AURGET_CMD gcc-arm-none-eabi-bin
+    $AUR_CMD gcc-arm-none-eabi-bin
 }
 
 function db_packages() {
-    $AURGET_CMD mongodb-compass
+    $AUR_CMD mongodb-compass
 }
 
 function install_modules() {
@@ -61,6 +79,6 @@ function install_modules() {
     db_packages
 }
 
-aurget_install
+aurman_install
 install_modules 2>&1 | tee archlinux-aur.log
-$AURGET_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
+$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
