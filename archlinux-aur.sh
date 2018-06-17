@@ -6,8 +6,8 @@ CDIR=`pwd`
 PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
 PACMAN_CMD="sudo pacman -S --noconfirm --needed "
 AURMAN_CACHE=$CDIR/aurman-cache
-AUR_CMD="aurman -S --noedit --noconfirm --needed --cachedir $AURMAN_CACHE "
-AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed --cachedir $AURMAN_CACHE "
+AUR_CMD="aurman -S --noedit --noconfirm --cachedir $AURMAN_CACHE --needed "
+AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --cachedir $AURMAN_CACHE --needed "
 
 function expac-git_install() {
     $PACMAN_CMD python-regex
@@ -77,5 +77,5 @@ function install_aur_helpers() {
 }
 
 #install_aur_helpers
-#install_modules 2>&1 | tee archlinux-aur.log
+install_modules 2>&1 | tee archlinux-aur.log
 $AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
