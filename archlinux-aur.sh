@@ -1,7 +1,7 @@
 # AUR packages install
 
 CDIR=`pwd`
-
+ln -sf /home/public/archlinux-repos/archlinux.aur/aurman-cache ~/.cache/aurman
 
 PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
 PACMAN_CMD="sudo pacman -S --noconfirm --needed "
