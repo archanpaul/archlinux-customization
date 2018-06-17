@@ -1,12 +1,13 @@
 # AUR packages install
 
+CDIR=`pwd`
+
+
 PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
 PACMAN_CMD="sudo pacman -S --noconfirm --needed "
-AUR_CMD="aurman -S --noedit --noconfirm --needed "
-AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed "
-
-
-CDIR=`pwd`
+AURMAN_CACHE=$CDIR/aurman-cache
+AUR_CMD="aurman -S --noedit --noconfirm --needed --cachedir $AURMAN_CACHE "
+AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --needed --cachedir $AURMAN_CACHE "
 
 function expac-git_install() {
     $PACMAN_CMD python-regex
@@ -63,7 +64,6 @@ function db_packages() {
 }
 
 function install_modules() {
-    #aurman_install
     power_management_packages
     android_packages
     ide_pacakges
@@ -72,5 +72,10 @@ function install_modules() {
     db_packages
 }
 
-install_modules 2>&1 | tee archlinux-aur.log
+function install_aur_helpers() {
+    aurman_install
+}
+
+#install_aur_helpers
+#install_modules 2>&1 | tee archlinux-aur.log
 $AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
