@@ -291,6 +291,9 @@ function kde_desktop() {
 	$PACMAN kdeutils-meta
 	#$PACMAN kdewebdev-meta
 
+	$PACMAN ktorrent
+
+
 	systemctl enable sddm
 }
 
@@ -341,7 +344,7 @@ function install_all_modules() {
 	python_dev_tools
 	archlinux_dev_tools
 	multimedia
-	#ebook_tools
+	ebook_tools
 	office_suite
 	editors
 	graphic_utils
