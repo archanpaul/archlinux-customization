@@ -14,6 +14,7 @@ RSYNC_INCLUDES_PKG="
 --include=alsa-lib-[0-9]* \
 --include=android-tools-[0-9]* \
 --include=android-udev-[0-9]* \
+--include=aom-[0-9]* \
 --include=apache-[0-9]* \
 --include=appstream-[0-9]* \
 --include=appstream-qt-[0-9]* \
