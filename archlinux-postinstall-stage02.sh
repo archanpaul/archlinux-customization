@@ -305,7 +305,7 @@ function nodejs_installs() {
 
 ## ScientificComputing
 function scientific_computing() {
-        #$PACMAN octave
+        $PACMAN octave
     
     	## Python machine-learing
 	$PACMAN python-numpy
