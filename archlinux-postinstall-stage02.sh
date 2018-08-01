@@ -112,6 +112,7 @@ function dev_tools() {
 	#go get -v github.com/gorilla/mux
 	#go get -v github.com/dgrijalva/jwt-go
 	#go get -v golang.org/x/mobile/cmd/gomobile
+	#go install golang.org/x/mobile/cmd/gobind
 	#go get -v github.com/boltdb/bolt
 	#go get -v github.com/google/gopacket
 	#go get -v github.com/lib/pq

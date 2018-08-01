@@ -1,7 +1,6 @@
 # AUR packages install
 
 CDIR=`pwd`
-ln -sf /home/public/archlinux-repos/archlinux.aur/aurman-cache ~/.cache/aurman
 
 PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
 PACMAN_CMD="sudo pacman -S --noconfirm --needed "
@@ -20,6 +19,7 @@ function expac-git_install() {
 
 function aurman_install() {
     expac-git_install
+    ln -sf ~/.cache/aurman /home/public/archlinux-repos/archlinux.aur/aurman-cache 
     rm -rf $CDIR/aurman*
     curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurman.tar.gz | tar zxv
     cd $CDIR/aurman && makepkg
@@ -35,6 +35,7 @@ function power_management_packages() {
 
 function android_packages() {
     $AUR_CMD android-studio
+    $AUR_CMD ncurses5-compat-libs
 }
 
 function ide_pacakges() {
@@ -77,5 +78,5 @@ function install_aur_helpers() {
 }
 
 #install_aur_helpers
-install_modules 2>&1 | tee archlinux-aur.log
+#install_modules 2>&1 | tee archlinux-aur.log
 $AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
