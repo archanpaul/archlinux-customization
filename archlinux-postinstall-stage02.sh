@@ -133,6 +133,8 @@ function dev_tools() {
 	#go get -v  github.com/acroca/go-symbols
 	#go get -v github.com/golang/lint/golint
 	#go get -v github.com/derekparker/delve/cmd/dlv
+
+	#go get -u all
 }
 
 ## ARM Dev tools
