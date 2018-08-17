@@ -202,7 +202,7 @@ function ebook_tools() {
 ## Office suite
 function office_suite() {
 	$PACMAN libreoffice-fresh
-	$PACMAN hunspell hunspell-en 
+	$PACMAN hunspell hunspell-en_US
 	$PACMAN simple-scan
 }
 
