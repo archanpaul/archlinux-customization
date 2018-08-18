@@ -551,6 +551,7 @@ RSYNC_INCLUDES_PKG="
 --include=libnm-glib-[0-9]* \
 --include=libnotify-[0-9]* \
 --include=libnsl-[0-9]* \
+--include=libnumbertext-[0-9]* \
 --include=libodfgen-[0-9]* \
 --include=libofa-[0-9]* \
 --include=libogg-[0-9]* \
