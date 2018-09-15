@@ -22,7 +22,8 @@ function aurman_install() {
     ln -sf ~/.cache/aurman /home/public/archlinux-repos/archlinux.aur/aurman-cache 
     rm -rf $CDIR/aurman*
     curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurman.tar.gz | tar zxv
-    cd $CDIR/aurman && makepkg
+    gpg --recv-keys 465022E743D71E39
+    cd $CDIR/aurman && makepkg -sci
     cd $CDIR/aurman && sudo $PACMAN_PKG_INSTALL_CMD aurman-*.xz
     cd $CDIR
 }
