@@ -41,6 +41,7 @@ function android_packages() {
 
 function ide_pacakges() {
     $AUR_CMD visual-studio-code-bin
+    $PACMAN_CMD  gnome-keyring libsecret
     #code --install-extension Dart-Code.dart-code
     #code --install-extension PKief.material-icon-theme
     #code --install-extension donjayamanne.githistory
