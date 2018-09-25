@@ -143,8 +143,8 @@ function dev_tools() {
 	#go get -u github.com/derekparker/delve/cmd/dlv
 
 	#go get -u all
-	#go build -a
-	#go install -a
+	#go build -a ./...
+	#go install -a ./...
 }
 
 ## ARM Dev tools
