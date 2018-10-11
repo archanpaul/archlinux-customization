@@ -119,6 +119,7 @@ function dev_tools() {
 	#go get -c golang.org/x/crypto/blowfish
 	#go get -v golang.org/x/crypto/bcrypt
 	#go get -v github.com/gorilla/context
+	#go get github.com/dgraph-io/badger/...
 
 	##vs-code/go dependencies
 	#go get -u -v github.com/ramya-rao-a/go-outline
