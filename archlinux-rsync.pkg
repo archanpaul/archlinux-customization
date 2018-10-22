@@ -526,6 +526,7 @@ RSYNC_INCLUDES_PKG="
 --include=libmagick-[0-9]* \
 --include=libmagick6-[0-9]* \
 --include=libmariadbclient-[0-9]* \
+--include=libmaxminddb-[0-9]* \
 --include=libmbim-[0-9]* \
 --include=libmm-glib-[0-9]* \
 --include=libmms-[0-9]* \
