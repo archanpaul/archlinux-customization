@@ -66,6 +66,11 @@ function db_packages() {
     $AUR_CMD mongodb-compass
 }
 
+
+function gcloud_packages() {
+    $AUR_CMD google-cloud-sdk
+}
+
 function install_modules() {
     power_management_packages
     android_packages
@@ -73,6 +78,7 @@ function install_modules() {
     printutil_packages
     arm_packages
     db_packages
+    gcloud_packages
 }
 
 function install_aur_helpers() {
