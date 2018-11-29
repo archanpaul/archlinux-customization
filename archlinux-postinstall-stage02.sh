@@ -120,6 +120,7 @@ function dev_tools() {
 	#go get -v golang.org/x/crypto/bcrypt
 	#go get -v github.com/gorilla/context
 	#go get github.com/dgraph-io/badger/...
+	#go get -u -t gonum.org/v1/gonum/...
 
 	##vs-code/go dependencies
 	#go get -u -v github.com/ramya-rao-a/go-outline
