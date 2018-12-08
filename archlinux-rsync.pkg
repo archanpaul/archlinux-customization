@@ -911,6 +911,7 @@ RSYNC_INCLUDES_PKG="
 --include=python-packaging-[0-9]* \
 --include=python-pandas-[0-9]* \
 --include=python-parso-[0-9]* \
+--include=python-pep517-[0-9]* \
 --include=python-pip-[0-9]* \
 --include=python-progress-[0-9]* \
 --include=python-protobuf-[0-9]* \
