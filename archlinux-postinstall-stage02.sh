@@ -121,6 +121,8 @@ function dev_tools() {
 	#go get -v github.com/gorilla/context
 	#go get github.com/dgraph-io/badger/...
 	#go get -u -t gonum.org/v1/gonum/...
+	#go get -u github.com/gin-gonic/gin
+	#go get -u github.com/gin-gonic/contrib/static
 
 	##vs-code/go dependencies
 	#go get -u -v github.com/ramya-rao-a/go-outline
