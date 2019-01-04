@@ -31,7 +31,7 @@ function console_tools() {
 ## Network tools
 function network_tools() {
 	$PACMAN nmap ufw whois dnsutils
-	$PACMAN lftp rsync wget 
+	$PACMAN lftp rsync wget traceroute
 	$PACMAN usb_modeswitch wvdial
 	$PACMAN ethtool bridge-utils
 	$PACMAN net-tools netctl
