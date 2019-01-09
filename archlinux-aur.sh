@@ -71,6 +71,10 @@ function gcloud_packages() {
     $AUR_CMD google-cloud-sdk
 }
 
+function browser_packages() {
+    $AUR_CMD tor-browser-en
+}
+
 function install_modules() {
     power_management_packages
     android_packages
@@ -79,6 +83,7 @@ function install_modules() {
     arm_packages
     db_packages
     gcloud_packages
+    #browser_packages
 }
 
 function install_aur_helpers() {
