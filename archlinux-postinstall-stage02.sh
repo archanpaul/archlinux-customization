@@ -123,6 +123,7 @@ function dev_tools() {
 	#go get -u -t gonum.org/v1/gonum/...
 	#go get -u github.com/gin-gonic/gin
 	#go get -u github.com/gin-gonic/contrib/static
+	#go get -u github.com/gin-contrib/gzip
 
 	##vs-code/go dependencies
 	#go get -u -v github.com/ramya-rao-a/go-outline
