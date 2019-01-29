@@ -173,6 +173,7 @@ function android_dev_tools() {
 function dart_dev_tools() {
 	$PACMAN dart
 	#pub global activate stagehand
+	#pub global activate webdev
 }
 
 ## Java dev-tools
@@ -190,7 +191,7 @@ function js_dev_tools() {
 ## Python dev-tools
 function python_dev_tools() {
 	$PACMAN python python-docs
-	$PACMAN python-pymongo
+	$PACMAN python-pymongo python-couchdb
 	$PACMAN python-pip python-virtualenv python-setuptools 
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
@@ -240,6 +241,7 @@ function graphic_utils() {
 function databases() {
 	$PACMAN sqlite
 	$PACMAN mongodb mongodb-tools
+	$PACMAN couchdb
 }
 
 ## Servers
