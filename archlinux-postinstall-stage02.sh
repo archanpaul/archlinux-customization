@@ -178,9 +178,8 @@ function dart_dev_tools() {
 
 ## Java dev-tools
 function java_dev_tools() {
-	$PACMAN jdk10-openjdk
+	$PACMAN jdk-openjdk
 	$PACMAN icedtea-web
-	#$PACMAN jre8-openjdk
 }
 
 ## JS/NPM dev-tools
@@ -208,11 +207,6 @@ function archlinux_dev_tools() {
 function multimedia() {
 	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
 	$PACMAN dvd+rw-tools
-}
-
-## Ebooks tools
-function ebook_tools() {
-	$PACMAN calibre 
 }
 
 ## Office suite
@@ -312,7 +306,7 @@ function kde_desktop() {
 	#$PACMAN kdewebdev-meta
 
 	$PACMAN ktorrent
-
+	$PACMAN calibre
 
 	systemctl enable sddm
 }
@@ -364,7 +358,6 @@ function install_all_modules() {
 	python_dev_tools
 	archlinux_dev_tools
 	multimedia
-	ebook_tools
 	office_suite
 	editors
 	graphic_utils
@@ -373,8 +366,8 @@ function install_all_modules() {
 	browsers
 	fonts
 	virtualization
-	#gnome_desktop
-	kde_desktop
+	gnome_desktop
+	#kde_desktop
 	scientific_computing
 	systemd_services
 }
