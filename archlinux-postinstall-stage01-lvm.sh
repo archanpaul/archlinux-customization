@@ -56,14 +56,18 @@ echo $HOSTNAME > /etc/hostname
 echo "127.0.0.1 localhost.localdomain localhost" >> /etc/hosts
 
 # Setup GRUB 
+
 cp /etc/default/grub /etc/default/grub.orig
+
 if [ "$IS_LUKS_INSTALL" == "yes" ]
 then
     awk '{gsub("GRUB_CMDLINE_LINUX=\"\"", "GRUB_CMDLINE_LINUX=\"cryptdevice='$LVM_PART':lvm\""); gsub("#GRUB_ENABLE_CRYPTODISK=y", "GRUB_ENABLE_CRYPTODISK=y"); gsub("GRUB_PRELOAD_MODULES=\"part_gpt part_msdos\"", "GRUB_PRELOAD_MODULES=\"part_gpt part_msdos lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
 else
     awk '{gsub("GRUB_CMDLINE_LINUX=\"\"", "GRUB_CMDLINE_LINUX=\"\""); gsub("GRUB_PRELOAD_MODULES=\"part_gpt part_msdos\"", "GRUB_PRELOAD_MODULES=\"part_gpt part_msdos lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
 fi
+
 grub-mkconfig > /boot/grub/grub.cfg
+
 if [ "$IS_EFI_INSTALL" == "yes" ]
 then
     mkdir -p /boot/efi
