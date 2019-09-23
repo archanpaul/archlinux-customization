@@ -76,6 +76,7 @@ fi
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.cse.iitk.ac.in/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 mv /etc/pacman.conf /etc/pacman.conf.orig
 awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist"); print}' /etc/pacman.conf.orig > /etc/pacman.conf

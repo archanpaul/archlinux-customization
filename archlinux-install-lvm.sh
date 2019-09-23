@@ -28,6 +28,7 @@ timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
 echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.cse.iitk.ac.in/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 pacman -Sy
 
@@ -106,6 +107,7 @@ if [ "$FORMAT_BOOT_PART" == "yes" ]
 then
     mkfs.ext4 -m 1 -L boot $BOOT_PART
 fi
+mkdir $INSTALL_TARGET/boot
 mount $BOOT_PART $INSTALL_TARGET/boot
 
 pacman -S arch-install-scripts
