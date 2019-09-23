@@ -122,7 +122,7 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> $INSTALL_TARGET/etc/fstab
 
-cp -f $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-*.sh > $INSTALL_TARGET/
+cp -a $INSTALL_SRC/public/archlinux-repos/scripts $INSTALL_TARGET/root/
 
 echo "Run : bash /root/archlinux-postinstall-stage01-lvm.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
