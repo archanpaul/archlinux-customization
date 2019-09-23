@@ -2,10 +2,10 @@
 
 HOSTNAME=arpo
 INSTALL_TARGET_DISK=/dev/sda
-LVM_SWAP_SIZE=8G
-LVM_ROOT_SIZE=240G
+LVM_SWAP_SIZE=32G
+LVM_ROOT_SIZE=260G
 
-INSTALL_SRC="file:///home/"
+INSTALL_SRC="file:///home"
 INSTALL_TARGET="/tmp/mnt/"
 
 FORMAT_EFI_PART="yes"
@@ -27,7 +27,8 @@ sleep 10
 timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
-echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist 
+echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 pacman -Sy
 
 mkdir -p $INSTALL_TARGET
