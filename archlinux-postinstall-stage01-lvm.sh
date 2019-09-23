@@ -9,7 +9,8 @@ IS_LUKS_INSTALL="yes"
 
 # disk partitions
 EFI_PART=$INSTALL_TARGET_DISK"1"
-LVM_PART=$INSTALL_TARGET_DISK"2"
+BOOT_PART=$INSTALL_TARGET_DISK"2"
+LVM_PART=$INSTALL_TARGET_DISK"3"
 
 # Set systemtime
 ntpd -qg
@@ -47,7 +48,7 @@ fi
 
 ## Create initrd image
 cp /etc/mkinitcpio.conf /etc/mkinitcpio.conf.orig
-awk '{gsub("MODULES=\\(", "MODULES=\(ahci ext4 intel-agp i915"); gsub("HOOKS=\\(base udev autodetect modconf block filesystems keyboard fsck\\)", "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
+awk '{gsub("MODULES=\\(", "MODULES=\(ahci ext4 intel-agp i915 "); gsub("HOOKS=\\(base udev autodetect modconf block filesystems keyboard fsck\\)", "HOOKS=\(base udev autodetect modconf block encrypt lvm2 filesystems keyboard fsck\)"); print}' /etc/mkinitcpio.conf.orig > /etc/mkinitcpio.conf
 mkinitcpio -p linux
 
 # Set Hostname
@@ -65,7 +66,7 @@ fi
 grub-mkconfig > /boot/grub/grub.cfg
 if [ "$IS_EFI_INSTALL" == "yes" ]
 then
-    mkdir /boot/efi
+    mkdir -p /boot/efi
     mount $EFI_PART /boot/efi
     grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux-$HOSTNAME
     umount $EFI_PART
@@ -80,7 +81,7 @@ mv /etc/pacman.conf /etc/pacman.conf.orig
 awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist"); print}' /etc/pacman.conf.orig > /etc/pacman.conf
 
 # Securing boot
-# chmod -R g-rwx,o-rwx /boot
+chmod -R g-rwx,o-rwx /boot
 
 vim /etc/fstab
 
