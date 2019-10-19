@@ -66,6 +66,7 @@ else
     awk '{gsub("GRUB_CMDLINE_LINUX=\"\"", "GRUB_CMDLINE_LINUX=\"\""); gsub("GRUB_PRELOAD_MODULES=\"part_gpt part_msdos\"", "GRUB_PRELOAD_MODULES=\"part_gpt part_msdos lvm\""); print}' /etc/default/grub.orig > /etc/default/grub
 fi
 
+mkdir -p /boot/grub/
 grub-mkconfig > /boot/grub/grub.cfg
 
 if [ "$IS_EFI_INSTALL" == "yes" ]

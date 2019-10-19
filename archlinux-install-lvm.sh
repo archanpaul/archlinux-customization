@@ -3,7 +3,7 @@
 HOSTNAME=arpo
 INSTALL_TARGET_DISK=/dev/sda
 LVM_SWAP_SIZE=32G
-LVM_ROOT_SIZE=260G
+LVM_ROOT_SIZE=220G
 
 INSTALL_SRC="file:///home"
 INSTALL_TARGET="/tmp/mnt/"
@@ -20,6 +20,11 @@ VGNAME=vg_$HOSTNAME
 
 # In bootup console
 
+## Connect to wifi using wpa_supplicant
+# AP_NAME=essid
+# AP_PASSWORD=password
+# wpa_supplicant -B -i wlp2s0 -c <(wpa_password $AP_NAME $AP_PASSWORD) 
+
 ## setup system time
 ntpd -qg &
 sleep 10
@@ -27,7 +32,7 @@ sleep 10
 timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
-echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "#Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.cse.iitk.ac.in/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 pacman -Sy
@@ -111,7 +116,7 @@ mkdir $INSTALL_TARGET/boot
 mount $BOOT_PART $INSTALL_TARGET/boot
 
 pacman -S arch-install-scripts
-pacstrap $INSTALL_TARGET/ base grub linux cryptsetup lvm2 vim net-tools wget rsync efibootmgr ntp wpa_supplicant
+pacstrap $INSTALL_TARGET/ base grub linux linux-firmware cryptsetup lvm2 vim net-tools wget rsync efibootmgr ntp wpa_supplicant dhcpcd openssh
 
 # home
 if [ "$FORMAT_HOME" == "yes" ]
@@ -125,7 +130,7 @@ mount $HOME_PART $INSTALL_TARGET/home/
 genfstab -p -U $INSTALL_TARGET >> $INSTALL_TARGET/etc/fstab
 
 curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01-lvm.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm.sh
-curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02-lvm.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02-lvm.sh
+curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
 
 echo "Run : bash /root/archlinux-postinstall-stage01-lvm.sh inside chroot"
 arch-chroot $INSTALL_TARGET/

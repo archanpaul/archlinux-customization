@@ -3,7 +3,7 @@
 # It should get reflected in Stage-01 but it does not.
 timedatectl set-timezone Asia/Kolkata
 
-#PACMAN="pacman -S --noconfirm --needed -w "
+#PACMAN="pacman -S --noconfirm --needed --downloadonly "
 PACMAN="pacman -S --noconfirm --needed "
 
 ## Base
@@ -35,8 +35,8 @@ function network_tools() {
 	$PACMAN usb_modeswitch wvdial
 	$PACMAN ethtool bridge-utils
 	$PACMAN net-tools netctl
-	$PACMAN wireless_tools wpa_supplicant wpa_actiond crda
-	$PACMAN bluez bluez-firmware bluez-utils
+	$PACMAN wireless_tools wpa_supplicant crda
+	$PACMAN bluez bluez-utils
 	$PACMAN networkmanager 
 	$PACMAN wireshark-cli
 }
@@ -179,7 +179,7 @@ function dart_dev_tools() {
 ## Java dev-tools
 function java_dev_tools() {
 	$PACMAN jdk-openjdk
-	$PACMAN icedtea-web
+	#$PACMAN icedtea-web
 }
 
 ## JS/NPM dev-tools
@@ -190,7 +190,7 @@ function js_dev_tools() {
 ## Python dev-tools
 function python_dev_tools() {
 	$PACMAN python python-docs
-	$PACMAN python-pymongo python-couchdb
+	$PACMAN python-pymongo 
 	$PACMAN python-pip python-virtualenv python-setuptools 
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
@@ -234,8 +234,8 @@ function graphic_utils() {
 ## Databases
 function databases() {
 	$PACMAN sqlite
-	$PACMAN mongodb mongodb-tools
-	$PACMAN couchdb
+	#$PACMAN mongodb mongodb-tools
+	#$PACMAN couchdb
 }
 
 ## Servers
@@ -271,8 +271,9 @@ function virtualization() {
 ## GNOME desktop
 function gnome_desktop() {
 	$PACMAN gnome
-	$PACMAN gnome-tweaks chrome-gnome-shell
+	$PACMAN gnome-tweaks
 	#$PACMAN gnome-extra
+	$PACMAN chrome-gnome-shell
 	$PACMAN evolution
 	$PACMAN gnome-sound-recorder
 	$PACMAN media-player-info rhythmbox
@@ -305,16 +306,12 @@ function kde_desktop() {
 	$PACMAN kdeutils-meta
 	#$PACMAN kdewebdev-meta
 
+	#$PACMAN telepathy-kde-meta
+
 	$PACMAN ktorrent
 	$PACMAN calibre
 
 	systemctl enable sddm
-}
-
-## NodeJS
-function nodejs_installs() {
-	$PACMAN nodejs
-	$PACMAN npm	
 }
 
 ## ScientificComputing
@@ -352,7 +349,7 @@ function install_all_modules() {
 	dev_tools
 	java_dev_tools
 	android_dev_tools
-	#arm_dev_tools
+	arm_dev_tools
 	dart_dev_tools
 	js_dev_tools
 	python_dev_tools
@@ -366,8 +363,8 @@ function install_all_modules() {
 	browsers
 	fonts
 	virtualization
-	gnome_desktop
-	#kde_desktop
+	#gnome_desktop
+	kde_desktop
 	scientific_computing
 	systemd_services
 }
