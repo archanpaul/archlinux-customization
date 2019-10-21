@@ -4,39 +4,39 @@ CDIR=`pwd`
 
 PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
 PACMAN_CMD="sudo pacman -S --noconfirm --needed "
-AURMAN_CACHE=$CDIR/aurman-cache
-AUR_CMD="aurman -S --noedit --noconfirm --cachedir $AURMAN_CACHE --needed "
+AUR_CMD="yay -Sy --noconfirm --needed "
 AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --cachedir $AURMAN_CACHE --needed "
 
-function expac-git_install() {
-    $PACMAN_CMD python-regex
-    rm -rf $CDIR/expac-git*
-    curl https://aur.archlinux.org/cgit/aur.git/snapshot/expac-git.tar.gz | tar zxv
-    cd $CDIR/expac-git && makepkg
-    cd $CDIR/expac-git && sudo $PACMAN_PKG_INSTALL_CMD expac-git-*.xz
-    cd $CDIR
-}
-
-function aurman_install() {
-    expac-git_install
-    ln -sf ~/.cache/aurman /home/public/archlinux-repos/archlinux.aur/aurman-cache 
-    rm -rf $CDIR/aurman*
-    curl https://aur.archlinux.org/cgit/aur.git/snapshot/aurman.tar.gz | tar zxv
-    gpg --recv-keys 465022E743D71E39
-    cd $CDIR/aurman && makepkg -sci
-    cd $CDIR/aurman && sudo $PACMAN_PKG_INSTALL_CMD aurman-*.xz
+function yay_install() {
+    rm -rf $CDIR/yay*
+    git clone https://aur.archlinux.org/yay.git
+    cd $CDIR/yay && makepkg -sci
+    cd $CDIR/yay && sudo $PACMAN_PKG_INSTALL_CMD yay-*.xz
     cd $CDIR
 }
 
 function power_management_packages() {
     $AUR_CMD laptop-mode-tools
-    sudo systemctl enable laptop-mode
-    sudo systemctl restart laptop-mode
+    #sudo systemctl enable laptop-mode
+    #sudo systemctl restart laptop-mode
 }
 
 function android_packages() {
     $AUR_CMD android-studio
     $AUR_CMD ncurses5-compat-libs
+    
+    sudo mkdir /opt/android-sdk
+    sudo chown -R root:wheel /opt/android-sdk
+    sudo chmod -R u+rwX,go+rwX,o-w /opt/android-sdk
+
+    cat <<EOF | sudo tee /etc/profile.d/android-sdk.sh
+export ANDROID_HOME=/opt/android-sdk/
+export ANDROID_SDK_ROOT=\$ANDROID_HOME
+export ANDROID_NDK_ROOT=\$ANDROID_HOME/ndk-bundle
+export PATH=\$PATH:\$ANDROID_HOME/platform-tools/
+EOF
+
+    source /etc/profile.d/android-sdk.sh
 }
 
 function ide_pacakges() {
@@ -63,6 +63,7 @@ function arm_packages() {
 }
 
 function db_packages() {
+    $AUR_CMD mongodb
     $AUR_CMD mongodb-compass
 }
 
@@ -75,21 +76,111 @@ function browser_packages() {
     $AUR_CMD tor-browser-en
 }
 
+function go_packages() {
+    sudo rm -rf /opt/go-packages
+    sudo mkdir /opt/go-packages
+
+    sudo chown -R root:wheel /opt/go-packages
+    sudo chmod -R u+rwX,go+rwX,o-w /opt/go-packages
+
+    cat <<EOF | sudo tee /etc/profile.d/go-packages.sh
+export GOPATH=/opt/go-packages
+export PATH=\$PATH:\$GOPATH/bin
+EOF
+
+    source /etc/profile.d/go-packages.sh
+
+    ## VSCode go plugin dependency
+    go get -u -v github.com/mdempsky/gocode
+    go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
+    go get -u -v github.com/mdempsky/gocode
+    go get -u -v github.com/ramya-rao-a/go-outline
+    go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
+    go get -u -v github.com/ramya-rao-a/go-outline
+    go get -u -v github.com/acroca/go-symbols
+    go get -u -v golang.org/x/tools/cmd/guru
+    go get -u -v golang.org/x/tools/cmd/gorename
+    go get -u -v github.com/go-delve/delve/cmd/dlv
+    go get -u -v github.com/stamblerre/gocode
+    go get -u -v github.com/rogpeppe/godef
+    go get -u -v github.com/sqs/goreturns
+    go get -u -v golang.org/x/lint/golint
+    go get -u -v github.com/stamblerre/gocode
+    go get -u -v github.com/stamblerre/gocode
+
+    ## Dev tools
+    go get -u -v github.com/cespare/reflex
+    go get -u -v golang.org/x/...
+    #go get -u -v golang.org/x/tools/cmd/godoc
+    #go get -u -v golang.org/x/tools/cmd/gorename
+    #go get -u -v golang.org/x/tools/cmd/goimports
+    #go get -u -v golang.org/x/tools/go/analysis/...
+    ## goMobile
+    go get -u -v golang.org/x/mobile/cmd/gobind
+    go get -u -v golang.org/x/mobile/cmd/gomobile
+    ## HTTP
+    go get -u -v github.com/gin-gonic/gin
+    go get -u -v github.com/gin-gonic/contrib/...
+    go get -u -v github.com/dgrijalva/jwt-go
+    ## goNum
+    go get -u -v -t gonum.org/v1/gonum/...
+    ## DB
+    go get -u -v gopkg.in/mgo.v2
+    #go get github.com/lib/pq
+
+    # CDK
+    go get gocloud.dev
+    # Protobuf
+    go get -u github.com/golang/protobuf/proto
+    go get -u github.com/golang/protobuf/protoc-gen-go
+    ## gRPC
+    go get -u google.golang.org/grpc
+
+    ## Update
+    #go get -u -v all
+
+    sudo chown -R root:wheel /opt/go-packages
+    sudo chmod -R u+rwX,go+rwX,o-w /opt/go-packages
+}
+
+function flutter_packages() {
+    sudo rm -rf /opt/flutter-sdk
+    sudo mkdir -p /opt/flutter-sdk
+
+    #sudo git clone -b stable --single-branch https://github.com/flutter/flutter.git /opt/flutter-sdk --depth=1
+    sudo git clone -b master https://github.com/flutter/flutter.git /opt/flutter-sdk
+    sudo mkdir /opt/flutter-sdk/pub_cache
+    sudo chown -R root:wheel /opt/flutter-sdk
+    sudo chmod -R u+rwX,go+rwX,o-w /opt/flutter-sdk
+
+    cat <<EOF | sudo tee /etc/profile.d/flutter-sdk.sh
+export FLUTTER_ROOT=/opt/flutter-sdk/
+export PUB_CACHE=\$FLUTTER_ROOT/pub_cache
+export ENABLE_FLUTTER_DESKTOP=true
+export PATH=\$PATH:\$FLUTTER_ROOT/bin:\$PUB_CACHE/bin
+EOF
+
+    source /etc/profile.d/flutter-sdk.sh
+}
+
 function install_modules() {
-    power_management_packages
+    ##power_management_packages
     android_packages
-    ide_pacakges
-    printutil_packages
-    arm_packages
-    db_packages
-    gcloud_packages
+    #go_packages
+    ##flutter_packages
+    ##ide_pacakges
+    #printutil_packages
+    #arm_packages
+    #db_packages
+    #gcloud_packages
     #browser_packages
 }
 
 function install_aur_helpers() {
-    aurman_install
+    yay_install
 }
 
 #install_aur_helpers
-#install_modules 2>&1 | tee archlinux-aur.log
-$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
+install_modules 2>&1 | tee archlinux-aur.log
+
+#$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log

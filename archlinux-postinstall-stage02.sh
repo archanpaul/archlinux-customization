@@ -20,12 +20,14 @@ function console_tools() {
 	$PACMAN dosfstools
 	$PACMAN acpi acpid powertop
 	$PACMAN hdparm smartmontools
+	$PACMAN htop
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
 	$PACMAN minicom screen
 	$PACMAN zip unzip p7zip bzip2 unrar lxsplit
 	$PACMAN pwgen
 	$PACMAN dmidecode
+	$PACMAN man-db man-pages
 }
 
 ## Network tools
@@ -219,7 +221,7 @@ function office_suite() {
 ## Editors
 function editors() {
 	$PACMAN aspell aspell-en
-	$PACMAN vim
+	$PACMAN vi vim
 	$PACMAN emacs emacs-python-mode
 	$PACMAN markdown
 }
@@ -310,6 +312,8 @@ function kde_desktop() {
 
 	$PACMAN ktorrent
 	$PACMAN calibre
+
+	$PACMAN kde-gtk-config 
 
 	systemctl enable sddm
 }
