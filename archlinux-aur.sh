@@ -91,33 +91,26 @@ EOF
     source /etc/profile.d/go-packages.sh
 
     ## VSCode go plugin dependency
+    go get -u -v github.com/ramya-rao-a/go-outline
     go get -u -v github.com/mdempsky/gocode
     go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
-    go get -u -v github.com/mdempsky/gocode
-    go get -u -v github.com/ramya-rao-a/go-outline
-    go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
-    go get -u -v github.com/ramya-rao-a/go-outline
-    go get -u -v github.com/acroca/go-symbols
-    go get -u -v golang.org/x/tools/cmd/guru
-    go get -u -v golang.org/x/tools/cmd/gorename
-    go get -u -v github.com/go-delve/delve/cmd/dlv
-    go get -u -v github.com/stamblerre/gocode
     go get -u -v github.com/rogpeppe/godef
     go get -u -v github.com/sqs/goreturns
+    go get -u -v golang.org/x/tools/cmd/gorename
     go get -u -v golang.org/x/lint/golint
-    go get -u -v github.com/stamblerre/gocode
-    go get -u -v github.com/stamblerre/gocode
 
     ## Dev tools
-    go get -u -v github.com/cespare/reflex
     go get -u -v golang.org/x/...
-    #go get -u -v golang.org/x/tools/cmd/godoc
-    #go get -u -v golang.org/x/tools/cmd/gorename
+    go get -u -v golang.org/x/crypto
+    go get -u -v golang.org/x/tools/...
+    ## utils
     #go get -u -v golang.org/x/tools/cmd/goimports
     #go get -u -v golang.org/x/tools/go/analysis/...
     ## goMobile
     go get -u -v golang.org/x/mobile/cmd/gobind
     go get -u -v golang.org/x/mobile/cmd/gomobile
+    ## compile
+    go get -u -v github.com/cespare/reflex
     ## HTTP
     go get -u -v github.com/gin-gonic/gin
     go get -u -v github.com/gin-gonic/contrib/...
@@ -126,7 +119,6 @@ EOF
     go get -u -v -t gonum.org/v1/gonum/...
     ## DB
     go get -u -v gopkg.in/mgo.v2
-    #go get github.com/lib/pq
 
     # CDK
     go get gocloud.dev
@@ -161,11 +153,23 @@ export PATH=\$PATH:\$FLUTTER_ROOT/bin:\$PUB_CACHE/bin
 EOF
 
     source /etc/profile.d/flutter-sdk.sh
+
+    flutter doctor
+    flutter precache
+}
+
+function kde_utils() {
+    sudo cat <<EOF | sudo tee /usr/local/bin/kde-lock-session.sh
+#!/bin/sh
+loginctl lock-session
+EOF
+    sudo chmod 775 /usr/local/bin/kde-lock-session.sh
 }
 
 function install_modules() {
+    echo "Starting installataion ..."
     ##power_management_packages
-    android_packages
+    ##android_packages
     #go_packages
     ##flutter_packages
     ##ide_pacakges
@@ -174,6 +178,7 @@ function install_modules() {
     #db_packages
     #gcloud_packages
     #browser_packages
+    ##kde_utils
 }
 
 function install_aur_helpers() {

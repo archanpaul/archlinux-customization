@@ -255,6 +255,7 @@ function browsers() {
 	$PACMAN firefox
 	$PACMAN thunderbird
 	$PACMAN flashplugin 
+	$PACMAN youtube-dl
 }
 
 ## Fonts
@@ -313,7 +314,7 @@ function kde_desktop() {
 	$PACMAN ktorrent
 	$PACMAN calibre
 
-	$PACMAN kde-gtk-config 
+	$PACMAN breeze-gtk kde-gtk-config
 
 	systemctl enable sddm
 }
