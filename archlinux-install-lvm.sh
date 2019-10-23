@@ -33,6 +33,7 @@ timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
 echo "#Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = http://mirror.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = http://mirror.cse.iitk.ac.in/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = http://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 pacman -Sy
