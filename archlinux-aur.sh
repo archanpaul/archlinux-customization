@@ -98,6 +98,9 @@ EOF
     go get -u -v github.com/sqs/goreturns
     go get -u -v golang.org/x/tools/cmd/gorename
     go get -u -v golang.org/x/lint/golint
+    go get -u -v github.com/stamblerre/gocode
+    go get -u -v golang.org/x/lint/golint
+
 
     ## Dev tools
     go get -u -v golang.org/x/...
