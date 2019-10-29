@@ -45,6 +45,7 @@ function network_tools() {
 
 ## Xorg
 function xorg() {
+
 	$PACMAN xorg-server 
 	$PACMAN xorg-server-xwayland
 	$PACMAN xorg-server-xephyr
@@ -63,13 +64,12 @@ function xorg() {
 #   Option      "AccelMethod"  "sna"
 #   Option      "TearFree"    "true"
 #EndSection" > /etc/X11/xorg.conf.d/20-intel.conf
-
 }
 
 ## Wayland
 function wayland() {
 	$PACMAN wayland wayland-protocols
-	$PACMAN xorg-server-xwayland 
+	$PACMAN egl-wayland glew-wayland
 	$PACMAN glew-wayland 
 	$PACMAN weston
 }
@@ -294,7 +294,10 @@ function gnome_desktop() {
 ## KDE desktop
 function kde_desktop() {
 	$PACMAN phonon-qt5-gstreamer
+
 	$PACMAN plasma-wayland-session plasma-meta
+	$PACMAN kwayland kwayland-integration
+
 	#$PACMAN kde-applications-meta
 	#$PACMAN kdeaccessibility-meta
 	$PACMAN kdeadmin-meta
@@ -348,7 +351,7 @@ function install_all_modules() {
 	console_tools
 	network_tools
 	wayland
-	xorg
+	#xorg
 	scm
 	printing
 	dev_tools
