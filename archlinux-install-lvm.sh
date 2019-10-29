@@ -3,7 +3,7 @@
 HOSTNAME=arpo
 INSTALL_TARGET_DISK=/dev/sda
 LVM_SWAP_SIZE=32G
-LVM_ROOT_SIZE=220G
+LVM_ROOT_SIZE=320G
 
 INSTALL_SRC="file:///home"
 INSTALL_TARGET="/tmp/mnt/"
@@ -21,9 +21,11 @@ VGNAME=vg_$HOSTNAME
 # In bootup console
 
 ## Connect to wifi using wpa_supplicant
+# ip link wlp2s0 up
 # AP_NAME=essid
 # AP_PASSWORD=password
 # wpa_supplicant -B -i wlp2s0 -c <(wpa_password $AP_NAME $AP_PASSWORD) 
+# dhclinet wlp2s0
 
 ## setup system time
 ntpd -qg &

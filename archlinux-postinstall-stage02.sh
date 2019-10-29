@@ -45,7 +45,6 @@ function network_tools() {
 
 ## Xorg
 function xorg() {
-
 	$PACMAN xorg-server 
 	$PACMAN xorg-server-xwayland
 	$PACMAN xorg-server-xephyr
@@ -69,8 +68,11 @@ function xorg() {
 ## Wayland
 function wayland() {
 	$PACMAN wayland wayland-protocols
-	$PACMAN egl-wayland glew-wayland
-	$PACMAN glew-wayland 
+	$PACMAN egl-wayland
+	$PACMAN qt5-wayland
+	$PACMAN glfw-wayland
+	$PACMAN glew-wayland
+	$PACMAN xorg-server-xwayland
 	$PACMAN weston
 }
 
@@ -351,7 +353,7 @@ function install_all_modules() {
 	console_tools
 	network_tools
 	wayland
-	#xorg
+	xorg
 	scm
 	printing
 	dev_tools
@@ -386,7 +388,8 @@ function install_modules_usb_install_media() {
 }
 
 pacman -Syu
-install_all_modules 2>&1 | tee archlinux-postinstall-stage02.log
+#install_all_modules 2>&1 | tee archlinux-postinstall-stage02.log
+xorg
 
 ##remove un-necessary packages (dependencies that are no longer needed)
 #pacman -Rs $(pacman -Qqtd)

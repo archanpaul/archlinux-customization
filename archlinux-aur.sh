@@ -188,7 +188,7 @@ function install_aur_helpers() {
     yay_install
 }
 
-#install_aur_helpers
-install_modules 2>&1 | tee archlinux-aur.log
+install_aur_helpers
+#install_modules 2>&1 | tee archlinux-aur.log
 
 #$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
