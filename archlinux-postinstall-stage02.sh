@@ -268,7 +268,7 @@ function fonts() {
 ## Virtualization
 function virtualization() {
 	$PACMAN qemu 
-	#$PACMAN virtualbox
+	$PACMAN virtualbox virtualbox-host-modules-arch
 }
 
 ## GNOME desktop

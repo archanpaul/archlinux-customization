@@ -5,10 +5,10 @@ CDIR=`pwd`
 PACMAN_PKG_INSTALL_CMD="pacman -U --noconfirm --needed "
 PACMAN_CMD="sudo pacman -S --noconfirm --needed "
 AUR_CMD="yay -Sy --noconfirm --needed "
-AUR_UPGRADE_CMD="aurman -Syu --noedit --noconfirm --cachedir $AURMAN_CACHE --needed "
+AUR_UPGRADE_CMD="yay -Syu --noconfirm --needed "
 
 function yay_install() {
-    rm -rf $CDIR/yay*
+    rm -rf ../cache/yay*
     git clone https://aur.archlinux.org/yay.git
     cd $CDIR/yay && makepkg -sci
     cd $CDIR/yay && sudo $PACMAN_PKG_INSTALL_CMD yay-*.xz
