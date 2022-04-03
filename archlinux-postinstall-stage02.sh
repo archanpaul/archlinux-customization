@@ -316,7 +316,7 @@ function kde_desktop() {
 
 	$PACMAN breeze-gtk kde-gtk-config
 
-	systemctl enable sddm
+	# systemctl enable sddm
 }
 
 ## ScientificComputing
@@ -329,6 +329,7 @@ function scientific_computing() {
 	$PACMAN python-pandas
 	$PACMAN python-matplotlib
 	$PACMAN python-tensorflow
+	$PACMAN python-opencv
 }
 
 ## systemd services
