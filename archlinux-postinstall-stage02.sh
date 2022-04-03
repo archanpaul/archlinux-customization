@@ -256,7 +256,6 @@ function browsers() {
 	$PACMAN chromium
 	$PACMAN firefox
 	$PACMAN thunderbird
-	$PACMAN flashplugin 
 	$PACMAN youtube-dl
 }
 
@@ -298,6 +297,7 @@ function kde_desktop() {
 	$PACMAN phonon-qt5-gstreamer
 
 	$PACMAN plasma-wayland-session plasma-meta
+	# dbus-run-session startplasma-wayland
 	$PACMAN kwayland kwayland-integration
 
 	#$PACMAN kde-applications-meta
@@ -334,7 +334,6 @@ function scientific_computing() {
 	$PACMAN python-pandas
 	$PACMAN python-matplotlib
 	$PACMAN python-tensorflow
-
 }
 
 ## systemd services
@@ -389,7 +388,6 @@ function install_modules_usb_install_media() {
 
 pacman -Syu
 #install_all_modules 2>&1 | tee archlinux-postinstall-stage02.log
-xorg
 
 ##remove un-necessary packages (dependencies that are no longer needed)
 #pacman -Rs $(pacman -Qqtd)
