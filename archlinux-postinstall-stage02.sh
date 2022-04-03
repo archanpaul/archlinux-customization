@@ -274,14 +274,12 @@ function gnome_desktop() {
 	$PACMAN gnome
 	$PACMAN gnome-tweaks
 	#$PACMAN gnome-extra
-	$PACMAN chrome-gnome-shell
 	$PACMAN evolution
 	$PACMAN gnome-sound-recorder celluloid
 	$PACMAN media-player-info rhythmbox
 	$PACMAN vinagre
 	$PACMAN transmission-gtk
 	$PACMAN giggle foliate
-	$PACMAN wireshark-gtk
 
 	#GnomeSoftware support for ArchLinux
 	$PACMAN gnome-software-packagekit-plugin
@@ -369,7 +367,7 @@ function install_all_modules() {
 	browsers
 	fonts
 	virtualization
-	gnome_desktop
+	# gnome_desktop
 	kde_desktop
 	scientific_computing
 	systemd_services

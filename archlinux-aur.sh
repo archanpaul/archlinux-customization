@@ -24,19 +24,41 @@ function power_management_packages() {
 function android_packages() {
     $AUR_CMD android-studio
     $AUR_CMD ncurses5-compat-libs
-    
-    sudo mkdir /opt/android-sdk
+
+    sudo rm -rf /opt/android-studio
+    sudo  mkdir -p /opt/android-studio
+
+    wget -c https://redirector.gvt1.com/edgedl/android/studio/ide-zips/${ANDROID_STUDIO_RELEASE}/android-studio-${ANDROID_STUDIO_RELEASE}-linux.tar.gz -P ${CACHE}
+
+    sudo tar zxfv ${CACHE}/android-studio-${ANDROID_STUDIO_RELEASE}-linux.tar.gz -C /opt/
+    sudo chown -R root:wheel /opt/android-studio
+    sudo chmod -R u+rwX,go+rwX,o-w /opt/android-studio
+
+    cat <<EOF | sudo tee /opt/android-studio/android-studio.desktop
+[Desktop Entry]
+Type=Application
+Name=Android Studio
+Icon=/opt/android-studio/bin/studio.png
+Exec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp /opt/android-studio/bin/studio.sh
+Terminal=false
+Categories=Development;IDE;
+EOF
+
+    sudo mkdir -p /opt/android-sdk
     sudo chown -R root:wheel /opt/android-sdk
     sudo chmod -R u+rwX,go+rwX,o-w /opt/android-sdk
 
     cat <<EOF | sudo tee /etc/profile.d/android-sdk.sh
 export ANDROID_HOME=/opt/android-sdk/
 export ANDROID_SDK_ROOT=\$ANDROID_HOME
-export ANDROID_NDK_ROOT=\$ANDROID_HOME/ndk-bundle
+export ANDROID_NDK_ROOT=\$ANDROID_HOME/ndk/21.1.6352462
+export ANDROID_NDK_HOME=\$ANDROID_NDK_ROOT
 export PATH=\$PATH:\$ANDROID_HOME/platform-tools/
 EOF
 
+    sudo cp /opt/android-studio/android-studio.desktop /usr/share/applications/android-studio.desktop
     source /etc/profile.d/android-sdk.sh
+   
 }
 
 function ide_pacakges() {
@@ -74,6 +96,8 @@ function gcloud_packages() {
 
 function browser_packages() {
     $AUR_CMD tor-browser-en
+    $AUR_CMD google-chrome
+    $AUR_CMD microsoft-edge-stable-bin
 }
 
 function go_packages() {
@@ -142,8 +166,9 @@ function flutter_packages() {
     sudo rm -rf /opt/flutter-sdk
     sudo mkdir -p /opt/flutter-sdk
 
-    #sudo git clone -b stable --single-branch https://github.com/flutter/flutter.git /opt/flutter-sdk --depth=1
-    sudo git clone -b master https://github.com/flutter/flutter.git /opt/flutter-sdk
+    sudo git clone -b stable --single-branch https://github.com/flutter/flutter.git /opt/flutter-sdk --depth=1
+    # sudo git clone -b master https://github.com/flutter/flutter.git /opt/flutter-sdk
+
     sudo mkdir /opt/flutter-sdk/pub_cache
     sudo chown -R root:wheel /opt/flutter-sdk
     sudo chmod -R u+rwX,go+rwX,o-w /opt/flutter-sdk
@@ -154,11 +179,21 @@ export PUB_CACHE=\$FLUTTER_ROOT/pub_cache
 export ENABLE_FLUTTER_DESKTOP=true
 export PATH=\$PATH:\$FLUTTER_ROOT/bin:\$PUB_CACHE/bin
 EOF
-
     source /etc/profile.d/flutter-sdk.sh
 
-    flutter doctor
-    flutter precache
+    ## Linux app development dependencies.
+    sudo dnf -y install ninja-build
+    sudo dnf -y install gtk3-devel
+
+    #flutter doctor
+    #flutter doctor --android-licenses
+    #flutter config --no-analytics
+    #flutter precache
+    #flutter config --enable-linux-desktop
+    #flutter config --enable-windows-desktop
+    #flutter config --enable-windows-uwp-desktop
+    #flutter config --enable-macos-desktop
+    #pub global activate protoc_plugin
 }
 
 function kde_utils() {
@@ -171,17 +206,17 @@ EOF
 
 function install_modules() {
     echo "Starting installataion ..."
-    ##power_management_packages
-    ##android_packages
+    power_management_packages
+    #android_packages
     #go_packages
-    ##flutter_packages
-    ##ide_pacakges
-    #printutil_packages
-    #arm_packages
-    #db_packages
+    #flutter_packages
+    ide_pacakges
+    printutil_packages
+    arm_packages
+    db_packages
     #gcloud_packages
-    #browser_packages
-    ##kde_utils
+    browser_packages
+    kde_utils
 }
 
 function install_aur_helpers() {
