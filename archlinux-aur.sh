@@ -11,7 +11,6 @@ function yay_install() {
     rm -rf ../cache/yay*
     git clone https://aur.archlinux.org/yay.git
     cd $CDIR/yay && makepkg -sci
-    cd $CDIR/yay && sudo $PACMAN_PKG_INSTALL_CMD yay-*.xz
     cd $CDIR
 }
 
@@ -64,16 +63,39 @@ EOF
 function ide_pacakges() {
     $AUR_CMD visual-studio-code-bin
     $PACMAN_CMD  gnome-keyring libsecret
-    #code --install-extension Dart-Code.dart-code
-    #code --install-extension PKief.material-icon-theme
-    #code --install-extension donjayamanne.githistory
-    #code --install-extension formulahendry.code-runner
-    #code --install-extension joshpeng.theme-charcoal-oceanicnext
-    #code --install-extension lukehoban.Go
-    #code --install-extension ms-python.python
-    #code --install-extension ms-vscode-devlab.vscode-mongodb
-    #code --install-extension ms-vscode.cpptools
-    #code --install-extension msjsdiag.debugger-for-chrome
+
+    # sudo echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf
+    # sudo sysctl -p
+
+    ## vscode list extensions
+    # code --list-extensions | xargs -L 1 echo code --install-extension
+
+    ## vscode install extensions
+    # code --install-extension BazelBuild.vscode-bazel
+    # code --install-extension Dart-Code.dart-code
+    # code --install-extension Dart-Code.flutter
+    # code --install-extension GitHub.github-vscode-theme
+    # code --install-extension GitHub.vscode-pull-request-github
+    # code --install-extension golang.go
+    # code --install-extension mhutchie.git-graph
+    # code --install-extension ms-azuretools.vscode-docker
+    # code --install-extension ms-python.python
+    # code --install-extension ms-python.vscode-pylance
+    # code --install-extension ms-toolsai.jupyter
+    # code --install-extension ms-toolsai.jupyter-keymap
+    # code --install-extension ms-toolsai.jupyter-renderers
+    # code --install-extension ms-vscode-remote.remote-containers
+    # code --install-extension ms-vscode-remote.remote-ssh
+    # code --install-extension ms-vscode-remote.remote-ssh-edit
+    # code --install-extension ms-vscode.cmake-tools
+    # code --install-extension ms-vscode.cpptools
+    # code --install-extension redhat.java
+    # code --install-extension redhat.vscode-yaml
+    # code --install-extension VisualStudioExptTeam.vscodeintellicode
+}
+
+function python_packages() {
+    $AUR_CMD python-conda
 }
 
 function printutil_packages() {
@@ -85,7 +107,7 @@ function arm_packages() {
 }
 
 function db_packages() {
-    $AUR_CMD mongodb
+    $AUR_CMD mongodb-bin mongodb-tools-bin
     $AUR_CMD mongodb-compass
 }
 
@@ -114,52 +136,80 @@ EOF
 
     source /etc/profile.d/go-packages.sh
 
-    ## VSCode go plugin dependency
-    go get -u -v github.com/ramya-rao-a/go-outline
-    go get -u -v github.com/mdempsky/gocode
-    go get -u -v github.com/uudashr/gopkgs/cmd/gopkgs
-    go get -u -v github.com/rogpeppe/godef
-    go get -u -v github.com/sqs/goreturns
-    go get -u -v golang.org/x/tools/cmd/gorename
-    go get -u -v golang.org/x/lint/golint
-    go get -u -v github.com/stamblerre/gocode
-    go get -u -v golang.org/x/lint/golint
+    sudo chown -R root:wheel /opt/go-packages
+    sudo chmod -R u+rwX,go+rwX,o-w /opt/go-packages
+}
 
+function go_tools_libs_packages() {
+    source /etc/profile.d/go-packages.sh
+
+    ## VSCode go plugin dependency
+    export GO111MODULE=on
+
+    go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs
+    go get -v github.com/ramya-rao-a/go-outline
+    go get -v github.com/cweill/gotests/...
+    go get -v github.com/fatih/gomodifytags
+    go get -v github.com/josharian/impl
+    go get -v github.com/haya14busa/goplay/cmd/goplay
+    go get -v github.com/go-delve/delve/cmd/dlv
+    go get -v github.com/stamblerre/gocode
+    go get -v golang.org/x/lint/golint
+    go get -v golang.org/x/tools/gopls
+    go get -v honnef.co/go/tools/cmd/staticcheck
 
     ## Dev tools
+    go get -u -v github.com/cespare/reflex
     go get -u -v golang.org/x/...
-    go get -u -v golang.org/x/crypto
     go get -u -v golang.org/x/tools/...
-    ## utils
-    #go get -u -v golang.org/x/tools/cmd/goimports
+    go get -u -v golang.org/x/tools/cmd/...
+    go get -u -v golang.org/x/tools/gopls
     #go get -u -v golang.org/x/tools/go/analysis/...
     ## goMobile
     go get -u -v golang.org/x/mobile/cmd/gobind
     go get -u -v golang.org/x/mobile/cmd/gomobile
-    ## compile
-    go get -u -v github.com/cespare/reflex
     ## HTTP
     go get -u -v github.com/gin-gonic/gin
     go get -u -v github.com/gin-gonic/contrib/...
     go get -u -v github.com/dgrijalva/jwt-go
+    #go get -v -v github.com/go-chi/chi
+    #go get -v -v github.com/go-chi/cors
+    ## Log
+    go get -v -v go.uber.org/zap
     ## goNum
     go get -u -v -t gonum.org/v1/gonum/...
     ## DB
-    go get -u -v gopkg.in/mgo.v2
-
-    # CDK
-    go get gocloud.dev
-    # Protobuf
-    go get -u github.com/golang/protobuf/proto
-    go get -u github.com/golang/protobuf/protoc-gen-go
+    go get -u -v github.com/dgraph-io/dgo/v2
+    go get -u -v go.mongodb.org/mongo-driver
+    go get -u -v go.mongodb.org/mongo-driver/bson
+    go get -u -v go.mongodb.org/mongo-driver/mongo/options
+    go get -u -v go.mongodb.org/mongo-driver/mongo/readpref
+    ## protobuf
+    go get -u -v github.com/golang/protobuf/proto
+    go get -u -v github.com/golang/protobuf/protoc-gen-go
     ## gRPC
-    go get -u google.golang.org/grpc
+    go get -u -v google.golang.org/grpc
+    ## Messaging
+    #go get -u -v github.com/nats-io/nats.go
+    #go get -u -v github.com/nats-io/nats-server
+    #go get -u -v github.com/nats-io/nats-streaming-server
+    #go get github.com/liftbridge-io/go-liftbridge
+    #go get -u -v github.com/ThreeDotsLabs/watermill
+    # Go CDK
+    #go get -u -v gocloud.dev
+    # UUID
+    go get -u -v github.com/google/uuid
+    # Embedded DB
+    go get -u -v go.etcd.io/bbolt/...
+    go get -u -v github.com/dgraph-io/badger/...
+    # Firebase
+    go get -u -v firebase.google.com/go
+    go get -u -v firebase.google.com/go/auth
+    # opencv
+    go get -u -d gocv.io/x/gocv
 
     ## Update
     #go get -u -v all
-
-    sudo chown -R root:wheel /opt/go-packages
-    sudo chmod -R u+rwX,go+rwX,o-w /opt/go-packages
 }
 
 function flutter_packages() {
@@ -207,16 +257,18 @@ EOF
 function install_modules() {
     echo "Starting installataion ..."
     power_management_packages
-    #android_packages
-    #go_packages
-    #flutter_packages
     ide_pacakges
+    python_packages
     printutil_packages
     arm_packages
     db_packages
-    #gcloud_packages
+    gcloud_packages
     browser_packages
     kde_utils
+    go_packages
+    go_tools_libs_packages
+    #android_packages
+    #flutter_packages
 }
 
 function install_aur_helpers() {
