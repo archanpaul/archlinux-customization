@@ -16,7 +16,7 @@ function base() {
 
 ## Console tools
 function console_tools() {
-	$PACMAN e2fsprogs extundelete ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
+	$PACMAN e2fsprogs ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
 	$PACMAN dosfstools
 	$PACMAN acpi acpid powertop
 	$PACMAN hdparm smartmontools
@@ -37,7 +37,7 @@ function network_tools() {
 	$PACMAN usb_modeswitch wvdial
 	$PACMAN ethtool bridge-utils
 	$PACMAN net-tools netctl
-	$PACMAN wireless_tools wpa_supplicant crda
+	$PACMAN wireless_tools wpa_supplicant
 	$PACMAN bluez bluez-utils
 	$PACMAN networkmanager 
 	$PACMAN wireshark-cli
@@ -49,9 +49,9 @@ function xorg() {
 	$PACMAN xorg-server-xwayland
 	$PACMAN xorg-server-xephyr
 	$PACMAN mesa-libgl
-	$PACMAN xf86-video-intel intel-dri libva-intel-driver 
+	$PACMAN xf86-video-intel libva-intel-driver 
 	$PACMAN xf86-input-evdev xf86-input-synaptics 
-	$PACMAN xf86-video-ati ati-dri
+	$PACMAN xf86-video-ati 
 	$PACMAN xterm xorg-xkill xorg-xhost
 	$PACMAN xorg-xdm
 	$PACMAN xorg-xinit
@@ -71,7 +71,6 @@ function wayland() {
 	$PACMAN egl-wayland
 	$PACMAN qt5-wayland
 	$PACMAN glfw-wayland
-	$PACMAN glew-wayland
 	$PACMAN xorg-server-xwayland
 	$PACMAN weston
 }
@@ -225,7 +224,6 @@ function editors() {
 	$PACMAN aspell aspell-en
 	$PACMAN vi vim
 	$PACMAN emacs emacs-python-mode
-	$PACMAN markdown
 }
 
 ## Graphic utils
@@ -247,7 +245,6 @@ function servers() {
 	$PACMAN openssh sshpass openssl openvpn 
 	$PACMAN openvpn 
 	$PACMAN apache 
-	$PACMAN mod_wsgi
 	$PACMAN docker docker-compose
 }
 
@@ -279,11 +276,11 @@ function gnome_desktop() {
 	#$PACMAN gnome-extra
 	$PACMAN chrome-gnome-shell
 	$PACMAN evolution
-	$PACMAN gnome-sound-recorder
+	$PACMAN gnome-sound-recorder celluloid
 	$PACMAN media-player-info rhythmbox
 	$PACMAN vinagre
 	$PACMAN transmission-gtk
-	$PACMAN giggle
+	$PACMAN giggle foliate
 	$PACMAN wireshark-gtk
 
 	#GnomeSoftware support for ArchLinux
@@ -300,21 +297,21 @@ function kde_desktop() {
 	# dbus-run-session startplasma-wayland
 	$PACMAN kwayland kwayland-integration
 
-	#$PACMAN kde-applications-meta
-	#$PACMAN kdeaccessibility-meta
-	$PACMAN kdeadmin-meta
-	$PACMAN kdebase-meta
-	#$PACMAN kdeedu-meta
-	#$PACMAN kdegames-meta
-	$PACMAN kdegraphics-meta
-	$PACMAN kdemultimedia-meta
-	$PACMAN kdenetwork-meta
-	#$PACMAN kdepim-meta
-	#$PACMAN kdesdk-meta
-	$PACMAN kdeutils-meta
-	#$PACMAN kdewebdev-meta
-
-	#$PACMAN telepathy-kde-meta
+	# $PACMAN kde-accessibility-meta
+	# $PACMAN kde-applications-meta
+	# $PACMAN kde-education-meta
+	# $PACMAN kde-games-meta
+	$PACMAN kde-graphics-meta
+	$PACMAN kde-multimedia-meta
+	$PACMAN kde-network-meta
+	# $PACMAN kde-pim-meta
+	# $PACMAN kde-sdk-meta
+	$PACMAN kde-system-meta
+	$PACMAN kde-utilities-meta
+	$PACMAN kdevelop-meta
+	$PACMAN plasma-meta
+	$PACMAN telepathy-kde-meta 
+	# $PACMAN kde-development-environment-meta
 
 	$PACMAN ktorrent
 	$PACMAN calibre
@@ -372,7 +369,7 @@ function install_all_modules() {
 	browsers
 	fonts
 	virtualization
-	#gnome_desktop
+	gnome_desktop
 	kde_desktop
 	scientific_computing
 	systemd_services
