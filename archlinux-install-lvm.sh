@@ -28,15 +28,13 @@ VGNAME=vg_$HOSTNAME
 # dhclinet wlp2s0
 
 ## setup system time
-ntpd -qg &
-sleep 10
 #timedatectl set-local-rtc 1
 timedatectl set-timezone Asia/Kolkata
 
 ## setup package repository
 echo "#Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
-echo "Server = https://mirror.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
+echo "Server = https://mirror.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 pacman -Sy
 
 mkdir -p $INSTALL_TARGET
@@ -114,11 +112,13 @@ if [ "$FORMAT_BOOT_PART" == "yes" ]
 then
     mkfs.ext4 -m 1 -L boot $BOOT_PART
 fi
-mkdir $INSTALL_TARGET/boot
+mkdir -p $INSTALL_TARGET/boot
 mount $BOOT_PART $INSTALL_TARGET/boot
+mkdir -p $INSTALL_TARGET/boot/efi
+mount $EFI_PART $INSTALL_TARGET/boot/efi
 
 pacman -S arch-install-scripts
-pacstrap $INSTALL_TARGET/ base grub linux linux-firmware cryptsetup lvm2 vim net-tools wget rsync efibootmgr ntp wpa_supplicant dhcpcd openssh
+pacstrap $INSTALL_TARGET/ base grub linux linux-firmware cryptsetup lvm2 vim net-tools iwd wget rsync efibootmgr ntp wpa_supplicant dhcpcd openssh
 
 # home
 if [ "$FORMAT_HOME" == "yes" ]
@@ -131,14 +131,15 @@ mount $HOME_PART $INSTALL_TARGET/home/
 
 genfstab -p -U $INSTALL_TARGET >> $INSTALL_TARGET/etc/fstab
 
-curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage01-lvm.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm.sh
-curl $INSTALL_SRC/public/archlinux-repos/scripts/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
+curl $INSTALL_SRC/public/archlinux-repos/archlinux-install-lvm.sh > $INSTALL_TARGET/root/archlinux-install-lvm.sh
+curl $INSTALL_SRC/public/archlinux-repos/archlinux-postinstall-stage01-lvm.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm.sh
+curl $INSTALL_SRC/public/archlinux-repos/archlinux-postinstall-stage02.sh > $INSTALL_TARGET/root/archlinux-postinstall-stage02.sh
 
 echo "Run : bash /root/archlinux-postinstall-stage01-lvm.sh inside chroot"
 arch-chroot $INSTALL_TARGET/
 
-rm $INSTALL_TARGET/root/archlinux-postinstall-stage01-lvm.sh
 umount $INSTALL_TARGET/home
+umount $INSTALL_TARGET/boot/efi
 umount $INSTALL_TARGET/boot
 umount $INSTALL_TARGET
 

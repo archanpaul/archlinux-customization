@@ -13,8 +13,6 @@ BOOT_PART=$INSTALL_TARGET_DISK"2"
 LVM_PART=$INSTALL_TARGET_DISK"3"
 
 # Set systemtime
-ntpd -qg
-sleep 10
 #timedatectl set-local-rtc 1
 timedatectl set-timezone Asia/Kolkata
 timedatectl set-ntp true
@@ -90,6 +88,7 @@ awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist");
 # Securing boot
 chmod -R g-rwx,o-rwx /boot
 
-vim /etc/fstab
+cat /etc/fstab
+passwd
 
 echo "Exit and reboot. On rebooted system run : bash archlinux-postinstall-stage02.sh"

@@ -8,9 +8,11 @@ AUR_CMD="yay -Sy --noconfirm --needed "
 AUR_UPGRADE_CMD="yay -Syu --noconfirm --needed "
 
 function yay_install() {
-    rm -rf ../cache/yay*
+    mkdir -p $CDIR/cache
+    cd $CDIR/cache
+    rm -rf yay*
     git clone https://aur.archlinux.org/yay.git
-    cd $CDIR/yay && makepkg -sci
+    cd $CDIR/cache/yay && makepkg -sci
     cd $CDIR
 }
 
@@ -256,17 +258,17 @@ EOF
 
 function install_modules() {
     echo "Starting installataion ..."
-    power_management_packages
-    ide_pacakges
-    python_packages
-    printutil_packages
-    arm_packages
-    db_packages
-    gcloud_packages
-    browser_packages
-    kde_utils
-    go_packages
-    go_tools_libs_packages
+    #power_management_packages
+    #ide_pacakges
+    #python_packages
+    #printutil_packages
+    #arm_packages
+    #db_packages
+    #gcloud_packages
+    #browser_packages
+    #kde_utils
+    #go_packages
+    #go_tools_libs_packages
     #android_packages
     #flutter_packages
 }
@@ -276,6 +278,7 @@ function install_aur_helpers() {
 }
 
 install_aur_helpers
-#install_modules 2>&1 | tee archlinux-aur.log
+yay -Sy
+install_modules 2>&1 | tee archlinux-aur.log
 
 #$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log

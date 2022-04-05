@@ -37,7 +37,7 @@ function network_tools() {
 	$PACMAN usb_modeswitch wvdial
 	$PACMAN ethtool bridge-utils
 	$PACMAN net-tools netctl
-	$PACMAN wireless_tools wpa_supplicant
+	$PACMAN iwd wireless_tools wpa_supplicant
 	$PACMAN bluez bluez-utils
 	$PACMAN networkmanager 
 	$PACMAN wireshark-cli
@@ -261,6 +261,8 @@ function fonts() {
 	$PACMAN ttf-liberation 
 	$PACMAN ttf-indic-otf 
 	$PACMAN ttf-hanazono
+	$PACMAN ttf-roboto
+	$PACMAN ttf-roboto-mono
 }
 
 ## Virtualization
@@ -336,6 +338,7 @@ function scientific_computing() {
 function systemd_services() {
 	systemctl enable acpid
 	systemctl enable cronie
+	#systemctl enable bluetooth
 	systemctl enable NetworkManager
 	systemctl enable ufw
 	systemctl enable sshd
@@ -349,6 +352,8 @@ function install_all_modules() {
 	network_tools
 	wayland
 	xorg
+	# gnome_desktop
+	kde_desktop
 	scm
 	printing
 	dev_tools
@@ -368,8 +373,6 @@ function install_all_modules() {
 	browsers
 	fonts
 	virtualization
-	# gnome_desktop
-	kde_desktop
 	scientific_computing
 	systemd_services
 }
@@ -383,7 +386,7 @@ function install_modules_usb_install_media() {
 }
 
 pacman -Syu
-#install_all_modules 2>&1 | tee archlinux-postinstall-stage02.log
+install_all_modules 2>&1 | tee archlinux-postinstall-stage02.log
 
 ##remove un-necessary packages (dependencies that are no longer needed)
 #pacman -Rs $(pacman -Qqtd)
