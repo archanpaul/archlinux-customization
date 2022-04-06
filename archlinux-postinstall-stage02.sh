@@ -268,7 +268,7 @@ function fonts() {
 ## Virtualization
 function virtualization() {
 	$PACMAN qemu 
-	$PACMAN virtualbox virtualbox-host-modules-arch
+	# $PACMAN virtualbox virtualbox-host-modules-arch
 }
 
 ## GNOME desktop
@@ -323,7 +323,7 @@ function kde_desktop() {
 
 ## ScientificComputing
 function scientific_computing() {
-        $PACMAN octave
+        # $PACMAN octave
     
     	## Python machine-learing
 	$PACMAN python-numpy
@@ -352,8 +352,8 @@ function install_all_modules() {
 	network_tools
 	wayland
 	xorg
-	# gnome_desktop
-	kde_desktop
+	gnome_desktop
+	# kde_desktop
 	scm
 	printing
 	dev_tools

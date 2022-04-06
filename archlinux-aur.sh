@@ -26,25 +26,6 @@ function android_packages() {
     $AUR_CMD android-studio
     $AUR_CMD ncurses5-compat-libs
 
-    sudo rm -rf /opt/android-studio
-    sudo  mkdir -p /opt/android-studio
-
-    wget -c https://redirector.gvt1.com/edgedl/android/studio/ide-zips/${ANDROID_STUDIO_RELEASE}/android-studio-${ANDROID_STUDIO_RELEASE}-linux.tar.gz -P ${CACHE}
-
-    sudo tar zxfv ${CACHE}/android-studio-${ANDROID_STUDIO_RELEASE}-linux.tar.gz -C /opt/
-    sudo chown -R root:wheel /opt/android-studio
-    sudo chmod -R u+rwX,go+rwX,o-w /opt/android-studio
-
-    cat <<EOF | sudo tee /opt/android-studio/android-studio.desktop
-[Desktop Entry]
-Type=Application
-Name=Android Studio
-Icon=/opt/android-studio/bin/studio.png
-Exec=env _JAVA_OPTIONS=-Djava.io.tmpdir=/var/tmp /opt/android-studio/bin/studio.sh
-Terminal=false
-Categories=Development;IDE;
-EOF
-
     sudo mkdir -p /opt/android-sdk
     sudo chown -R root:wheel /opt/android-sdk
     sudo chmod -R u+rwX,go+rwX,o-w /opt/android-sdk
@@ -57,9 +38,7 @@ export ANDROID_NDK_HOME=\$ANDROID_NDK_ROOT
 export PATH=\$PATH:\$ANDROID_HOME/platform-tools/
 EOF
 
-    sudo cp /opt/android-studio/android-studio.desktop /usr/share/applications/android-studio.desktop
     source /etc/profile.d/android-sdk.sh
-   
 }
 
 function ide_pacakges() {
@@ -98,6 +77,15 @@ function ide_pacakges() {
 
 function python_packages() {
     $AUR_CMD python-conda
+
+    ## conda init
+    ## conda create --name py39conda python=3.9
+    ## conda activate py39conda
+    ## conda install anaconda
+    ## conda install scikit-learn-intelex
+    ## conda install tensorflow
+    ## conda install -c conda-forge opencv
+
 }
 
 function printutil_packages() {
@@ -229,13 +217,10 @@ function flutter_packages() {
 export FLUTTER_ROOT=/opt/flutter-sdk/
 export PUB_CACHE=\$FLUTTER_ROOT/pub_cache
 export ENABLE_FLUTTER_DESKTOP=true
+export CHROME_EXECUTABLE=/usr/bin/google-chrome-stable
 export PATH=\$PATH:\$FLUTTER_ROOT/bin:\$PUB_CACHE/bin
 EOF
     source /etc/profile.d/flutter-sdk.sh
-
-    ## Linux app development dependencies.
-    sudo dnf -y install ninja-build
-    sudo dnf -y install gtk3-devel
 
     #flutter doctor
     #flutter doctor --android-licenses
@@ -248,7 +233,12 @@ EOF
     #pub global activate protoc_plugin
 }
 
-function kde_utils() {
+function gnome_packages() {
+    $AUR_CMD gnome-shell-extension-dash-to-dock
+    $AUR_CMD gnome-shell-extension-dash-to-panel
+}
+
+function kde_packages() {
     sudo cat <<EOF | sudo tee /usr/local/bin/kde-lock-session.sh
 #!/bin/sh
 loginctl lock-session
@@ -266,7 +256,8 @@ function install_modules() {
     #db_packages
     #gcloud_packages
     #browser_packages
-    #kde_utils
+    #gnome_packages
+    #kde_packages
     #go_packages
     #go_tools_libs_packages
     #android_packages
@@ -277,8 +268,8 @@ function install_aur_helpers() {
     yay_install
 }
 
-install_aur_helpers
+#install_aur_helpers
 yay -Sy
-install_modules 2>&1 | tee archlinux-aur.log
+#install_modules 2>&1 | tee archlinux-aur.log
 
 #$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
