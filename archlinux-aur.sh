@@ -77,6 +77,7 @@ function ide_pacakges() {
 
 function python_packages() {
     $AUR_CMD python-conda
+    $AUR_CMD pylance-language-server
 
     ## conda init
     ## conda create --name py39conda python=3.9
@@ -84,7 +85,9 @@ function python_packages() {
     ## conda install anaconda
     ## conda install scikit-learn-intelex
     ## conda install tensorflow
+    ## conda install ipykernel
     ## conda install -c conda-forge opencv
+    ## pip install mediapipe
 
 }
 
@@ -135,68 +138,43 @@ function go_tools_libs_packages() {
 
     ## VSCode go plugin dependency
     export GO111MODULE=on
+    go install -v golang.org/x/tools/gopls@latest
+    go install -v github.com/ramya-rao-a/go-outline@latest
+    go install -v github.com/go-delve/delve/cmd/dlv@latest
+    go install -v honnef.co/go/tools/cmd/staticcheck@latest
 
-    go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs
-    go get -v github.com/ramya-rao-a/go-outline
-    go get -v github.com/cweill/gotests/...
-    go get -v github.com/fatih/gomodifytags
-    go get -v github.com/josharian/impl
-    go get -v github.com/haya14busa/goplay/cmd/goplay
-    go get -v github.com/go-delve/delve/cmd/dlv
-    go get -v github.com/stamblerre/gocode
-    go get -v golang.org/x/lint/golint
-    go get -v golang.org/x/tools/gopls
-    go get -v honnef.co/go/tools/cmd/staticcheck
+    # go get -v github.com/uudashr/gopkgs/v2/cmd/gopkgs
+    # go get -v github.com/cweill/gotests/...
+    # go get -v github.com/fatih/gomodifytags
+    # go get -v github.com/josharian/impl
+    # go get -v github.com/haya14busa/goplay/cmd/goplay
+    # go get -v github.com/stamblerre/gocode
+    # go get -v golang.org/x/lint/golint
+    # go get -v golang.org/x/tools/gopls
 
     ## Dev tools
-    go get -u -v github.com/cespare/reflex
-    go get -u -v golang.org/x/...
-    go get -u -v golang.org/x/tools/...
-    go get -u -v golang.org/x/tools/cmd/...
-    go get -u -v golang.org/x/tools/gopls
-    #go get -u -v golang.org/x/tools/go/analysis/...
+    go install -v github.com/cespare/reflex@latest
     ## goMobile
-    go get -u -v golang.org/x/mobile/cmd/gobind
-    go get -u -v golang.org/x/mobile/cmd/gomobile
-    ## HTTP
-    go get -u -v github.com/gin-gonic/gin
-    go get -u -v github.com/gin-gonic/contrib/...
-    go get -u -v github.com/dgrijalva/jwt-go
-    #go get -v -v github.com/go-chi/chi
-    #go get -v -v github.com/go-chi/cors
-    ## Log
-    go get -v -v go.uber.org/zap
-    ## goNum
-    go get -u -v -t gonum.org/v1/gonum/...
-    ## DB
-    go get -u -v github.com/dgraph-io/dgo/v2
-    go get -u -v go.mongodb.org/mongo-driver
-    go get -u -v go.mongodb.org/mongo-driver/bson
-    go get -u -v go.mongodb.org/mongo-driver/mongo/options
-    go get -u -v go.mongodb.org/mongo-driver/mongo/readpref
-    ## protobuf
-    go get -u -v github.com/golang/protobuf/proto
-    go get -u -v github.com/golang/protobuf/protoc-gen-go
-    ## gRPC
-    go get -u -v google.golang.org/grpc
-    ## Messaging
-    #go get -u -v github.com/nats-io/nats.go
-    #go get -u -v github.com/nats-io/nats-server
-    #go get -u -v github.com/nats-io/nats-streaming-server
-    #go get github.com/liftbridge-io/go-liftbridge
-    #go get -u -v github.com/ThreeDotsLabs/watermill
-    # Go CDK
-    #go get -u -v gocloud.dev
-    # UUID
-    go get -u -v github.com/google/uuid
-    # Embedded DB
-    go get -u -v go.etcd.io/bbolt/...
-    go get -u -v github.com/dgraph-io/badger/...
-    # Firebase
-    go get -u -v firebase.google.com/go
-    go get -u -v firebase.google.com/go/auth
+    go install -v golang.org/x/mobile/cmd/gobind@latest
+    go install -v golang.org/x/mobile/cmd/gomobile@latest
+    # protobuf
+    go install -v github.com/golang/protobuf/proto@latest
+    go install -v github.com/golang/protobuf/protoc-gen-go@latest
+
+    ## Dev libs
+    # gRPC
+    # go get -u -v google.golang.org/grpc
     # opencv
-    go get -u -d gocv.io/x/gocv
+    # go get -u -d gocv.io/x/gocv
+    # goNum
+    # go get -u -v -t gonum.org/v1/gonum/...
+    # DB
+    # go get -u -v go.mongodb.org/mongo-driver
+    # go get -u -v go.mongodb.org/mongo-driver/bson
+    # go get -u -v go.mongodb.org/mongo-driver/mongo/options
+    # go get -u -v go.mongodb.org/mongo-driver/mongo/readpref 
+    # UUID
+    # go get -u -v github.com/google/uuid
 
     ## Update
     #go get -u -v all

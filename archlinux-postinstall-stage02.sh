@@ -223,7 +223,7 @@ function office_suite() {
 function editors() {
 	$PACMAN aspell aspell-en
 	$PACMAN vi vim
-	$PACMAN emacs emacs-python-mode
+	# $PACMAN emacs emacs-python-mode
 }
 
 ## Graphic utils
