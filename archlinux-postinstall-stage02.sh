@@ -20,7 +20,7 @@ function console_tools() {
 	$PACMAN dosfstools
 	$PACMAN acpi acpid powertop
 	$PACMAN hdparm smartmontools
-	$PACMAN htop
+	$PACMAN htop bash-completion
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
 	$PACMAN minicom screen
@@ -282,6 +282,7 @@ function gnome_desktop() {
 	$PACMAN vinagre
 	$PACMAN transmission-gtk
 	$PACMAN giggle foliate
+	$PACMAN dconf-editor
 
 	#GnomeSoftware support for ArchLinux
 	$PACMAN gnome-software-packagekit-plugin
