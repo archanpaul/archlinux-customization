@@ -19,7 +19,7 @@ function console_tools() {
 	$PACMAN e2fsprogs ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
 	$PACMAN dosfstools
 	$PACMAN acpi acpid powertop
-	$PACMAN hdparm smartmontools
+	$PACMAN hdparm smartmontools cpulimit
 	$PACMAN htop bash-completion
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
@@ -208,6 +208,7 @@ function archlinux_dev_tools() {
 
 ## Multimedia
 function multimedia() {
+	$PACMAN pipewire pipewire-alsa pipewire-jack pipewire-media-session pipewire-pulse pipewire-v4l2 pipewire-zeroconf
 	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
 	$PACMAN dvd+rw-tools
 }
