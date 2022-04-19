@@ -19,7 +19,7 @@ function console_tools() {
 	$PACMAN e2fsprogs ntfsprogs gptfdisk ecryptfs-utils wipe mtpfs 
 	$PACMAN dosfstools
 	$PACMAN acpi acpid powertop
-	$PACMAN hdparm smartmontools cpulimit
+	$PACMAN hdparm smartmontools cpulimit perf
 	$PACMAN htop bash-completion
 	$PACMAN bc sudo mc links
 	$PACMAN ntp 
