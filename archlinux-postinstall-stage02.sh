@@ -211,6 +211,8 @@ function multimedia() {
 	$PACMAN pipewire pipewire-alsa pipewire-jack pipewire-media-session pipewire-pulse pipewire-v4l2 pipewire-zeroconf
 	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
 	$PACMAN dvd+rw-tools
+
+	$PACMAN obs-studio
 }
 
 ## Office suite
@@ -254,7 +256,7 @@ function browsers() {
 	$PACMAN chromium
 	$PACMAN firefox
 	$PACMAN thunderbird
-	$PACMAN youtube-dl
+	$PACMAN youtube-dl aria2
 }
 
 ## Fonts
