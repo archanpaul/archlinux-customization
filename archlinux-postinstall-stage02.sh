@@ -208,6 +208,7 @@ function archlinux_dev_tools() {
 
 ## Multimedia
 function multimedia() {
+	$PACMAN wireplumber pipewire-media-session
 	$PACMAN pipewire pipewire-alsa pipewire-jack pipewire-media-session pipewire-pulse pipewire-v4l2 pipewire-zeroconf
 	$PACMAN gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly gst-libav
 	$PACMAN dvd+rw-tools
@@ -270,7 +271,7 @@ function fonts() {
 
 ## Virtualization
 function virtualization() {
-	$PACMAN qemu 
+	$PACMAN qemu-desktop
 	# $PACMAN virtualbox virtualbox-host-modules-arch
 }
 

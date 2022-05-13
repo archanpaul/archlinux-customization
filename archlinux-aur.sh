@@ -224,6 +224,11 @@ EOF
     sudo chmod 775 /usr/local/bin/kde-lock-session.sh
 }
 
+function web_apps_packages() {
+    $AUR_CMD zoom
+    $AUR_CMD teams
+}
+
 function install_modules() {
     echo "Starting installataion ..."
     #power_management_packages
@@ -240,6 +245,7 @@ function install_modules() {
     #go_tools_libs_packages
     #android_packages
     #flutter_packages
+    #web_apps_packages
 }
 
 function install_aur_helpers() {
