@@ -105,6 +105,7 @@ swapon $SWAP_PART
 # root
 mkfs.ext4 -m 1 -L root $ROOT_PART
 tune2fs -c 20 $ROOT_PART
+tune2fs -O fast_commit $ROOT_PART
 fsck.ext4 -a $ROOT_PART
 mount $ROOT_PART $INSTALL_TARGET
 
@@ -126,6 +127,7 @@ if [ "$FORMAT_HOME" == "yes" ]
 then
     mkfs.ext4 -m 0 -L home $HOME_PART
     tune2fs -c 20 $HOME_PART
+    tune2fs -O fast_commit $HOME_PART
     fsck.ext4 -a $HOME_PART
 fi
 mount $HOME_PART $INSTALL_TARGET/home/
