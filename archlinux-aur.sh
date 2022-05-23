@@ -79,14 +79,14 @@ function python_packages() {
     $AUR_CMD python-conda
     $AUR_CMD pylance-language-server
 
-    ## conda init
+    ## conda init bash
+    ## conda config --set auto_activate_base false
     ## conda create --name py39conda python=3.9
+    ## source ~/.bashrc
     ## conda activate py39conda
-    ## conda install anaconda
-    ## conda install scikit-learn-intelex
-    ## conda install tensorflow
-    ## conda install ipykernel
-    ## conda install -c conda-forge opencv
+    ## conda install --yes anaconda ipykernel
+    ## conda install --yes tensorflow scikit-learn-intelex
+    ## conda install --yes -c conda-forge opencv
     ## pip install mediapipe
 
 }
@@ -110,7 +110,7 @@ function gcloud_packages() {
 }
 
 function browser_packages() {
-    $AUR_CMD tor-browser-en
+    $AUR_CMD tor-browser
     $AUR_CMD google-chrome
     $AUR_CMD microsoft-edge-stable-bin
 }
@@ -229,6 +229,10 @@ function web_apps_packages() {
     $AUR_CMD teams
 }
 
+function font_packages() {
+    $AUR_CMD ttf-google-fonts-git
+}
+
 function install_modules() {
     echo "Starting installataion ..."
     #power_management_packages
@@ -246,6 +250,7 @@ function install_modules() {
     #android_packages
     #flutter_packages
     #web_apps_packages
+    #font_packages
 }
 
 function install_aur_helpers() {
