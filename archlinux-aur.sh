@@ -260,4 +260,4 @@ function install_aur_helpers() {
 yay -Sy
 install_modules 2>&1 | tee archlinux-aur.log
 
-#$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
+$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
