@@ -84,11 +84,10 @@ function python_packages() {
     ## conda create --name py39conda python=3.9
     ## source ~/.bashrc
     ## conda activate py39conda
-    ## conda install --yes anaconda ipykernel
+    ## conda install --yes ipykernel autopep8
     ## conda install --yes tensorflow scikit-learn-intelex
     ## conda install --yes -c conda-forge opencv
     ## pip install mediapipe
-
 }
 
 function printutil_packages() {
@@ -244,7 +243,7 @@ function install_modules() {
     #gcloud_packages
     #browser_packages
     #gnome_packages
-    #kde_packages
+    ##kde_packages
     #go_packages
     #go_tools_libs_packages
     #android_packages
@@ -259,6 +258,6 @@ function install_aur_helpers() {
 
 #install_aur_helpers
 yay -Sy
-#install_modules 2>&1 | tee archlinux-aur.log
+install_modules 2>&1 | tee archlinux-aur.log
 
 #$AUR_UPGRADE_CMD 2>&1 | tee archlinux-aur_upgrade.log
