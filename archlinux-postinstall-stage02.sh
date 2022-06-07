@@ -197,7 +197,7 @@ function python_dev_tools() {
 	$PACMAN python-pip python-virtualenv python-setuptools 
 	$PACMAN python-mccabe python-pyflakes flake8
 	$PACMAN python-jedi
-	$PACMAN python-pylint
+	$PACMAN python-pylint autopep8
 }
 
 ## Archlinux dev-tools

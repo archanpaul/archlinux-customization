@@ -199,15 +199,16 @@ export PATH=\$PATH:\$FLUTTER_ROOT/bin:\$PUB_CACHE/bin
 EOF
     source /etc/profile.d/flutter-sdk.sh
 
-    #flutter doctor
-    #flutter doctor --android-licenses
-    #flutter config --no-analytics
-    #flutter precache
-    #flutter config --enable-linux-desktop
-    #flutter config --enable-windows-desktop
-    #flutter config --enable-windows-uwp-desktop
-    #flutter config --enable-macos-desktop
-    #pub global activate protoc_plugin
+    # flutter doctor
+    # flutter doctor --android-licenses
+    # flutter config --no-analytics
+    # flutter precache
+    # flutter config --enable-linux-desktop
+    # flutter config --enable-windows-desktop
+    # flutter config --enable-windows-uwp-desktop
+    # flutter config --enable-macos-desktop
+    # git config --global --add safe.directory /opt/flutter-sdk
+    # pub global activate protoc_plugin
 }
 
 function gnome_packages() {
