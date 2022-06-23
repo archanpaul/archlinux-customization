@@ -2,7 +2,7 @@
 
 HOSTNAME=arpo
 INSTALL_TARGET_DISK=/dev/sda
-INSTALL_SRC="file:///home"
+INSTALL_SRC="file:///home/public"
 
 IS_EFI_INSTALL="yes"
 IS_LUKS_INSTALL="yes"
@@ -79,10 +79,10 @@ else
 fi
 
 ## setup package repository
-echo "Server=$INSTALL_SRC/public/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server=$INSTALL_SRC/archlinux-repos/archlinux/\$repo/os/\$arch" > /etc/pacman.d/mirrorlist
+echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = https://mirror.rackspace.com/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 echo "Server = https://mirror.leaseweb.net/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
-echo "Server = https://mirrors.kernel.org/archlinux/\$repo/os/\$arch" >> /etc/pacman.d/mirrorlist
 mv /etc/pacman.conf /etc/pacman.conf.orig
 awk '{gsub(/#\[multilib\]/, "\[multilib\]\nInclude = /etc/pacman.d/mirrorlist"); print}' /etc/pacman.conf.orig > /etc/pacman.conf
 
