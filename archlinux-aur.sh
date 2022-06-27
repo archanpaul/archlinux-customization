@@ -43,7 +43,7 @@ EOF
 
 function ide_pacakges() {
     $AUR_CMD visual-studio-code-bin
-    $PACMAN_CMD  gnome-keyring libsecret
+    $PACMAN_CMD gnome-keyring libsecret
 
     # sudo echo 'fs.inotify.max_user_watches=524288' | sudo tee -a /etc/sysctl.conf
     # sudo sysctl -p
@@ -199,6 +199,9 @@ export PATH=\$PATH:\$FLUTTER_ROOT/bin:\$PUB_CACHE/bin
 EOF
     source /etc/profile.d/flutter-sdk.sh
 
+    $PACMAN_CMD ninja
+
+    # git config --global --add safe.directory /opt/flutter-sdk
     # flutter doctor
     # flutter doctor --android-licenses
     # flutter config --no-analytics
@@ -207,7 +210,6 @@ EOF
     # flutter config --enable-windows-desktop
     # flutter config --enable-windows-uwp-desktop
     # flutter config --enable-macos-desktop
-    # git config --global --add safe.directory /opt/flutter-sdk
     # pub global activate protoc_plugin
 }
 

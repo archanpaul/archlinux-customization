@@ -335,7 +335,7 @@ function scientific_computing() {
 	$PACMAN python-scipy
 	$PACMAN python-pandas
 	$PACMAN python-matplotlib
-	$PACMAN python-tensorflow
+	$PACMAN python-keras python-tensorflow
 	$PACMAN python-opencv
 }
 
